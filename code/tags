@@ -1,0 +1,877 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AbortNodeCount	board.h	/^	long       AbortNodeCount;$/;"	m	struct:__anon21
+AbortSearch	ida.c	/^int AbortSearch() {$/;"	f
+AddConflict	conflicts.c	/^void AddConflict(CONFLICTS *c,BitString conflict,BitString no_reach,int penalty)$/;"	f
+AddConflicts	conflicts.c	/^void AddConflicts(PENALTY *p)$/;"	f
+AddMacro	macro.c	/^void AddMacro(MAZE *maze, PHYSID pos, int type, PHYSID from, $/;"	f
+AddMoreStones	pensearch.c	/^int AddMoreStones( MAZE *maze, BitString fs, BitString no_reach)$/;"	f
+AddPenalties	conflicts.c	/^void AddPenalties(CONFLICTS *c)$/;"	f
+AddStone	macro.h	67;"	d
+AddTestedDead	conflicts.c	/^void AddTestedDead(CONFLICTS *c, BitString relevant, BitString stones,$/;"	f
+AddTestedPen	conflicts.c	/^void AddTestedPen(CONFLICTS *c, BitString relevant, BitString stones, $/;"	f
+AllBitsSetBS	bitstring.c	/^int  AllBitsSetBS(BitString x, BitString bits) {$/;"	f
+AllTrees	tree.c	/^TREE  AllTrees[10];$/;"	v
+AreaMaze	pensearch.c	/^MAZE *AreaMaze;$/;"	v
+AreaMove	pensearch.c	/^int  AreaMove(MAZE *maze, MOVE *last_move, int treedepth, int targetpen)$/;"	f
+Array	tree.h	/^	DLENTRY *Array;$/;"	m	struct:__anon30
+AsimGoals	macro.c	/^void AsimGoals(MAZE *maze, PHYSID pos, GROOM *groom)$/;"	f
+Assert	debug.c	/^void Assert(int cond, char *format, ...) {$/;"	f
+AvoidThisSquare	mark.c	/^PHYSID   AvoidThisSquare=0;$/;"	v
+BASETYPE	board.h	71;"	d
+BYTEPERINT	board.h	75;"	d
+BestGoalArea	macro.c	/^BitString BestGoalArea;$/;"	v
+BestScore	macro.c	/^int BestScore;$/;"	v
+BetterLowerBound	lowerbound.c	/^int BetterLowerBound(MAZE *maze)$/;"	f
+BetterUpdateLowerBound	lowerbound.c	/^int BetterUpdateLowerBound(MAZE *maze, UNMOVE *unmove, int targetpen)$/;"	f
+BetterUpdateLowerBound2	lowerbound.c	/^int BetterUpdateLowerBound2(MAZE *maze, UNMOVE *unmove, int targetpen)$/;"	f
+BitAndAndBS	bitstring.c	/^void BitAndAndBS(BitString r, BitString a, BitString b, BitString c) {$/;"	f
+BitAndAndNotBS	bitstring.c	/^void BitAndAndNotBS(BitString r, BitString a, BitString b, BitString c) {$/;"	f
+BitAndBS	bitstring.c	/^void BitAndBS(BitString r, BitString a, BitString b) {$/;"	f
+BitAndEqBS	bitstring.c	/^void BitAndEqBS(BitString a, BitString b) {$/;"	f
+BitAndNot	conflicts.c	468;"	d	file:
+BitAndNotAndNotBS	bitstring.c	/^void BitAndNotAndNotBS(BitString r, BitString a, BitString b, BitString c) { $/;"	f
+BitAndNotBS	bitstring.c	/^void BitAndNotBS(BitString r, BitString a, BitString b) {$/;"	f
+BitAndNotButOrBS	bitstring.c	/^void BitAndNotButOrBS(BitString r, BitString a, BitString b, BitString c) { $/;"	f
+BitAndNotButOrEqBS	bitstring.c	/^void BitAndNotButOrEqBS(BitString a, BitString b, BitString c) { $/;"	f
+BitAndNotEq	conflicts.c	469;"	d	file:
+BitAndNotEqBS	bitstring.c	/^void BitAndNotEqBS(BitString a, BitString b) { $/;"	f
+BitCopy	conflicts.c	466;"	d	file:
+BitFirst	bitstring.c	/^  signed char BitFirst[256];$/;"	v
+BitNandBS	bitstring.c	/^void BitNandBS(BitString r, BitString a, BitString b) { $/;"	f
+BitNandEqBS	bitstring.c	/^void BitNandEqBS(BitString a, BitString b) { $/;"	f
+BitNext	conflicts.c	/^int BitNext(BitType bs)$/;"	f
+BitNorBS	bitstring.c	/^void BitNorBS(BitString r, BitString a, BitString b) { $/;"	f
+BitNorEqBS	bitstring.c	/^void BitNorEqBS(BitString a, BitString b) { $/;"	f
+BitNotAndNotAndNotBS	bitstring.c	/^void BitNotAndNotAndNotBS(BitString r, BitString a, BitString b,$/;"	f
+BitNotAndNotBS	bitstring.c	/^void BitNotAndNotBS(BitString r, BitString a, BitString b) { $/;"	f
+BitNotBS	bitstring.c	/^void BitNotBS(BitString r, BitString a) {$/;"	f
+BitNumber	bitstring.c	/^unsigned char BitNumber[256];$/;"	v
+BitOrAndEqBS	bitstring.c	/^void BitOrAndEqBS(BitString a, BitString b, BitString c) { $/;"	f
+BitOrBS	bitstring.c	/^void BitOrBS(BitString r, BitString a, BitString b) { $/;"	f
+BitOrEq	conflicts.c	467;"	d	file:
+BitOrEqBS	bitstring.c	/^void BitOrEqBS(BitString a, BitString b) { $/;"	f
+BitSet	conflicts.c	462;"	d	file:
+BitSet0	conflicts.c	463;"	d	file:
+BitSize	conflicts.c	461;"	d	file:
+BitString	board.h	/^typedef BASETYPE BitString[NUMBERINTS];$/;"	t
+BitType	conflicts.c	460;"	d	file:
+BitUnSet	conflicts.c	464;"	d	file:
+BitsNot0	conflicts.c	465;"	d	file:
+BlancSquare	tree.h	/^typedef enum { BlancSquare, StoneSquare, WallSquare} SQUARE;$/;"	e	enum:__anon28
+BuildGMTree	macro.c	/^GMNODE *BuildGMTree(MAZE *maze, GROOM *groom, int depth, int allow_null)$/;"	f
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = $(OPT) $(WARN) $(INCLUDE) $(LIBDIRS) $(OPTIONS)$/;"	m
+CFLT	board.h	/^} CFLT;$/;"	t	typeref:struct:__anon13
+CFLTS_PPLEVEL	conflicts.c	14;"	d	file:
+CHECKEND	macro.h	157;"	d
+CMDMENU	menu.h	/^} CMDMENU;$/;"	t	typeref:struct:__anon24
+COMMAND	menu.h	/^} COMMAND;$/;"	t	typeref:enum:__anon23
+COMMAND_IS	menu.h	86;"	d
+CONFLICTS	board.h	/^} CONFLICTS;$/;"	t	typeref:struct:__anon17
+CONFLICT_INC	board.h	26;"	d
+CONFLICT_RESET	board.h	27;"	d
+CONN	board.h	/^typedef char CONN[4][YSIZE*XSIZE];			\/* which of the 4$/;"	t
+CPGM	macro.h	35;"	d
+CleanReach	mark.c	/^void CleanReach(MAZE *maze) {$/;"	f
+ClearHashTable	hashtable.c	/^void ClearHashTable(MAZE *maze)$/;"	f
+CmdAbort	menu.h	/^   CmdAbort,		     \/* Abort Node Count set *\/$/;"	e	enum:__anon23
+CmdBounds	menu.h	/^   CmdBounds,		     \/* *\/$/;"	e	enum:__anon23
+CmdHelp	menu.h	/^   CmdHelp,                  \/* List menu options. *\/$/;"	e	enum:__anon23
+CmdLastCommand	menu.h	/^   CmdLastCommand	     \/* Just last command, not used *\/$/;"	e	enum:__anon23
+CmdMove	menu.h	/^   CmdMove,		     \/* *\/$/;"	e	enum:__anon23
+CmdNavEX	menu.h	/^   CmdNavEX,		     \/* Navigator Menu *\/$/;"	e	enum:__anon23
+CmdNavOnDeep	menu.h	/^   CmdNavOnDeep,	     \/* Set on_deepest *\/$/;"	e	enum:__anon23
+CmdNavOnPS	menu.h	/^   CmdNavOnPS,		     \/* Set on_ps_start *\/$/;"	e	enum:__anon23
+CmdNavPatt	menu.h	/^   CmdNavPatt,		     \/* Navigate through patterns *\/$/;"	e	enum:__anon23
+CmdNavPrNM	menu.h	/^   CmdNavPrNM,		     \/* print? number_moves *\/$/;"	e	enum:__anon23
+CmdNavPrUA	menu.h	/^   CmdNavPrUA,		     \/* set update at count *\/$/;"	e	enum:__anon23
+CmdNavigator	menu.h	/^   CmdNavigator,	     \/* Navigator Menu *\/$/;"	e	enum:__anon23
+CmdOptionAD	menu.h	/^   CmdOptionAD,   	     \/* Assume Dead *\/$/;"	e	enum:__anon23
+CmdOptionAS	menu.h	/^   CmdOptionAS,   	     \/* A [on\/off] Toggle AreaMove search *\/$/;"	e	enum:__anon23
+CmdOptionCF	menu.h	/^   CmdOptionCF,   	     \/* C [on\/off] Toggle LB conflict *\/$/;"	e	enum:__anon23
+CmdOptionCG	menu.h	/^   CmdOptionCG,   	     \/* Cut Goal Macro *\/$/;"	e	enum:__anon23
+CmdOptionCS	menu.h	/^   CmdOptionCS,   	     \/* W [on\/off] Toggle Scan search *\/$/;"	e	enum:__anon23
+CmdOptionDD	menu.h	/^   CmdOptionDD,   	     \/* d [on\/off] Toggle dynamic distances *\/$/;"	e	enum:__anon23
+CmdOptionDL	menu.h	/^   CmdOptionDL,   	     \/* D [on\/off] Toggle deadlock det. movegen *\/$/;"	e	enum:__anon23
+CmdOptionDS	menu.h	/^   CmdOptionDS,   	     \/* S [on\/off] Toggle DeadMove search *\/$/;"	e	enum:__anon23
+CmdOptionDZ	menu.h	/^   CmdOptionDZ,   	     \/* Z [on\/off] Toggle deadlock2 det. movegen *\/$/;"	e	enum:__anon23
+CmdOptionEX	menu.h	/^   CmdOptionEX,  	     \/* E Examine all settings *\/$/;"	e	enum:__anon23
+CmdOptionGM	menu.h	/^   CmdOptionGM,   	     \/* General Goal Macro switch *\/$/;"	e	enum:__anon23
+CmdOptionGO	menu.h	/^   CmdOptionGO,   	     \/* Goal Macro switch *\/$/;"	e	enum:__anon23
+CmdOptionLA	menu.h	/^   CmdOptionLA,   	     \/* Auto Set Local Cut Params *\/$/;"	e	enum:__anon23
+CmdOptionLC	menu.h	/^   CmdOptionLC,   	     \/* Local Cut (k,m) *\/$/;"	e	enum:__anon23
+CmdOptionLM	menu.h	/^   CmdOptionLM,   	     \/* m [on\/off] Toggle lazy maxmization *\/$/;"	e	enum:__anon23
+CmdOptionLP	menu.h	/^   CmdOptionLP,   	     \/* Y [on\/off] Toggle limit patterns *\/$/;"	e	enum:__anon23
+CmdOptionMM	menu.h	/^   CmdOptionMM,   	     \/* K [on\/off] Toggle minimization *\/$/;"	e	enum:__anon23
+CmdOptionMO	menu.h	/^   CmdOptionMO,   	     \/* Move Order Index *\/$/;"	e	enum:__anon23
+CmdOptionMP	menu.h	/^   CmdOptionMP,   	     \/* M [on\/off] Toggle LB manpos *\/$/;"	e	enum:__anon23
+CmdOptionOE	menu.h	/^   CmdOptionOE,   	     \/* Overestimation *\/$/;"	e	enum:__anon23
+CmdOptionPL	menu.h	/^   CmdOptionPL,   	     \/* pattern search node limit *\/$/;"	e	enum:__anon23
+CmdOptionPS	menu.h	/^   CmdOptionPS,   	     \/* N [on\/off] Toggle PenMove search *\/$/;"	e	enum:__anon23
+CmdOptionPT	menu.h	/^   CmdOptionPT,   	     \/* P [number] Switch Pattern DBs *\/$/;"	e	enum:__anon23
+CmdOptionST	menu.h	/^   CmdOptionST,   	     \/* X [on\/off] Toggle store tested *\/$/;"	e	enum:__anon23
+CmdOptionTM	menu.h	/^   CmdOptionTM,   	     \/* Tunnel Macro switch *\/$/;"	e	enum:__anon23
+CmdOptionTT	menu.h	/^   CmdOptionTT,   	     \/* T [on\/off] Toggle TT *\/$/;"	e	enum:__anon23
+CmdOptionXD	menu.h	/^   CmdOptionXD,   	     \/* Cut Goal Macro *\/$/;"	e	enum:__anon23
+CmdOptions	menu.h	/^   CmdOptions,		     \/* *\/$/;"	e	enum:__anon23
+CmdParam	menu.c	/^*CmdParam( char cmdstr[], int no )$/;"	f
+CmdPosNr	menu.h	/^   CmdPosNr,		     \/* *\/$/;"	e	enum:__anon23
+CmdPrint	menu.h	/^   CmdPrint,		     \/* *\/$/;"	e	enum:__anon23
+CmdQuit	menu.h	/^   CmdQuit,                  \/* Quit in menu. *\/$/;"	e	enum:__anon23
+CmdShow	menu.h	/^   CmdShow,		     \/* *\/$/;"	e	enum:__anon23
+CmdShowConfl	menu.h	/^   CmdShowConfl,	     \/* *\/$/;"	e	enum:__anon23
+CmdShowMDist	menu.h	/^   CmdShowMDist,	     \/* *\/$/;"	e	enum:__anon23
+CmdShowSDist	menu.h	/^   CmdShowSDist,	     \/* *\/$/;"	e	enum:__anon23
+CmdShowXDist	menu.h	/^   CmdShowXDist,	     \/* *\/$/;"	e	enum:__anon23
+CmdSolve	menu.h	/^   CmdSolve,		     \/* Solve Maze *\/$/;"	e	enum:__anon23
+CmdTestAll	menu.h	/^   CmdTestAll,		     \/* Test All Mazes in screen *\/$/;"	e	enum:__anon23
+CmdTestX	menu.h	/^   CmdTestX,		     \/* *\/$/;"	e	enum:__anon23
+CmdTimer	menu.h	/^   CmdTimer,		     \/* Abort Time setting  *\/$/;"	e	enum:__anon23
+CmdUnknown	menu.h	/^   CmdUnknown,               \/* Unknown command. *\/$/;"	e	enum:__anon23
+Communicating	macro.c	/^void Communicating(MAZE *maze, GROOM *groom, int com[MAX_LOCATIONS])$/;"	f
+ConnectedDir	weights.h	12;"	d
+CopyBS	bitstring.h	67;"	d
+CopyMaze	init.c	/^MAZE *CopyMaze(MAZE *maze) {$/;"	f
+CreateAllGMacro	macro.c	/^int CreateAllGMacro(MAZE *maze, GROOM *groom, GMNODE *gmnode, int depth,$/;"	f
+CreateGMacro	macro.c	/^void CreateGMacro(MAZE *maze, GROOM *groom, int entri, int goali,$/;"	f
+CreatePropGMacro	macro.c	/^int CreatePropGMacro(MAZE *maze, GROOM *groom, GMNODE *gmnode, int depth,$/;"	f
+Crowding	ida.c	/^short Crowding(MAZE *maze, PHYSID sq)$/;"	f
+Cur_Maze_Number	menu.c	/^int  Cur_Maze_Number;$/;"	v
+CurrentLength	tree.h	/^	int	 CurrentLength;$/;"	m	struct:__anon30
+CurrentSolutionDepth	board.h	/^	int        CurrentSolutionDepth;$/;"	m	struct:__anon21
+DCACHE	board.h	/^} DCACHE;$/;"	t	typeref:struct:__anon16
+DEADPATTERNSEARCHPP	board.h	37;"	d
+DIST	board.h	/^typedef unsigned char  DIST;$/;"	t
+DInsertMaze	deadsearch.c	/^MAZE *DInsertMaze;$/;"	v
+DL1PATHFILE	board.h	80;"	d
+DL1PATHFILE	board.h	83;"	d
+DL2PATHFILE	board.h	81;"	d
+DL2PATHFILE	board.h	84;"	d
+DLENTRY	tree.h	/^typedef int DLENTRY[3];$/;"	t
+DLSUP	tree.h	/^} DLSUP;$/;"	t	typeref:struct:__anon29
+DONEDIFFICULTY	board.h	63;"	d
+DeadCompare	deadsearch.c	/^static int DeadCompare(const void *m1, const void *m2) {$/;"	f	file:
+DeadDeactivateStones	deadsearch.c	/^void DeadDeactivateStones(MAZE *maze, BitString visible)$/;"	f
+DeadIda	deadsearch.c	/^int DeadIda(int treedepth, int g) {$/;"	f
+DeadIsGoalNode	deadsearch.c	/^int DeadIsGoalNode(int g)$/;"	f
+DeadLock	deadlock.c	/^int DeadLock(MAZE *maze, MOVE *move) {$/;"	f
+DeadLock2	deadlock.c	/^int DeadLock2(MAZE *maze, MOVE *move) {$/;"	f
+DeadLockOld	deadlock.c	/^int DeadLockOld(MAZE *maze, MOVE move) {$/;"	f
+DeadLowerBound	deadsearch.c	/^int DeadLowerBound(MAZE *maze, int targetpen) {$/;"	f
+DeadMakeMove	deadsearch.c	/^int DeadMakeMove(MAZE *maze, MOVE *move, UNMOVE *ret, int targetpen)$/;"	f
+DeadMaze	deadsearch.c	/^MAZE *DeadMaze;$/;"	v
+DeadMiniConflict	deadsearch.c	/^void DeadMiniConflict(int minimize)$/;"	f
+DeadMove	deadsearch.c	/^int  DeadMove(MAZE *maze, MOVE *last_move, int treedepth)$/;"	f
+DeadMoveOrdering	deadsearch.c	/^int DeadMoveOrdering(int depth, int number_moves)$/;"	f
+DeadMoveSuspected	deadsearch.c	/^int DeadMoveSuspected(MAZE *maze, MOVE *last_move)$/;"	f
+DeadStartIda	deadsearch.c	/^int DeadStartIda()$/;"	f
+DeadTree	tree.c	/^int DeadTree( MAZE *maze, PHYSID pos, int direction) {$/;"	f
+DeadUnMakeMove	deadsearch.c	/^int DeadUnMakeMove(MAZE *maze, UNMOVE *unmove, int targetpen)$/;"	f
+DeadUpdateLowerBound	deadsearch.c	/^int DeadUpdateLowerBound(MAZE *maze, PHYSID stonepos, int targetpen) {$/;"	f
+Debug	debug.c	/^void Debug( int level, int indent, char *format, ... )$/;"	f
+DelConflicts	conflicts.c	/^void DelConflicts(CONFLICTS *c)$/;"	f
+DelCopiedMaze	init.c	/^void DelCopiedMaze(MAZE *maze) {$/;"	f
+DelGMTree	macro.c	/^void DelGMTree(GMNODE *gmnode) {$/;"	f
+DelMaze	init.c	/^void DelMaze(MAZE *maze) {$/;"	f
+DiffToDir	moves.c	/^int DiffToDir(int diff)$/;"	f
+DirToDiff	moves.c	/^int DirToDiff[8] = {1,YSIZE,-1,-YSIZE,1+YSIZE,-1+YSIZE,-1-YSIZE,1-YSIZE};$/;"	v
+DistDist	weights.h	23;"	d
+DistHist	weights.c	/^void DistHist(MAZE *maze)$/;"	f
+DistToGoal	moves.c	/^int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {$/;"	f
+DistantMove	ida.c	/^int DistantMove(MAZE *maze, MOVE *last_move, MOVE *test_move)$/;"	f
+DistantSquares	ida.c	/^int DistantSquares(PHYSID s1, PHYSID s2, short crowding)$/;"	f
+DlSup1	tree.c	/^DLSUP DlSup1[MAX_SQUARES] = {$/;"	v
+DlSup2	tree.c	/^DLSUP DlSup2[MAX_SQUARES] = {$/;"	v
+DummyMove	stats.c	/^MOVE DummyMove = {ENDPATH,ENDPATH,ENDPATH,ENDPATH};$/;"	v
+EAST	board.h	95;"	d
+EMPTY	board.h	91;"	d
+ENDP	dl.c	15;"	d	file:
+ENDPATH	board.h	67;"	d
+EQMOVE	board.h	146;"	d
+EntrComp	macro.c	/^static int EntrComp(const void *e1, const void *e2) {$/;"	f	file:
+EqualBS	bitstring.c	/^int  EqualBS(BitString a, BitString b) {$/;"	f
+EvaluateGroom	macro.c	/^int EvaluateGroom(GROOM *groom)$/;"	f
+FALSE	board.h	41;"	d
+FindAnySet	bitstring.c	/^int FindAnySet(BitString a)$/;"	f
+FindBestSquare	macro.c	/^int FindBestSquare(MAZE *maze, GROOM *groom,$/;"	f
+FindClosestPosMan	deadsearch.c	/^PHYSID FindClosestPosMan(MAZE *maze, BitString squares, $/;"	f
+FindClosestPosStone	deadsearch.c	/^PHYSID FindClosestPosStone(MAZE *maze, BitString squares, $/;"	f
+FindEndTunnel	macro.c	/^PHYSID  FindEndTunnel(MAZE *maze, PHYSID pos, int diff, PHYSID *last_over) {$/;"	f
+FindFarthestPosStone	pensearch.c	/^PHYSID FindFarthestPosStone(MAZE *maze, BitString squares, $/;"	f
+FindFirstSet	bitstring.c	/^int FindFirstSet( BitString bs )$/;"	f
+FindFringeStones	pensearch.c	/^int FindFringeStones( MAZE *maze, BitString fs,$/;"	f
+FindMacros	macro.c	/^void FindMacros(MAZE *maze)$/;"	f
+FindPenalty	conflicts.c	/^PENALTY *FindPenalty(CONFLICTS *c, int penalty)$/;"	f
+FindStartEndTunnel	macro.c	/^void FindStartEndTunnel(MAZE *maze, int diff, $/;"	f
+FindTransitiveClosure	conflicts.c	/^void FindTransitiveClosure(int pattern, BitType *patterns,$/;"	f
+ForwDepthLimit	board.h	/^	int        ForwDepthLimit;	\/* primarily used for   *\/$/;"	m	struct:__anon21
+FreeDCache	weights.c	/^void FreeDCache(MAZE *maze)$/;"	f
+Frozen	deadlock.c	/^int Frozen(MAZE *maze, int dir_in, PHYSID pos)$/;"	f
+Frozen2	mark.c	/^int Frozen2(MAZE *maze, int dir_in, PHYSID pos)$/;"	f
+GGGetHashTable	hashtable.c	/^int GGGetHashTable(HASHKEY hashkey)$/;"	f
+GGStoreHashTable	hashtable.c	/^void GGStoreHashTable(HASHKEY hashkey)$/;"	f
+GMDelHashEntry	macro.c	/^void GMDelHashEntry(HASHKEY key) {$/;"	f
+GMENTRY	board.h	/^} GMENTRY;$/;"	t	typeref:struct:UGLY_GMENTRY
+GMGetHashTable	macro.c	/^int GMGetHashTable(HASHKEY key, GMNODE **n)$/;"	f
+GMHASHENTRY	board.h	/^} GMHASHENTRY;$/;"	t	typeref:struct:__anon6
+GMHASHMASK	board.h	61;"	d
+GMHashTable	macro.c	/^GMHASHENTRY GMHashTable[GMMAX_HASHENTRIES];$/;"	v
+GMInitHashTable	macro.c	/^void GMInitHashTable() {$/;"	f
+GMMAX_HASHENTRIES	board.h	60;"	d
+GMNODE	board.h	/^} GMNODE;$/;"	t	typeref:struct:UGLY_GMNODE
+GMStoreHashTable	macro.c	/^void GMStoreHashTable(MAZE *maze, GMNODE *n)$/;"	f
+GOL	board.h	/^} GOL;$/;"	t	typeref:struct:__anon8
+GROOM	board.h	/^} GROOM;$/;"	t	typeref:struct:__anon12
+GTVAny	gtv.h	15;"	d
+GTVAny	gtv.h	17;"	d
+GTVClose	gtv.c	/^void GTVClose( )$/;"	f
+GTVEval	gtv.c	/^void GTVEval()$/;"	f
+GTVFen	gtv.c	/^char *GTVFen(MAZE *maze) {$/;"	f
+GTVMove	gtv.c	/^char *GTVMove(MOVE move) {$/;"	f
+GTVNodeEnter	gtv.c	/^void GTVNodeEnter( int d, int alpha, int beta, char *move, int type )$/;"	f
+GTVNodeExit	gtv.c	/^void GTVNodeExit( int d, int score, char *move )$/;"	f
+GTVOpen	gtv.c	/^int GTVOpen( int depth, char fen[] )$/;"	f
+GenAllSquares	moves.c	/^void GenAllSquares( PHYSID pos, PHYSID *from, BitString all_squares )$/;"	f
+GenerateMoves	moves.c	/^int GenerateMoves(MAZE *maze, MOVE *moves) $/;"	f
+GetAvgHist	histogram.c	/^float GetAvgHist(HISTOGRAM *hist)$/;"	f
+GetBaseProps	macro.c	/^int  GetBaseProps(MAZE *maze, GROOM *groom, int values[MAXGOALS])$/;"	f
+GetCommand	menu.c	/^GetCommand(char prompt[], CMDMENU cmdMenu[], char cmdstr[] )$/;"	f
+GetGMTree	macro.c	/^GMNODE *GetGMTree() {$/;"	f
+GetHashTable	hashtable.c	/^HASHENTRY *GetHashTable(MAZE *maze) {$/;"	f
+GetManDir	weights.c	/^int GetManDir(MAZE *maze, PHYSID pos, PHYSID manpos)$/;"	f
+GetNewDistances	weights.c	/^void GetNewDistances(MAZE *maze, UNMOVE *ret)$/;"	f
+GetOptDist	weights.c	/^DIST GetOptDist(MAZE *maze, PHYSID start, PHYSID goal, int dir) $/;"	f
+GetPenalty	conflicts.c	/^int  GetPenalty(MAZE *maze, int targetpen)$/;"	f
+GetPriorPostPen	conflicts.c	/^int  GetPriorPostPen(MAZE *maze, int penalty, int *prior, int *post)$/;"	f
+GetProperties	macro.c	/^void GetProperties(MAZE *maze, GROOM *groom, int properties[MAXGOALS])$/;"	f
+GetScew	weights.c	/^int GetScew(MAZE *maze, PHYSID from, PHYSID via)$/;"	f
+GetShortestDist	weights.c	/^DIST GetShortestDist(MAZE *maze, PHYSID goal, PHYSID start) $/;"	f
+GetSquareValues	macro.c	/^void GetSquareValues(MAZE *maze, GROOM *groom,$/;"	f
+GoalReach	macro.c	/^int GoalReach(MAZE *maze, GROOM *groom, int values[MAXGOALS], PHYSID start,$/;"	f
+GoodTested	pensearch.c	/^int GoodTested(MAZE *maze)$/;"	f
+GroomExcPos	macro.c	/^void GroomExcPos(MAZE *maze, PHYSID pos, GROOM *groom)$/;"	f
+GroomIncPos	macro.c	/^void GroomIncPos(MAZE *maze, PHYSID pos, GROOM *groom)$/;"	f
+GrowDFS	macro.c	/^void GrowDFS(MAZE *maze, GROOM *groom, int g)$/;"	f
+GrowRoom	macro.c	/^int GrowRoom(MAZE *maze, PHYSID pos, GROOM *groom)$/;"	f
+HASHENTRY	board.h	/^} HASHENTRY;$/;"	t	typeref:struct:__anon7
+HASHKEY	board.h	/^typedef unsigned long long HASHKEY;$/;"	t
+HASHMASK	board.h	59;"	d
+HISTOGRAM	histogram.h	/^} HISTOGRAM;$/;"	t	typeref:struct:__anon26
+H_int	histogram.h	/^typedef int H_int;$/;"	t
+HashTable	board.h	/^	HASHENTRY *HashTable;$/;"	m	struct:__anon21
+HashTableDead	hashtable.c	/^HASHENTRY HashTableDead[MAX_HASHENTRIES];$/;"	v
+HashTableNorm	hashtable.c	/^HASHENTRY HashTableNorm[MAX_HASHENTRIES];$/;"	v
+HashTablePen	hashtable.c	/^HASHENTRY HashTablePen[MAX_HASHENTRIES];$/;"	v
+HumanMove	io.c	/^char *HumanMove(MOVE move) {$/;"	f
+IDA	board.h	/^} IDA;$/;"	t	typeref:struct:__anon21
+IDAARRAY	board.h	/^} IDAARRAY;$/;"	t	typeref:struct:__anon20
+INI	board.h	52;"	d
+ISDUMMYMOVE	board.h	147;"	d
+Ida	ida.c	/^int Ida(int treedepth, int g) {$/;"	f
+IdaArray	board.h	/^	IDAARRAY   IdaArray[MAX_DEPTH];$/;"	m	struct:__anon21
+IdaInfo	ida.c	/^IDA *IdaInfo;$/;"	v
+IdaManSquares	board.h	/^	BitString  IdaManSquares;$/;"	m	struct:__anon21
+IdaMaze	board.h	/^	MAZE      *IdaMaze;$/;"	m	struct:__anon21
+IdaStoneSquares	board.h	/^	BitString  IdaStoneSquares;$/;"	m	struct:__anon21
+InDCache	weights.c	/^DCACHE *InDCache(MAZE *maze, BitString stones_done)$/;"	f
+IncCounter	histogram.c	/^void IncCounter(HISTOGRAM *hist, int index)$/;"	f
+IncNodeCount	stats.c	/^void IncNodeCount(int dth) {$/;"	f
+InitBS	bitstring.c	/^void InitBS() {$/;"	f
+InitConflicts	conflicts.c	/^void InitConflicts(CONFLICTS *c)$/;"	f
+InitDCache	weights.c	/^void InitDCache(MAZE *maze)$/;"	f
+InitGRoom	macro.c	/^void InitGRoom(GROOM *groom, int gridx)$/;"	f
+InitHashTables	hashtable.c	/^void InitHashTables() {$/;"	f
+InitHist	histogram.c	/^void InitHist(HISTOGRAM *hist)$/;"	f
+InitIDA	ida.c	/^void InitIDA(IDA *ida)$/;"	f
+InitMaze	init.c	/^void InitMaze(MAZE *maze)  {$/;"	f
+InitNodeCount	stats.c	/^void InitNodeCount()$/;"	f
+InitPenalty	conflicts.c	/^void InitPenalty(PENALTY *p, int penalty)$/;"	f
+InitRandom	hashtable.c	/^void InitRandom()$/;"	f
+InitTree	tree.c	/^int InitTree( DLSUP *sup ) {$/;"	f
+InsertConflict	conflicts.c	/^void InsertConflict(PENALTY *p, BitString c, BitString no_reach)$/;"	f
+InsertMaze	pensearch.c	/^MAZE *InsertMaze;$/;"	v
+InsertPenalty	conflicts.c	/^void InsertPenalty(CONFLICTS *c, int i, int p)$/;"	f
+Is0BS	bitstring.c	/^int  Is0BS(BitString a) {$/;"	f
+IsBitSetBS	bitstring.h	74;"	d
+IsGoalNodeNorm	ida.c	/^int IsGoalNodeNorm(int g)$/;"	f
+IsStoneDone	mark.c	/^int IsStoneDone(MAZE *maze, PHYSID moveto)$/;"	f
+Isnt0BS	bitstring.c	/^int Isnt0BS( BitString a ) {$/;"	f
+LBENTRY	board.h	/^} LBENTRY;$/;"	t	typeref:struct:__anon1
+LoadTree	tree.c	/^void LoadTree( int id, char *filename) {$/;"	f
+LogAndAndNotBS	bitstring.c	/^int  LogAndAndNotBS(BitString a, BitString b, BitString c) {$/;"	f
+LogAndBS	bitstring.c	/^int  LogAndBS (BitString a, BitString b) {$/;"	f
+LogAndNotAndNotBS	bitstring.c	/^int  LogAndNotAndNotBS(BitString a, BitString b, BitString c) {$/;"	f
+LogAndNotBS	bitstring.c	/^int  LogAndNotBS(BitString a, BitString b) {$/;"	f
+LogNorAndNotBS	bitstring.c	/^int  LogNorAndNotBS (BitString r, BitString a, BitString b) {$/;"	f
+LogOrBS	bitstring.c	/^int  LogOrBS  (BitString a, BitString b) {$/;"	f
+LogOrNotBS	bitstring.c	/^int  LogOrNotBS (BitString a, BitString b) {$/;"	f
+M	board.h	/^	BitString    M[4];		\/* Can the man go there? *\/$/;"	m	struct:__anon18
+MACRO	board.h	/^} MACRO;$/;"	t	typeref:struct:__anon9
+MACROS	board.h	/^} MACROS;$/;"	t	typeref:struct:__anon10
+MANDIST	board.h	/^typedef DIST MANDIST[XSIZE*YSIZE][XSIZE*YSIZE];$/;"	t
+MANPEN	weights.c	150;"	d	file:
+MANTO	moves.h	12;"	d
+MAX	board.h	50;"	d
+MAXDIFFICULTY	board.h	62;"	d
+MAXDIST	board.h	68;"	d
+MAXGOALS	board.h	53;"	d
+MAXHIST	histogram.h	12;"	d
+MAXSTONES	board.h	54;"	d
+MAX_DEPTH	board.h	56;"	d
+MAX_GTV_DEPTH	gtv.h	12;"	d
+MAX_HASHENTRIES	board.h	58;"	d
+MAX_LOCATIONS	board.h	65;"	d
+MAX_MOVES	board.h	55;"	d
+MAX_PENHIST	board.h	57;"	d
+MAX_SQUARES	board.h	64;"	d
+MAX_THRESH	mymem.c	86;"	d	file:
+MAZE	board.h	/^} MAZE;$/;"	t	typeref:struct:__anon18
+MIN	board.h	51;"	d
+MIN_USED	board.h	30;"	d
+MOVE	board.h	/^} MOVE;$/;"	t	typeref:struct:__anon4
+MainIdaInfo	menu.c	/^IDA  MainIdaInfo;$/;"	v
+MainMenu	menu.c	/^MainMenu()$/;"	f
+MakeMove	moves.c	/^int MakeMove(MAZE *maze, MOVE *move, UNMOVE *ret, int targetpen)$/;"	f
+MakeName	menu.c	/^void MakeName(char *name, int *curr_number, char *str_number, char *str_kind)$/;"	f
+ManDist	weights.h	22;"	d
+ManDistMoveOrdering	moves.c	/^int ManDistMoveOrdering(int depth, int number_moves) $/;"	f
+MarkAll	mark.c	/^void MarkAll(MAZE *maze) {$/;"	f
+MarkDead	mark.c	/^void MarkDead(MAZE *maze) {$/;"	f
+MarkOneConnected	mark.c	/^void MarkOneConnected(MAZE *maze)$/;"	f
+MarkOut	mark.c	/^void MarkOut(MAZE *maze, PHYSID pos) {$/;"	f
+MarkReach	mark.c	/^void MarkReach(MAZE *maze) {$/;"	f
+MarkReachDist	weights.c	/^void MarkReachDist(MAZE *maze,PHYSID manpos,int stonepos,BitString obstacles)$/;"	f
+MarkReachGRoom	macro.c	/^void MarkReachGRoom(MAZE *maze, int index) {$/;"	f
+MarkReachNoUnreach	mark.c	/^void MarkReachNoUnreach(MAZE *maze) {$/;"	f
+MarkReachPos	pensearch.c	/^void MarkReachPos(MAZE *maze, BitString reach, PHYSID manpos, int clear)$/;"	f
+MarkReachQuick	mark.c	/^void MarkReachQuick( MAZE *maze, PHYSID from ) {$/;"	f
+MarkTG	mark.c	/^void MarkTG(MAZE *maze) {$/;"	f
+MarkTun	mark.c	/^void MarkTun(MAZE *maze) {$/;"	f
+Max	tree.h	/^	int      Max;$/;"	m	struct:__anon30
+Maximize	conflicts.c	/^int Maximize(BitType open, BitType *used,$/;"	f
+Maze	menu.c	/^MAZE Maze;$/;"	v
+MinMatch	lowerbound.c	/^int MinMatch(MAZE *maze, PHYSID moveto, UNMOVE *unmove, int targetpen)$/;"	f
+MiniFlag	board.h	/^	int	   MiniFlag;		\/* set to YES in PenMiniConflict *\/$/;"	m	struct:__anon21
+MoveOrdering	board.h	/^	int 	  (*MoveOrdering) ();$/;"	m	struct:__anon21
+Moves	moves.c	/^void Moves(MAZE *maze, PHYSID *from, signed char *reach )$/;"	f
+Moves2	moves.c	/^void Moves2(MAZE *maze, PHYSID *from, signed char *reach, BitString shadows )$/;"	f
+Mprintf	debug.c	/^void Mprintf( int priority, char *format, ... )$/;"	f
+My_exit	mymem.c	/^void My_exit(int code, char *format, ... )$/;"	f
+My_free	mymem.c	/^int My_free(void *p) {$/;"	f
+My_malloc	mymem.c	/^void *My_malloc(int s) {$/;"	f
+My_qsort	mymem.c	/^void My_qsort(void *pbase, int total_elems, int size,$/;"	f
+My_realloc	mymem.c	/^void *My_realloc(void *p, int s) {$/;"	f
+NO	board.h	44;"	d
+NODIR	board.h	93;"	d
+NONE	board.h	92;"	d
+NORTH	board.h	94;"	d
+NORTHEAST	board.h	98;"	d
+NORTHWEST	board.h	101;"	d
+NUMBERBITS	board.h	74;"	d
+NUMBERINTS	board.h	76;"	d
+NewAddScew	weights.c	/^void NewAddScew(MAZE *maze, DIST *add, DIST *scew,$/;"	f
+NewMoveOrdering	moves.c	/^int NewMoveOrdering(int depth, int number_moves) $/;"	f
+Next	tree.h	/^	int     *Next;$/;"	m	struct:__anon30
+NextDir	moves.c	/^int NextDir[8] = {1,2,3,0,5,6,7,4};$/;"	v
+NoMoveOrdering	moves.c	/^int NoMoveOrdering(int depth, int number_moves) $/;"	f
+NormHashKey	hashtable.c	/^HASHKEY NormHashKey(MAZE *maze) {$/;"	f
+NumberBitsBS	bitstring.c	/^int NumberBitsBS(BitString a) {$/;"	f
+NumberBitsInt	bitstring.c	/^int NumberBitsInt(int a) {$/;"	f
+NumberTrees	tree.c	/^short NumberTrees = 0;$/;"	v
+OBJ	Makefile	/^OBJ = moves.o debug.o ida.o deadlock.o bitstring.o pensearch.o\\$/;"	m
+OPT	Makefile	/^OPT = -O2$/;"	m
+OPTIONS	Makefile	/^OPTIONS = $(DEBUG) $(GTV) $(PC)$/;"	m
+OPTIONS	stats.h	/^} OPTIONS;$/;"	t	typeref:struct:__anon27
+OppDir	moves.c	/^int  OppDir[8] = {2,3,0,1,6,7,4,5};$/;"	v
+Options	stats.c	/^OPTIONS Options;$/;"	v
+OptionsMenu	menu.c	/^void OptionsMenu()$/;"	f
+PATTERNLIMITDIV	board.h	32;"	d
+PATTERN_LIMIT	board.h	28;"	d
+PC	Makefile	/^PC =$/;"	m
+PENALTY	board.h	/^} PENALTY;$/;"	t	typeref:struct:__anon14
+PENPATTERNSEARCHPP	board.h	36;"	d
+PEN_0_LIMIT	macro.h	144;"	d
+PEN_1_LIMIT	macro.h	148;"	d
+PEN_2_LIMIT	macro.h	150;"	d
+PEN_3_LIMIT	macro.h	152;"	d
+PEN_4_LIMIT	macro.h	154;"	d
+PEN_COM_COUNT	macro.h	128;"	d
+PEN_DEAD_COUNT	macro.h	137;"	d
+PEN_ENTR_REACH	macro.h	138;"	d
+PEN_INSIDE_COUNT	macro.h	135;"	d
+PEN_LOOSE_COUNT	macro.h	131;"	d
+PEN_NOTCLOSEST	macro.h	141;"	d
+PEN_NOTFIXED	macro.h	143;"	d
+PEN_OPTIM_COUNT	macro.h	133;"	d
+PEN_STRICT_COUNT	macro.h	129;"	d
+PHYS	board.h	/^} PHYS;$/;"	t	typeref:struct:__anon2
+PHYSID	board.h	/^typedef          short PHYSID;$/;"	t
+PHYSstone	board.h	/^	signed char  PHYSstone[ XSIZE * YSIZE ]; \/* stone idx into stone table*\/$/;"	m	struct:__anon18
+PHYSstone	board.h	/^	signed char PHYSstone[ XSIZE * YSIZE ]; \/* stone idx into stone table*\/$/;"	m	struct:__anon19
+POP	mymem.c	98;"	d	file:
+PRINTBASETYPE	board.h	72;"	d
+PROP_0000	macro.h	111;"	d
+PROP_0001	macro.h	112;"	d
+PROP_0010	macro.h	113;"	d
+PROP_0011	macro.h	114;"	d
+PROP_0100	macro.h	115;"	d
+PROP_0101	macro.h	116;"	d
+PROP_0110	macro.h	117;"	d
+PROP_0111	macro.h	118;"	d
+PROP_1000	macro.h	119;"	d
+PROP_1001	macro.h	120;"	d
+PROP_1010	macro.h	121;"	d
+PROP_1011	macro.h	122;"	d
+PROP_1100	macro.h	123;"	d
+PROP_1101	macro.h	124;"	d
+PROP_1110	macro.h	125;"	d
+PROP_1111	macro.h	126;"	d
+PROP_CLOSEST	macro.h	93;"	d
+PROP_CLOSEST_ALL	macro.h	103;"	d
+PROP_DEAD	macro.h	86;"	d
+PROP_ESHIFT	macro.h	94;"	d
+PROP_FIXED	macro.h	83;"	d
+PROP_INSIDE	macro.h	91;"	d
+PROP_LOOSEST	macro.h	92;"	d
+PROP_NEWDIST	macro.h	84;"	d
+PROP_NONOBST	macro.h	85;"	d
+PROP_NONOPT	macro.h	106;"	d
+PROP_NONOPT_ALL	macro.h	107;"	d
+PROP_NONREACH	macro.h	87;"	d
+PROP_OPTIMAL	macro.h	90;"	d
+PROP_REACH	macro.h	96;"	d
+PROP_REACH_ALL	macro.h	97;"	d
+PROP_STRICT	macro.h	89;"	d
+PROP_STRICT_ALL	macro.h	100;"	d
+PSClearHashTable	hashtable.c	/^void PSClearHashTable(MAZE *maze)$/;"	f
+PSGetHashTable	hashtable.c	/^HASHENTRY *PSGetHashTable(MAZE *maze) {$/;"	f
+PSSetPathFlag	hashtable.c	/^void PSSetPathFlag(MAZE *maze)$/;"	f
+PSStoreHashTable	hashtable.c	/^HASHENTRY *PSStoreHashTable(MAZE *maze, int down, int min_h, int pathflag)$/;"	f
+PSUnSetPathFlag	hashtable.c	/^void PSUnSetPathFlag(MAZE *maze)$/;"	f
+PUSH	mymem.c	97;"	d	file:
+ParseMakeMoves	menu.c	/^void ParseMakeMoves(char *param)$/;"	f
+PenCompare	pensearch.c	/^static int PenCompare(const void *m1, const void *m2) {$/;"	f	file:
+PenDeactivateStones	pensearch.c	/^void PenDeactivateStones(MAZE *maze, BitString visible, int targetpen)$/;"	f
+PenIda	pensearch.c	/^int PenIda(int treedepth, int g) {$/;"	f
+PenIsGoalNode	pensearch.c	/^int PenIsGoalNode(int g)$/;"	f
+PenLowerBound	pensearch.c	/^int PenLowerBound(MAZE *maze, int targetpen)$/;"	f
+PenMakeMove	pensearch.c	/^int PenMakeMove(MAZE *maze, MOVE *move, UNMOVE *ret, int targetpen)$/;"	f
+PenMaze	pensearch.c	/^MAZE *PenMaze;$/;"	v
+PenMiniConflict	pensearch.c	/^int PenMiniConflict(int penalty, int minimize)$/;"	f
+PenMove	pensearch.c	/^int  PenMove(MAZE *maze, HASHENTRY *entry, MOVE *last_move, int treedepth,$/;"	f
+PenMoveOrdering	pensearch.c	/^int PenMoveOrdering(int depth, int number_moves)$/;"	f
+PenMoveSuspected	pensearch.c	/^int PenMoveSuspected(MAZE *maze, MOVE *last_move)$/;"	f
+PenStartIda	pensearch.c	/^int PenStartIda() {$/;"	f
+PenUnMakeMove	pensearch.c	/^int PenUnMakeMove(MAZE *maze, UNMOVE *unmove, int targetpen)$/;"	f
+PenUpdateLowerBound	pensearch.c	/^int PenUpdateLowerBound(MAZE *maze, PHYSID stonepos, int targetpen)$/;"	f
+Phys	board.h	/^	PHYS 	     Phys[XSIZE*YSIZE];$/;"	m	struct:__anon18
+PickUpEntrances	macro.c	/^void PickUpEntrances(MAZE *maze, int index) {$/;"	f
+PlainLowerBound	lowerbound.c	/^int PlainLowerBound(MAZE *maze)$/;"	f
+PlainMinMatch	lowerbound.c	/^int PlainMinMatch(MAZE *maze, PHYSID moveto, UNMOVE *unmove)$/;"	f
+PosNr	io.c	/^int PosNr=0;$/;"	v
+PrevDir	moves.c	/^int PrevDir[8] = {3,0,1,2,7,4,5,6};$/;"	v
+PrintBS	bitstring.c	/^void  PrintBS(BitString a) {$/;"	f
+PrintBit2Maze	io.c	/^void PrintBit2Maze(MAZE *maze,BitString marks) {$/;"	f
+PrintBit3Maze	io.c	/^void PrintBit3Maze(MAZE *maze,BitString marks,BitString mark2, PHYSID manpos) {$/;"	f
+PrintBitMaze	bitstring.c	/^void PrintBitMaze(BitString a) {$/;"	f
+PrintConflict	conflicts.c	/^void PrintConflict( CONFLICTS *c, int peni, int coni )$/;"	f
+PrintConflicts	conflicts.c	/^void PrintConflicts(MAZE *maze, CONFLICTS *c)$/;"	f
+PrintGoalMacro	macro.c	/^void PrintGoalMacro(MAZE *maze, GROOM *groom, int setpos, int entri,$/;"	f
+PrintHist	histogram.c	/^void PrintHist(HISTOGRAM *hist)$/;"	f
+PrintHist2	histogram.c	/^void PrintHist2(HISTOGRAM *hist, HISTOGRAM *hist2)$/;"	f
+PrintMatches	conflicts.c	/^void  PrintMatches(MAZE *maze)$/;"	f
+PrintMaze	io.c	/^void PrintMaze(MAZE *maze) {$/;"	f
+PrintMazeDist	weights.c	/^void PrintMazeDist(MAZE *maze, PHYSID to, PHYSID manpos)$/;"	f
+PrintMazeValue	macro.c	/^void PrintMazeValue(MAZE *maze, int index, int values[MAXGOALS])$/;"	f
+PrintMove	io.c	/^char *PrintMove(MOVE move) {$/;"	f
+PrintPriority	board.h	/^	int 	   PrintPriority;$/;"	m	struct:__anon21
+PrintSolution	ida.c	/^void PrintSolution()$/;"	f
+PrintSquareProp	macro.c	/^void PrintSquareProp(int prop)$/;"	f
+PrintTested	conflicts.c	/^void PrintTested(MAZE *maze, int num)$/;"	f
+PropStonesDone	mark.c	/^void PropStonesDone(MAZE *maze, PHYSID pos)$/;"	f
+PushesMoves	moves.c	/^void PushesMoves(MAZE *maze, PHYSID start, PHYSID goal, $/;"	f
+PushesMoves2	moves.c	/^void PushesMoves2(MAZE *maze, PHYSID start, PHYSID goal, $/;"	f
+QualityCompare	hashtable.c	/^int QualityCompare( HASHENTRY *entry, int down )$/;"	f
+RANDOM_MAX	board.h	34;"	d
+REAL	board.h	48;"	d
+REM_DELAY	board.h	29;"	d
+RandomTable	hashtable.c	/^HASHKEY RandomTable[ 896 ];$/;"	v
+RandomTable32	hashtable.c	/^unsigned long RandomTable32[1792] = {$/;"	v
+ReadMaze	io.c	/^void ReadMaze(FILE *fp, MAZE *maze ) {$/;"	f
+RegisterMove	ida.c	/^int RegisterMove(MOVE *move, int depth)$/;"	f
+RemoveConflict	conflicts.c	/^void RemoveConflict( CONFLICTS *c, int peni, int coni)$/;"	f
+RemoveDuplicates	conflicts.c	/^int RemoveDuplicates( CONFLICTS *c, int penalty,$/;"	f
+RemoveGRoom	macro.c	/^void RemoveGRoom(MAZE *maze, int gridx)$/;"	f
+RemoveStone	macro.h	72;"	d
+RemoveWorst	conflicts.c	/^void RemoveWorst( CONFLICTS *c )$/;"	f
+ResetHist	histogram.c	/^void ResetHist(HISTOGRAM *hist)$/;"	f
+ResetMaze	init.c	/^void ResetMaze(MAZE *maze)  {$/;"	f
+RestoreMaze	init.c	/^MAZE *RestoreMaze(MAZE *maze, SAVEMAZE *savemaze)$/;"	f
+S	board.h	/^	BitString    S[4];		\/* Can the stone move there? *\/$/;"	m	struct:__anon18
+SAVEMAZE	board.h	/^} SAVEMAZE;$/;"	t	typeref:struct:__anon19
+SDistHist	weights.c	/^void SDistHist(MAZE *maze)$/;"	f
+SETMOVE	moves.c	22;"	d	file:
+SOUTH	board.h	96;"	d
+SOUTHEAST	board.h	99;"	d
+SOUTHWEST	board.h	100;"	d
+SQUARE	tree.h	/^typedef enum { BlancSquare, StoneSquare, WallSquare} SQUARE;$/;"	t	typeref:enum:__anon28
+SR	debug.h	13;"	d
+SR	debug.h	15;"	d
+STACK_NOT_EMPTY	mymem.c	99;"	d	file:
+STACK_SIZE	mymem.c	96;"	d	file:
+STARTP	dl.c	14;"	d	file:
+STN	board.h	/^} STN;$/;"	t	typeref:struct:__anon3
+STNDIST	board.h	/^typedef DIST STNDIST[4][XSIZE*YSIZE][XSIZE*YSIZE];	\/* dir, from, to *\/$/;"	t
+STONEFROMTO	moves.h	15;"	d
+STONEPEN	weights.c	149;"	d	file:
+SWAP	mymem.c	70;"	d	file:
+SZ_CMDSTR	menu.h	85;"	d
+SaveMaze	init.c	/^MAZE *SaveMaze(MAZE *maze, SAVEMAZE *savemaze)$/;"	f
+ScanSearch	pensearch.c	/^int ScanSearch(MAZE *maze)$/;"	f
+Set0BS	bitstring.h	65;"	d
+Set1BS	bitstring.h	66;"	d
+SetAllStonesDone	mark.c	/^void SetAllStonesDone(MAZE *maze)$/;"	f
+SetBitBS	bitstring.h	71;"	d
+SetDistDead	weights.c	/^void SetDistDead(MAZE *maze)$/;"	f
+SetDistDistances	weights.c	/^void SetDistDistances(MAZE *maze)$/;"	f
+SetLocalCut	ida.c	/^void SetLocalCut(int k, int m, int d)$/;"	f
+SetManDistances	weights.c	/^void SetManDistances(MAZE *maze) $/;"	f
+SetManStoneSquares	ida.c	/^void SetManStoneSquares(MAZE *maze, MOVE bestmove)$/;"	f
+SetMinDist	macro.c	/^void SetMinDist(MAZE *maze)$/;"	f
+SetPathFlag	hashtable.c	/^void SetPathFlag(MAZE *maze)$/;"	f
+SetStoneDistances	weights.c	/^void SetStoneDistances(MAZE *maze)$/;"	f
+SetTimer	time.c	/^void SetTimer()$/;"	f
+ShowMenu	menu.c	/^void ShowMenu()$/;"	f
+SimpleMakeName	menu.c	/^void SimpleMakeName(char *name, int *curr_number, int number, char *str_kind)$/;"	f
+StartBuildGMTree	macro.c	/^int StartBuildGMTree(MAZE *start_maze, GROOM *groom) {$/;"	f
+StartIda	ida.c	/^int StartIda(int nomacro) {$/;"	f
+StoneDist	weights.h	16;"	d
+StoneDistDir	weights.h	20;"	d
+StoneDistManpos	weights.h	25;"	d
+StoneReach	macro.c	/^void StoneReach(MAZE *maze, BitString v, PHYSID entr, PHYSID location)$/;"	f
+StoneSquare	tree.h	/^typedef enum { BlancSquare, StoneSquare, WallSquare} SQUARE;$/;"	e	enum:__anon28
+StoreHashTable	hashtable.c	/^HASHENTRY *StoreHashTable(MAZE *maze, int down, int min_h,$/;"	f
+SubMacro	macro.c	/^int SubMacro(MAZE *maze, MOVE *moves, int *move_number) {$/;"	f
+SubsetBS	conflicts.c	/^int SubsetBS( BitString a, BitString b )$/;"	f
+Sup	tree.h	/^	DLSUP   *Sup;$/;"	m	struct:__anon30
+TESTED	board.h	/^} TESTED;$/;"	t	typeref:struct:__anon15
+TOGOAL	board.h	/^} TOGOAL;$/;"	t	typeref:struct:__anon11
+TREE	tree.h	/^} TREE;$/;"	t	typeref:struct:__anon30
+TRUE	board.h	40;"	d
+TestX	dl.c	/^void TestX(MAZE *maze, PHYSID from, PHYSID to)$/;"	f
+Threshold	board.h	/^	int        Threshold;$/;"	m	struct:__anon21
+ThresholdInc	board.h	/^	int        ThresholdInc;$/;"	m	struct:__anon21
+TimeOut	board.h	/^	int	   TimeOut;$/;"	m	struct:__anon21
+TimeOutType	board.h	/^	int	   TimeOutType;$/;"	m	struct:__anon21
+TimedOut	board.h	/^	int	   TimedOut;$/;"	m	struct:__anon21
+Tree	gtv.c	/^} Tree[MAX_GTV_DEPTH];$/;"	v	typeref:struct:__anon25	file:
+TreeNodes	gtv.c	/^static long TreeNodes;$/;"	v	file:
+UGLY_GMENTRY	board.h	/^typedef struct UGLY_GMENTRY {$/;"	s
+UGLY_GMNODE	board.h	/^typedef struct UGLY_GMNODE {$/;"	s
+UNMOVE	board.h	/^} UNMOVE;$/;"	t	typeref:struct:__anon5
+USHORT	board.h	/^typedef unsigned short USHORT;$/;"	t
+UnMakeMove	moves.c	/^int UnMakeMove(MAZE *maze, UNMOVE *unmove, int targetpen)$/;"	f
+UnReach	mark.c	/^int UnReach( MAZE *maze, PHYSID start, BitString treach ) {$/;"	f
+UnSetPathFlag	hashtable.c	/^void UnSetPathFlag(MAZE *maze)$/;"	f
+UnsetBS	bitstring.c	/^void UnsetBS(BitString x, BitString bits) {$/;"	f
+UnsetBitBS	bitstring.h	68;"	d
+UpdateHashKey	hashtable.c	/^HASHKEY UpdateHashKey( MAZE *maze, UNMOVE *move) {$/;"	f
+UpdateMaze	init.c	/^MAZE *UpdateMaze(MAZE *maze, MAZE *target_maze)$/;"	f
+UpdateReach	mark.c	/^void UpdateReach( MAZE *maze, PHYSID stonepos )$/;"	f
+VIRTUAL	board.h	47;"	d
+ValidSolution	moves.c	/^int ValidSolution(MAZE *maze, MOVE *solution) {$/;"	f
+ValidateEntrances	macro.c	/^void ValidateEntrances(MAZE *maze, GROOM *groom)$/;"	f
+ValueSquare	macro.c	/^int  ValueSquare(MAZE *maze, GROOM *groom, int goal_index,$/;"	f
+ValueSquareEntr	macro.c	/^int ValueSquareEntr(int entri, int reach, int n)$/;"	f
+WEST	board.h	97;"	d
+WallSquare	tree.h	/^typedef enum { BlancSquare, StoneSquare, WallSquare} SQUARE;$/;"	e	enum:__anon28
+WasTestedDead	conflicts.c	/^int WasTestedDead(CONFLICTS *c, BitString stones,$/;"	f
+WasTestedPen	conflicts.c	/^int WasTestedPen(CONFLICTS *c, BitString stones,$/;"	f
+WhereMan	weights.h	41;"	d
+WhichStones	pensearch.c	/^int WhichStones(MAZE *maze, BitString fs, BitString no_reach, int clear)$/;"	f
+XDistHist	weights.c	/^void XDistHist(MAZE *maze, int *all, int *scew)$/;"	f
+XDistMan	weights.c	/^DIST XDistMan(MAZE *maze, PHYSID from, PHYSID to)$/;"	f
+XDistStone	weights.c	/^DIST XDistStone(MAZE *maze, PHYSID from, PHYSID to)$/;"	f
+XSIZE	board.h	69;"	d
+XY2ID	board.h	66;"	d
+YES	board.h	43;"	d
+YSIZE	board.h	70;"	d
+_foobits	bitstring.c	/^static char _foobits[ 256 ] = {$/;"	v	file:
+alpha	gtv.c	/^   int  alpha;$/;"	m	struct:__anon25	file:
+area_neg_nc	stats.c	/^long area_pos_nc=0, area_neg_nc=0;	\/* node counts for pos\/neg searches *\/$/;"	v
+area_neg_sc	stats.c	/^int  area_pos_sc=0, area_neg_sc=0;	\/* search count for pos\/neg *\/$/;"	v
+area_pos_nc	stats.c	/^long area_pos_nc=0, area_neg_nc=0;	\/* node counts for pos\/neg searches *\/$/;"	v
+area_pos_sc	stats.c	/^int  area_pos_sc=0, area_neg_sc=0;	\/* search count for pos\/neg *\/$/;"	v
+area_srch	stats.h	/^	unsigned short area_srch:1;	\/* use AreaMove search *\/$/;"	m	struct:__anon27
+areasearched	board.h	/^	unsigned short areasearched:1;	\/* area search done already *\/$/;"	m	struct:__anon7
+array_size	board.h	/^	int   array_size;$/;"	m	struct:__anon14
+array_size_deadtested	board.h	/^	int	  array_size_deadtested;$/;"	m	struct:__anon17
+array_size_pen	board.h	/^	int 	  array_size_pen;$/;"	m	struct:__anon17
+array_size_pentested	board.h	/^	int	  array_size_pentested;$/;"	m	struct:__anon17
+assumedead	stats.h	/^	unsigned short assumedead:1;	\/* if run out of search effort, assume$/;"	m	struct:__anon27
+autolocal	stats.h	/^	unsigned short autolocal:1;  	\/* auto set local cut *\/$/;"	m	struct:__anon27
+base_indent	board.h	/^	int        base_indent;$/;"	m	struct:__anon21
+beta	gtv.c	/^   int  beta;$/;"	m	struct:__anon25	file:
+bits	macro.c	/^int bits[MAX_LOCATIONS];	\/* the bits that are set if a square is$/;"	v
+branching	gtv.c	/^   int  branching;$/;"	m	struct:__anon25	file:
+bw	board.h	/^	PHYSID bw;$/;"	m	struct:__anon11
+cflts	board.h	/^	CFLT *cflts;$/;"	m	struct:__anon14
+closest_confl	board.h	/^	PHYSID       closest_confl;$/;"	m	struct:__anon21
+cmd	menu.h	/^  COMMAND  cmd;              \/* Command type. *\/$/;"	m	struct:__anon24
+cmdMainMenu	menu.c	/^CMDMENU cmdMainMenu[] = { $/;"	v
+cmdOptionsMenu	menu.c	/^ CMDMENU cmdOptionsMenu[] = { $/;"	v
+cmdShowMenu	menu.c	/^ CMDMENU cmdShowMenu[] = { $/;"	v
+compare_negval	moves.c	/^static int compare_negval(const void *m1, const void *m2) {$/;"	f	file:
+compare_val	moves.c	/^static int compare_val(const void *m1, const void *m2) {$/;"	f	file:
+conflict	board.h	/^	BitString conflict;$/;"	m	struct:__anon13
+conflicts	board.h	/^	CONFLICTS   *conflicts;$/;"	m	struct:__anon18
+connected	board.h	/^	CONN	    *connected;		\/* in gmnodes for ease of comp.      *\/$/;"	m	struct:__anon18
+connected	board.h	/^	CONN	    *connected;$/;"	m	struct:__anon16
+count	histogram.h	/^	H_int count[MAXHIST];$/;"	m	struct:__anon26
+currentindex	board.h	/^	int    currentindex;$/;"	m	struct:__anon20
+currentmove	board.h	/^	MOVE   currentmove;$/;"	m	struct:__anon20
+currentmovenumber	board.h	/^	int	     currentmovenumber;	\/* basically index into IDAARRAY *\/$/;"	m	struct:__anon18
+currentmovenumber	board.h	/^	int	     currentmovenumber;	\/* basically index into IDAARRAY *\/$/;"	m	struct:__anon19
+cut_goal	stats.h	/^	unsigned short cut_goal:1;	\/* goal_push cut *\/$/;"	m	struct:__anon27
+d_cache	board.h	/^	DCACHE      *d_cache;$/;"	m	struct:__anon18
+d_distances	board.h	/^	MANDIST     *d_distances;	\/* heuristic influence squares *\/$/;"	m	struct:__anon18
+dcache_hits	board.h	/^	int        dcache_hits;$/;"	m	struct:__anon21
+dead	board.h	/^	BitString    dead;$/;"	m	struct:__anon18
+dead	deadlock.c	/^BitString stones, walls, dead;$/;"	v
+deadentrances	board.h	/^	short  deadentrances;$/;"	m	struct:__anon12
+deadlocks	tree.h	/^	int    deadlocks;$/;"	m	struct:__anon29
+deadtested	board.h	/^	TESTED   *deadtested;$/;"	m	struct:__anon17
+direction	tree.h	/^	int    direction;  \/* from which direction was the stone moved in *\/$/;"	m	struct:__anon29
+distance	board.h	/^	DIST distance; \/* JS *\/ \/* referenced by stoneidx *\/$/;"	m	struct:__anon1
+distant	board.h	/^	short  distant;$/;"	m	struct:__anon20
+dl2_mg	stats.h	/^	unsigned short dl2_mg:1;	\/* use DeadLock2 in moveGen *\/$/;"	m	struct:__anon27
+dl_db	stats.h	/^	int            dl_db;		\/* Deadlock using Pat. DBs *\/$/;"	m	struct:__anon27
+dl_mg	stats.h	/^	unsigned short dl_mg:1;		\/* use DeadLock det. in moveGen *\/$/;"	m	struct:__anon27
+dl_neg_nc	stats.c	/^long dl_pos_nc=0, dl_neg_nc=0;	\/* node counts for pos\/neg searches *\/$/;"	v
+dl_neg_sc	stats.c	/^int  dl_pos_sc=0, dl_neg_sc=0;	\/* search count for pos\/neg *\/$/;"	v
+dl_pos_nc	stats.c	/^long dl_pos_nc=0, dl_neg_nc=0;	\/* node counts for pos\/neg searches *\/$/;"	v
+dl_pos_sc	stats.c	/^int  dl_pos_sc=0, dl_neg_sc=0;	\/* search count for pos\/neg *\/$/;"	v
+dl_srch	stats.h	/^	unsigned short dl_srch:1;	\/* use DeadMove search *\/$/;"	m	struct:__anon27
+dlsearched	board.h	/^	unsigned short dlsearched:1;	\/* deadlock search done already *\/$/;"	m	struct:__anon7
+down	board.h	/^	unsigned short down:14;	        \/* how deeply was it searched *\/$/;"	m	struct:__anon7
+entrance_loc	board.h	/^	unsigned short entrance_loc:9;$/;"	m	struct:UGLY_GMENTRY
+entrances	board.h	/^	PHYSID entrances[MAX_LOCATIONS];$/;"	m	struct:__anon12
+entries	board.h	/^	struct UGLY_GMENTRY *entries;$/;"	m	struct:UGLY_GMNODE	typeref:struct:UGLY_GMNODE::UGLY_GMENTRY
+expire	time.c	/^expire()$/;"	f	file:
+fpTree	gtv.c	/^static FILE *fpTree;$/;"	v	file:
+free	board.h	/^	USHORT  free:3;$/;"	m	struct:__anon2
+from	board.h	/^	PHYSID from;$/;"	m	struct:__anon4
+from	board.h	/^	PHYSID from;$/;"	m	struct:__anon9
+fw	board.h	/^	PHYSID fw;$/;"	m	struct:__anon11
+g	board.h	/^	int	     g;$/;"	m	struct:__anon18
+g	board.h	/^	int	     g;$/;"	m	struct:__anon19
+gmnode	board.h	/^	struct UGLY_GMNODE *gmnode;$/;"	m	struct:__anon6	typeref:struct:__anon6::UGLY_GMNODE
+gmtrees	board.h	/^	GMNODE     **gmtrees;$/;"	m	struct:__anon18
+gmtt_cols	board.h	/^	long       gmtt_cols;$/;"	m	struct:__anon21
+gmtt_hits	board.h	/^	long       gmtt_hits;$/;"	m	struct:__anon21
+gmtt_reqs	board.h	/^	long       gmtt_reqs;$/;"	m	struct:__anon21
+goal	board.h	/^	BitString    goal;	$/;"	m	struct:__anon18
+goal	board.h	/^	BitString    goal;	$/;"	m	struct:__anon19
+goal	board.h	/^	signed char   goal;	\/* stone idx into stones table *\/$/;"	m	struct:__anon2
+goal_last_to	board.h	/^	PHYSID       goal_last_to;$/;"	m	struct:__anon21
+goal_loc	board.h	/^	unsigned short goal_loc:9;$/;"	m	struct:UGLY_GMENTRY
+goal_manpos	board.h	/^	PHYSID       goal_manpos;$/;"	m	struct:__anon18
+goal_sqto	board.h	/^	PHYSID	     goal_sqto;$/;"	m	struct:__anon18
+goal_sqto	board.h	/^	unsigned short goal_sqto:9;$/;"	m	struct:__anon7
+goalidx	board.h	/^	char goalidx;  \/* JS *\/ \/* referenced by stoneidx *\/$/;"	m	struct:__anon1
+goals	board.h	/^	BitString goals;$/;"	m	struct:__anon12
+goals	board.h	/^	GOL         *goals;$/;"	m	struct:__anon18
+goodtested	board.h	/^	int	goodtested;$/;"	m	struct:__anon15
+groom_index	board.h	/^	short        groom_index[XSIZE*YSIZE];$/;"	m	struct:__anon18
+grooms	board.h	/^	GROOM       *grooms;$/;"	m	struct:__anon18
+h	board.h	/^	int          h;$/;"	m	struct:__anon18
+h	board.h	/^	int          h;$/;"	m	struct:__anon19
+hashkey	board.h	/^	HASHKEY      hashkey;$/;"	m	struct:__anon18
+hashkey	board.h	/^	HASHKEY      hashkey;$/;"	m	struct:__anon19
+hashkey	board.h	/^	HASHKEY    hashkey;$/;"	m	struct:UGLY_GMNODE
+hashkey	board.h	/^	HASHKEY hashkey;$/;"	m	struct:__anon12
+hi	mymem.c	/^    char *hi;$/;"	m	struct:__anon22	file:
+hoverestim	stats.h	/^	float	       hoverestim;	\/* h overestimation allowed ? *\/$/;"	m	struct:__anon27
+index	board.h	/^	short  index;$/;"	m	struct:__anon12
+init_opts	stats.c	/^void init_opts() {$/;"	f
+init_stats	stats.c	/^void init_stats() {$/;"	f
+irrelevants	tree.h	/^	int    irrelevants;$/;"	m	struct:__anon29
+keys	menu.h	/^  char    *keys;             \/* Key code for command. *\/$/;"	m	struct:__anon24
+last_over	board.h	/^	PHYSID last_over;$/;"	m	struct:__anon4
+last_over	board.h	/^	PHYSID last_over;$/;"	m	struct:__anon9
+lazy_max	stats.h	/^	unsigned short lazy_max:1;	\/* lazy cuts in maximize penalties *\/$/;"	m	struct:__anon27
+lb_cf	stats.h	/^	unsigned short lb_cf:1;		\/* LB using conflicts *\/$/;"	m	struct:__anon27
+lb_dd	stats.h	/^	unsigned short lb_dd:1;		\/* LB using dynamic distances *\/$/;"	m	struct:__anon27
+lb_mp	stats.h	/^	unsigned short lb_mp:1;		\/* LB using manpos (backward-forward) *\/$/;"	m	struct:__anon27
+lbtable	board.h	/^	LBENTRY     *lbtable;$/;"	m	struct:__anon18
+lbtable	board.h	/^	LBENTRY     lbtable[MAXSTONES];$/;"	m	struct:__anon19
+limit_pat	stats.h	/^	unsigned short limit_pat:1;	\/* limit patterns *\/$/;"	m	struct:__anon27
+lo	mymem.c	/^    char *lo;$/;"	m	struct:__anon22	file:
+loc	board.h	/^	PHYSID loc;$/;"	m	struct:__anon3
+loc	board.h	/^	PHYSID loc;$/;"	m	struct:__anon8
+local	stats.h	/^	unsigned short local:1;  	\/* local cut *\/$/;"	m	struct:__anon27
+local_d	stats.h	/^	short          local_d;		\/* m parameter of local cut *\/$/;"	m	struct:__anon27
+local_k	stats.h	/^	short          local_k;		\/* k parameter of local cut *\/$/;"	m	struct:__anon27
+local_m	stats.h	/^	short          local_m;		\/* m parameter of local cut *\/$/;"	m	struct:__anon27
+locations	board.h	/^	PHYSID locations[MAX_LOCATIONS];$/;"	m	struct:__anon12
+lock	board.h	/^	HASHKEY lock;$/;"	m	struct:__anon6
+lock	board.h	/^	HASHKEY lock;$/;"	m	struct:__anon7
+m_distances	board.h	/^	MANDIST     *m_distances;	\/* restricting movement.             *\/$/;"	m	struct:__anon18
+m_distances	board.h	/^	MANDIST     *m_distances;$/;"	m	struct:__anon16
+macro_id	board.h	/^	char   macro_id;$/;"	m	struct:__anon4
+macro_id	board.h	/^	char   macro_id;$/;"	m	struct:__anon5
+macros	board.h	/^	MACRO  *macros;$/;"	m	struct:__anon10
+macros	board.h	/^	MACROS       macros[XSIZE*YSIZE];$/;"	m	struct:__anon18
+main	dl.c	/^int main() {$/;"	f
+man	board.h	/^	PHYSID man;$/;"	m	struct:__anon4
+man	board.h	/^	unsigned short man:9;$/;"	m	struct:__anon7
+manfrom	board.h	/^	PHYSID manfrom;$/;"	m	struct:__anon5
+maninout	board.h	/^	short  maninout;$/;"	m	struct:__anon12
+manpos	board.h	/^	PHYSID       manpos;$/;"	m	struct:__anon18
+manpos	board.h	/^	PHYSID       manpos;$/;"	m	struct:__anon19
+manpos	board.h	/^	PHYSID manpos;$/;"	m	struct:__anon15
+max	board.h	89;"	d
+max_count	histogram.h	/^	H_int max_count;$/;"	m	struct:__anon26
+max_index	histogram.h	/^	int   max_index;$/;"	m	struct:__anon26
+maze	tree.h	/^	MAZE  *maze;$/;"	m	struct:__anon29
+mc_gm	stats.h	/^	unsigned short mc_gm:1;		\/* General Goal Macros *\/$/;"	m	struct:__anon27
+mc_tu	stats.h	/^	unsigned short mc_tu:1;		\/* Macro using tunnels *\/$/;"	m	struct:__anon27
+min	board.h	88;"	d
+min_dim	board.h	/^	USHORT  min_dim:6;$/;"	m	struct:__anon2
+min_dist	macro.c	/^int min_dist[XSIZE*YSIZE];$/;"	v
+min_h	board.h	/^	unsigned short min_h:14;	\/* minimum h seen in this subtree *\/$/;"	m	struct:__anon7
+mini_node_count	stats.c	/^long total_node_count, mini_node_count, scan_node_count;$/;"	v
+minimize	stats.h	/^	unsigned short minimize:1;	\/* minimize patterns *\/$/;"	m	struct:__anon27
+move	gtv.c	/^   char move[8];$/;"	m	struct:__anon25	file:
+move_dist	board.h	/^	DIST   move_dist;$/;"	m	struct:__anon4
+move_dist	board.h	/^	DIST   move_dist;$/;"	m	struct:__anon5
+moves	board.h	/^	MOVE   moves[MAX_MOVES];$/;"	m	struct:__anon20
+n	board.h	/^	short  n;$/;"	m	struct:__anon12
+n_used	board.h	/^	long      n_used;$/;"	m	struct:__anon13
+new_distances	board.h	/^	unsigned short new_distances:1;$/;"	m	struct:UGLY_GMENTRY
+next	board.h	/^	GMNODE  *next;$/;"	m	struct:UGLY_GMENTRY
+no_reach	board.h	/^	BitString    no_reach;	$/;"	m	struct:__anon18
+no_reach	board.h	/^	BitString    no_reach;	$/;"	m	struct:__anon19
+no_reach	board.h	/^	BitString    no_reach;$/;"	m	struct:__anon21
+no_reach	board.h	/^	BitString no_reach;$/;"	m	struct:__anon13
+node_count	board.h	/^	long	   node_count;	\/* number nodes search during this ida *\/$/;"	m	struct:__anon21
+node_no	gtv.c	/^   long node_no;$/;"	m	struct:__anon25	file:
+nodes_depth	board.h	/^	long       nodes_depth[MAX_DEPTH];$/;"	m	struct:__anon21
+notongoal	deadlock.c	/^int       notongoal;$/;"	v
+number_conflicts	board.h	/^	int   number_conflicts;$/;"	m	struct:__anon14
+number_d_cache	board.h	/^	int 	     number_d_cache;$/;"	m	struct:__anon18
+number_deadtested	board.h	/^	int	  number_deadtested;$/;"	m	struct:__anon17
+number_entries	board.h	/^	char       number_entries;$/;"	m	struct:UGLY_GMNODE
+number_goals	board.h	/^	char         number_goals;$/;"	m	struct:__anon18
+number_goals	board.h	/^	short  number_goals;$/;"	m	struct:__anon12
+number_grooms	board.h	/^	char         number_grooms;$/;"	m	struct:__anon18
+number_killed	board.h	/^	int	  number_killed; 	\/* removed because too many patterns *\/$/;"	m	struct:__anon17
+number_macros	board.h	/^	short  number_macros;$/;"	m	struct:__anon10
+number_moves	board.h	/^	int    number_moves;$/;"	m	struct:__anon20
+number_patterns	board.h	/^	int	  number_patterns;$/;"	m	struct:__anon17
+number_penalties	board.h	/^	int	  number_penalties;$/;"	m	struct:__anon17
+number_pentested	board.h	/^	int	  number_pentested;$/;"	m	struct:__anon17
+number_removed	board.h	/^	int	  number_removed; 	\/* removed because of dublicates *\/$/;"	m	struct:__anon17
+number_squares	board.h	/^	short  number_squares;$/;"	m	struct:__anon12
+number_stones	board.h	/^	char 	     number_stones;$/;"	m	struct:__anon18
+number_stones	board.h	/^	short	     number_stones;$/;"	m	struct:__anon19
+number_stones	board.h	/^	short  number_stones;		\/* all stones, regardless where *\/$/;"	m	struct:__anon12
+number_stonesongoal	board.h	/^	short  number_stonesongoal;	\/* stones on a goal square *\/$/;"	m	struct:__anon12
+old_GMTree	board.h	/^	struct UGLY_GMNODE  *old_GMTree;$/;"	m	struct:__anon5	typeref:struct:__anon5::UGLY_GMNODE
+old_closest_confl	board.h	/^	PHYSID old_closest_confl;$/;"	m	struct:__anon5
+old_connected	board.h	/^	CONN      *old_connected;$/;"	m	struct:__anon5
+old_m_distances	board.h	/^	MANDIST   *old_m_distances;$/;"	m	struct:__anon5
+old_no_reach	board.h	/^	BitString    old_no_reach;	$/;"	m	struct:__anon18
+old_no_reach	board.h	/^	BitString    old_no_reach;	$/;"	m	struct:__anon19
+old_one_way	board.h	/^	BitString  old_one_way;$/;"	m	struct:__anon5
+old_s_distances	board.h	/^	STNDIST   *old_s_distances;$/;"	m	struct:__anon5
+old_stoneid	board.h	/^	signed char    old_stoneid; \/* JS *\/$/;"	m	struct:__anon5
+old_stones_done	board.h	/^	BitString  old_stones_done;$/;"	m	struct:__anon5
+one_way	board.h	/^	BitString    one_way;		\/* things that change with stones    *\/$/;"	m	struct:__anon18
+one_way	board.h	/^	BitString    one_way;$/;"	m	struct:__anon16
+onestone	board.h	/^        PHYSID onestone;$/;"	m	struct:__anon13
+opdir	deadlock.c	/^int       opdir[2] = {1, 0};$/;"	v
+out	board.h	/^	BitString    out;$/;"	m	struct:__anon18
+overestim	stats.h	/^	float	       overestim;	\/* overestimation allowed ? *\/$/;"	m	struct:__anon27
+pathflag	board.h	/^	unsigned short pathflag:1;	\/* this is a flag indicating part$/;"	m	struct:__anon7
+pattern_counter	stats.c	/^long pattern_counter[256];$/;"	v
+pattern_node_limit	board.h	/^	int	     pattern_node_limit;$/;"	m	struct:__anon21
+pen	board.h	/^	PENALTY  *pen;$/;"	m	struct:__anon17
+pen	board.h	/^	int          pen;$/;"	m	struct:__anon18
+pen	board.h	/^	int          pen;$/;"	m	struct:__anon19
+pen_neg_nc	stats.c	/^long pen_pos_nc=0, pen_neg_nc=0;	\/* node counts for pos\/neg searches *\/$/;"	v
+pen_neg_sc	stats.c	/^int  pen_pos_sc=0, pen_neg_sc=0;	\/* search count for pos\/neg *\/$/;"	v
+pen_pos_nc	stats.c	/^long pen_pos_nc=0, pen_neg_nc=0;	\/* node counts for pos\/neg searches *\/$/;"	v
+pen_pos_sc	stats.c	/^int  pen_pos_sc=0, pen_neg_sc=0;	\/* search count for pos\/neg *\/$/;"	v
+pen_srch	stats.h	/^	unsigned short pen_srch:1;	\/* use PenMove search *\/$/;"	m	struct:__anon27
+penalty	board.h	/^	int   penalty;$/;"	m	struct:__anon14
+penalty_depth	board.h	/^	long	  penalty_depth[MAX_DEPTH];$/;"	m	struct:__anon17
+penalty_hist	board.h	/^	long	  penalty_hist[MAX_PENHIST];$/;"	m	struct:__anon17
+pensearched	board.h	/^	unsigned short pensearched:1;	\/* penalty search done already *\/$/;"	m	struct:__anon7
+pentested	board.h	/^	TESTED   *pentested;$/;"	m	struct:__anon17
+print_stats	stats.c	/^void print_stats(int pri) {$/;"	f
+reach	board.h	/^	BitString    reach;	$/;"	m	struct:__anon18
+reach	board.h	/^	BitString    reach;	$/;"	m	struct:__anon19
+references	board.h	/^	char       references;$/;"	m	struct:UGLY_GMNODE
+relevant	board.h	/^	BitString relevant;$/;"	m	struct:__anon15
+s_distances	board.h	/^	STNDIST     *s_distances;	\/* on goal squares that are fixed    *\/$/;"	m	struct:__anon18
+s_distances	board.h	/^	STNDIST     *s_distances;$/;"	m	struct:__anon16
+s_free	board.h	/^	USHORT  s_free:3;$/;"	m	struct:__anon2
+save_no_reach	board.h	/^        BitString save_no_reach;$/;"	m	struct:__anon5
+save_old_no_reach	board.h	/^	BitString save_old_no_reach;$/;"	m	struct:__anon5
+save_reach	board.h	/^        BitString save_reach;$/;"	m	struct:__anon5
+scan_node_count	stats.c	/^long total_node_count, mini_node_count, scan_node_count;$/;"	v
+scan_srch	stats.h	/^	unsigned short scan_srch:1;	\/* use Scan search *\/$/;"	m	struct:__anon27
+shadow_stones	board.h	/^	BitString    shadow_stones;$/;"	m	struct:__anon21
+sigint	dl.c	/^void sigint () {$/;"	f
+size_d_cache	board.h	/^	int 	     size_d_cache;$/;"	m	struct:__anon18
+solution	board.h	/^	MOVE   solution;$/;"	m	struct:__anon20
+sort_min	mymem.c	243;"	d	file:
+squares	board.h	/^	BitString squares;$/;"	m	struct:__anon12
+st_testd	stats.h	/^	unsigned short st_testd:1;	\/* store tested patterns *\/$/;"	m	struct:__anon27
+stack_node	mymem.c	/^  } stack_node;$/;"	t	typeref:struct:__anon22	file:
+stone	board.h	/^	BitString    stone;	$/;"	m	struct:__anon18
+stone	board.h	/^	BitString    stone;	$/;"	m	struct:__anon19
+stonefrom	board.h	/^	PHYSID stonefrom;$/;"	m	struct:__anon5
+stoneidx	board.h	/^	char stoneidx; \/* JS *\/	\/* referenced by goalidx *\/$/;"	m	struct:__anon1
+stonepos	board.h	/^	PHYSID stonepos;$/;"	m	struct:__anon15
+stones	board.h	/^	BitString stones;$/;"	m	struct:__anon15
+stones	board.h	/^	STN         *stones;$/;"	m	struct:__anon18
+stones	board.h	/^	STN         stones[MAXSTONES];$/;"	m	struct:__anon19
+stones	deadlock.c	/^BitString stones, walls, dead;$/;"	v
+stones_done	board.h	/^	BitString    stones_done;	\/* stones in goal area for good *\/$/;"	m	struct:__anon18
+stones_done	board.h	/^	BitString    stones_done;	\/* stones in goal area for good *\/$/;"	m	struct:__anon19
+stones_done	board.h	/^	BitString    stones_done;$/;"	m	struct:__anon16
+stoneto	board.h	/^	PHYSID stoneto;$/;"	m	struct:__anon5
+symetrical	tree.h	/^	int    symetrical; \/* is the patter symetrical? if yes, don't test$/;"	m	struct:__anon29
+t_created	board.h	/^	long      t_created;$/;"	m	struct:__anon13
+t_used	board.h	/^	long      t_used;$/;"	m	struct:__anon13
+text	menu.h	/^  char    *text;             \/* Information text. *\/$/;"	m	struct:__anon24
+to	board.h	/^	PHYSID to;$/;"	m	struct:__anon4
+to	board.h	/^	PHYSID to;$/;"	m	struct:__anon9
+total_count	histogram.h	/^	H_int total_count;$/;"	m	struct:__anon26
+total_node_count	stats.c	/^long total_node_count, mini_node_count, scan_node_count;$/;"	v
+total_sum	histogram.h	/^	long  total_sum;$/;"	m	struct:__anon26
+tried	board.h	/^	int    tried;$/;"	m	struct:__anon8
+tt	stats.h	/^	unsigned short tt:1;		\/* HashTable *\/	$/;"	m	struct:__anon27
+tt_cols	board.h	/^	long       tt_cols;$/;"	m	struct:__anon21
+tt_hits	board.h	/^	long       tt_hits;$/;"	m	struct:__anon21
+tt_reqs	board.h	/^	long       tt_reqs;$/;"	m	struct:__anon21
+tunnel	board.h	/^	USHORT  tunnel:6;$/;"	m	struct:__anon2
+type	board.h	/^	int    type;$/;"	m	struct:__anon10
+type	gtv.c	/^   int  type;$/;"	m	struct:__anon25	file:
+unknowns	tree.h	/^	int    unknowns;$/;"	m	struct:__anon29
+unmove	board.h	/^	UNMOVE unmove;$/;"	m	struct:__anon20
+value	board.h	/^	short  value;$/;"	m	struct:__anon4
+visited	tree.h	/^	int    visited;$/;"	m	struct:__anon29
+wall	board.h	/^	BitString    wall;$/;"	m	struct:__anon18
+walls	deadlock.c	/^BitString stones, walls, dead;$/;"	v
+x_ofs	tree.h	/^	int    x_ofs;	   \/* both of these are in -1 1's *\/$/;"	m	struct:__anon29
+xdist	stats.h	/^	unsigned short xdist:1;		\/* use the extended distance measure *\/$/;"	m	struct:__anon27
+xxx	debug.c	42;"	d	file:
+y_ofs	tree.h	/^	int    y_ofs;	   \/* and measured as from the stone in the midle *\/$/;"	m	struct:__anon29
