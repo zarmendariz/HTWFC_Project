@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# RS execution file
+RS
