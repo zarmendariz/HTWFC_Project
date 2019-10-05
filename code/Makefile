@@ -1,7 +1,7 @@
 #CC = purify -freeze-on-error=yes -inuse-at-exit=yes gcc
 CC = gcc
 
-OPT = -O2
+OPT = -O2 -std=c99
 #OPT = -g
 #WARN = -Wall
 
@@ -18,7 +18,8 @@ RS:
 
 OBJ = moves.o debug.o ida.o deadlock.o bitstring.o pensearch.o\
  init.o io.o mark.o conflicts.o deadsearch.o dl.o mymem.o histogram.o\
- weights.o lowerbound.o hashtable.o stats.o tree.o menu.o macro.o gtv.o time.o
+ weights.o lowerbound.o hashtable.o stats.o tree.o menu.o macro.o gtv.o time_rs.o
+
 
 board.o: board.h  init.h
 
