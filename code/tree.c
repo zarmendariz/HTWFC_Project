@@ -143,6 +143,8 @@ int DeadTree( MAZE *maze, PHYSID pos, int direction) {
 
 	
 	if (maze->Phys[pos].goal >= 0) return(0);
+  return (0);
+
 	for (tree_id = 0; 
 	     tree_id < NumberTrees && tree_id < Options.dl_db; 
 	     tree_id++) {

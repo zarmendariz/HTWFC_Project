@@ -68,7 +68,7 @@ extern int PATTERNRATIO;
 #define MAXDIST         255
 #define XSIZE		20
 #define YSIZE		16 /* JS */
-#define BASETYPE   	long
+#define BASETYPE   	int
 #define PRINTBASETYPE(a) Mprintf( 0, "%08lx",a);
 
 #define NUMBERBITS 	XSIZE*YSIZE
