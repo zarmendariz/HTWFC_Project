@@ -449,7 +449,7 @@ typedef struct {
 #include "deadsearch.h"
 #include "pensearch.h"
 #include "histogram.h"
-#include "time.h"
+#include "time_rs.h"
 
 extern MOVE DummyMove;
 extern int  PP;
