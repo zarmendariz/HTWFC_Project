@@ -1,0 +1,1770 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 30.44      0.84     0.84    88077     0.00     0.00  Moves
+ 25.73      1.55     0.71   128986     0.00     0.00  MarkReach
+  5.80      1.71     0.16   319992     0.00     0.00  GetPenalty
+  5.07      1.85     0.14   240758     0.00     0.00  UnReach
+  3.99      1.96     0.11    21813     0.00     0.00  MarkReachGRoom
+  3.62      2.06     0.10  3708235     0.00     0.00  GetOptDist
+  3.26      2.15     0.09  1574089     0.00     0.00  AllBitsSetBS
+  2.54      2.22     0.07    93933     0.00     0.00  My_qsort
+  2.17      2.28     0.06   102976     0.00     0.00  DeadUpdateLowerBound
+  1.81      2.33     0.05   763258     0.00     0.00  BitOrAndEqBS
+  1.45      2.37     0.04   429392     0.00     0.00  BitOrEqBS
+  1.09      2.40     0.03   327353     0.00     0.00  BitNotAndNotAndNotBS
+  1.09      2.43     0.03   196628     0.00     0.00  PenUpdateLowerBound
+  1.09      2.46     0.03     4727     0.00     0.00  DistToGoal
+  0.91      2.49     0.03    94345     0.00     0.00  GenerateMoves
+  0.72      2.51     0.02  1096692     0.00     0.00  GetManDir
+  0.72      2.53     0.02   670452     0.00     0.00  SubMacro
+  0.72      2.55     0.02    89204     0.00     0.00  GetScew
+  0.72      2.57     0.02     8196     0.00     0.00  PenLowerBound
+  0.72      2.59     0.02     7462     0.00     0.00  DeadLowerBound
+  0.72      2.61     0.02     5018     0.00     0.00  MarkReachDist
+  0.36      2.62     0.01   983376     0.00     0.00  Frozen
+  0.36      2.63     0.01   814570     0.00     0.00  DeadCompare
+  0.36      2.64     0.01   763258     0.00     0.00  DeadLock
+  0.36      2.65     0.01   319992     0.00     0.00  BitAndNotButOrBS
+  0.36      2.66     0.01   319992     0.00     0.00  LogAndNotAndNotBS
+  0.36      2.67     0.01   157164     0.00     0.00  BitAndNotEqBS
+  0.36      2.68     0.01   107567     0.00     0.00  PSGetHashTable
+  0.36      2.69     0.01   101937     0.00     0.00  PenMakeMove
+  0.36      2.70     0.01    54930     0.00     0.00  DeadUnMakeMove
+  0.36      2.71     0.01    53174     0.00     0.00  PushesMoves
+  0.36      2.72     0.01    52924     0.00     0.00  SetManStoneSquares
+  0.36      2.73     0.01    42434     0.00     0.00  DeadIsGoalNode
+  0.36      2.74     0.01    38381     0.00     0.00  DeadMoveOrdering
+  0.36      2.75     0.01     5325     0.00     0.00  StoneReach
+  0.36      2.76     0.01        3     0.00     0.01  SetStoneDistances
+  0.18      2.76     0.01                             compare_val
+  0.00      2.76     0.00  1256734     0.00     0.00  PenCompare
+  0.00      2.76     0.00   670751     0.00     0.00  DeadLock2
+  0.00      2.76     0.00   301032     0.00     0.00  UpdateHashKey
+  0.00      2.76     0.00   264366     0.00     0.00  DiffToDir
+  0.00      2.76     0.00   256661     0.00     0.00  AbortSearch
+  0.00      2.76     0.00   198731     0.00     0.00  GenAllSquares
+  0.00      2.76     0.00   189426     0.00     0.00  DeadTree
+  0.00      2.76     0.00   160429     0.00     0.00  IncNodeCount
+  0.00      2.76     0.00   151423     0.00     0.00  PSStoreHashTable
+  0.00      2.76     0.00   117418     0.00     0.00  XDistMan
+  0.00      2.76     0.00   102716     0.00     0.00  MarkReachQuick
+  0.00      2.76     0.00   101937     0.00     0.00  PenUnMakeMove
+  0.00      2.76     0.00    95651     0.00     0.00  UpdateReach
+  0.00      2.76     0.00    84848     0.00     0.00  NewAddScew
+  0.00      2.76     0.00    65802     0.00     0.00  PenIsGoalNode
+  0.00      2.76     0.00    64847     0.00     0.00  DistantSquares
+  0.00      2.76     0.00    55666     0.00     0.00  PenMoveOrdering
+  0.00      2.76     0.00    54930     0.00     0.00  DeadMakeMove
+  0.00      2.76     0.00    43162     0.00     0.00  NumberBitsBS
+  0.00      2.76     0.00    36221     0.00     0.00  BitNext
+  0.00      2.76     0.00    36005     0.00     0.00  Debug
+  0.00      2.76     0.00    33795     0.00     0.00  PSSetPathFlag
+  0.00      2.76     0.00    32871     0.00     0.00  EntrComp
+  0.00      2.76     0.00    26210     0.00     0.00  LogAndBS
+  0.00      2.76     0.00    23329     0.00     0.00  BitNotAndNotBS
+  0.00      2.76     0.00    21813     0.00     0.00  CleanReach
+  0.00      2.76     0.00    15810     0.00     0.00  NormHashKey
+  0.00      2.76     0.00    14686     0.00     0.00  IncCounter
+  0.00      2.76     0.00    11485     0.00     0.00  Isnt0BS
+  0.00      2.76     0.00    11460     0.00     0.00  BitAndNotBS
+  0.00      2.76     0.00    10141     0.00     0.00  GroomIncPos
+  0.00      2.76     0.00    10123     0.00     0.00  GroomExcPos
+  0.00      2.76     0.00    10000     0.00     0.00  GGGetHashTable
+  0.00      2.76     0.00     6609     0.00     0.00  compare_negval
+  0.00      2.76     0.00     4356     0.00     0.00  GoalReach
+  0.00      2.76     0.00     3642     0.00     0.00  XDistStone
+  0.00      2.76     0.00     3413     0.00     0.00  Crowding
+  0.00      2.76     0.00     3413     0.00     0.00  DistantMove
+  0.00      2.76     0.00     3015     0.00     0.00  FindTransitiveClosure
+  0.00      2.76     0.00     3015     0.00     0.00  Maximize
+  0.00      2.76     0.00     2920     0.00     0.00  SubsetBS
+  0.00      2.76     0.00     2876     0.00     0.00  PSUnSetPathFlag
+  0.00      2.76     0.00     2604     0.00     0.00  NumberBitsInt
+  0.00      2.76     0.00     1553     0.00     0.00  print_stats
+  0.00      2.76     0.00     1461     0.00     0.00  init_stats
+  0.00      2.76     0.00     1460     0.00     0.00  PickUpEntrances
+  0.00      2.76     0.00     1460     0.00     0.00  ValidateEntrances
+  0.00      2.76     0.00     1459     0.00     0.00  EvaluateGroom
+  0.00      2.76     0.00     1458     0.00     0.00  GGStoreHashTable
+  0.00      2.76     0.00     1429     0.00     0.00  MinMatch
+  0.00      2.76     0.00      988     0.00     0.00  PenIda
+  0.00      2.76     0.00      984     0.00     0.00  BitAndNotAndNotBS
+  0.00      2.76     0.00      964     0.00     0.00  MakeMove
+  0.00      2.76     0.00      958     0.00     0.00  BetterUpdateLowerBound
+  0.00      2.76     0.00      950     0.00     0.00  PenDeactivateStones
+  0.00      2.76     0.00      929     0.00     0.00  FindClosestPosStone
+  0.00      2.76     0.00      847     0.00     0.00  PenStartIda
+  0.00      2.76     0.00      828     0.00     0.00  My_free
+  0.00      2.76     0.00      734     0.00     0.00  Mprintf
+  0.00      2.76     0.00      707     0.00     0.00  DeadIda
+  0.00      2.76     0.00      637     0.00     0.00  RegisterMove
+  0.00      2.76     0.00      627     0.00     0.00  QualityCompare
+  0.00      2.76     0.00      627     0.00     0.00  StoreHashTable
+  0.00      2.76     0.00      617     0.00     0.00  DeadStartIda
+  0.00      2.76     0.00      578     0.00     0.00  DeadDeactivateStones
+  0.00      2.76     0.00      559     0.00     0.00  ValueSquareEntr
+  0.00      2.76     0.00      546     0.00     0.00  Communicating
+  0.00      2.76     0.00      546     0.00     0.00  GetBaseProps
+  0.00      2.76     0.00      490     0.00     0.00  ValueSquare
+  0.00      2.76     0.00      471     0.00     0.00  FindFarthestPosStone
+  0.00      2.76     0.00      467     0.00     0.00  IsGoalNodeNorm
+  0.00      2.76     0.00      464     0.00     0.00  UnMakeMove
+  0.00      2.76     0.00      462     0.00     0.00  BetterUpdateLowerBound2
+  0.00      2.76     0.00      395     0.00     0.00  FindClosestPosMan
+  0.00      2.76     0.00      391     0.00     0.00  CreatePropGMacro
+  0.00      2.76     0.00      391     0.00     0.00  FindBestSquare
+  0.00      2.76     0.00      331     0.00     0.00  GetHashTable
+  0.00      2.76     0.00      306     0.00     0.00  AreaMove
+  0.00      2.76     0.00      306     0.00     0.00  FindFringeStones
+  0.00      2.76     0.00      298     0.00     0.00  NewMoveOrdering
+  0.00      2.76     0.00      277     0.00     0.00  InitIDA
+  0.00      2.76     0.00      275     0.00     0.00  PenMoveSuspected
+  0.00      2.76     0.00      250     0.00     0.00  HumanMove
+  0.00      2.76     0.00      248     0.00     0.00  DeadMoveSuspected
+  0.00      2.76     0.00      199     0.00     0.00  UpdateMaze
+  0.00      2.76     0.00      150     0.00     0.00  My_realloc
+  0.00      2.76     0.00      132     0.00     0.00  ResetHist
+  0.00      2.76     0.00      126     0.00     0.00  MarkReachPos
+  0.00      2.76     0.00      119     0.00     0.00  WhichStones
+  0.00      2.76     0.00      109     0.00     0.00  My_malloc
+  0.00      2.76     0.00       95     0.00     0.00  BuildGMTree
+  0.00      2.76     0.00       95     0.00     0.00  GMGetHashTable
+  0.00      2.76     0.00       94     0.00     0.00  CreateGMacro
+  0.00      2.76     0.00       85     0.00     0.00  AddConflict
+  0.00      2.76     0.00       85     0.00     0.00  RemoveDuplicates
+  0.00      2.76     0.00       83     0.00     0.00  WasTestedPen
+  0.00      2.76     0.00       76     0.00     0.00  RestoreMaze
+  0.00      2.76     0.00       76     0.00     0.00  SaveMaze
+  0.00      2.76     0.00       74     0.00     0.00  FindFirstSet
+  0.00      2.76     0.00       74     0.00     0.00  FindPenalty
+  0.00      2.76     0.00       74     0.00     0.00  InsertConflict
+  0.00      2.76     0.00       72     0.00     0.00  AddMoreStones
+  0.00      2.76     0.00       70     0.00     0.02  PenMove
+  0.00      2.76     0.00       65     0.00     0.00  BitOrBS
+  0.00      2.76     0.00       58     0.00     0.00  GMDelHashEntry
+  0.00      2.76     0.00       58     0.00     0.00  GetGMTree
+  0.00      2.76     0.00       56     0.00     0.02  DeadMove
+  0.00      2.76     0.00       56     0.00     0.00  GMStoreHashTable
+  0.00      2.76     0.00       56     0.00     0.00  GetProperties
+  0.00      2.76     0.00       56     0.00     0.00  GetSquareValues
+  0.00      2.76     0.00       54     0.00     0.00  PropStonesDone
+  0.00      2.76     0.00       38     0.00     0.00  PenMiniConflict
+  0.00      2.76     0.00       34     0.00     0.00  DeadMiniConflict
+  0.00      2.76     0.00       32     0.00     0.00  LogAndAndNotBS
+  0.00      2.76     0.00       30     0.00     0.00  FindEndTunnel
+  0.00      2.76     0.00       21     0.00     0.00  AddTestedPen
+  0.00      2.76     0.00       21     0.00     0.00  GoodTested
+  0.00      2.76     0.00       18     0.00     0.00  FindStartEndTunnel
+  0.00      2.76     0.00       16     0.00     0.00  SetPathFlag
+  0.00      2.76     0.00       13     0.00     0.00  EqualBS
+  0.00      2.76     0.00       12     0.00     0.00  LogAndNotBS
+  0.00      2.76     0.00       11     0.00     0.00  CreateAllGMacro
+  0.00      2.76     0.00        9     0.00     0.00  BetterLowerBound
+  0.00      2.76     0.00        8     0.00     0.00  CopyMaze
+  0.00      2.76     0.00        8     0.00     0.00  DelCopiedMaze
+  0.00      2.76     0.00        7     0.00     0.00  AddConflicts
+  0.00      2.76     0.00        7     0.00     0.00  GetNewDistances
+  0.00      2.76     0.00        7     0.00     0.00  InDCache
+  0.00      2.76     0.00        7     0.00     0.00  InitPenalty
+  0.00      2.76     0.00        7     0.00     0.00  InsertPenalty
+  0.00      2.76     0.00        4     0.00     0.00  InitHist
+  0.00      2.76     0.00        3     0.00     0.00  AddMacro
+  0.00      2.76     0.00        3     0.00     0.71  Ida
+  0.00      2.76     0.00        3     0.00     0.00  InitConflicts
+  0.00      2.76     0.00        3     0.00     0.00  InitDCache
+  0.00      2.76     0.00        3     0.00     0.00  MarkOneConnected
+  0.00      2.76     0.00        3     0.00     0.00  SetManDistances
+  0.00      2.76     0.00        2     0.00     0.00  CmdParam
+  0.00      2.76     0.00        2     0.00     0.00  DelConflicts
+  0.00      2.76     0.00        2     0.00     0.00  FreeDCache
+  0.00      2.76     0.00        2     0.00     0.00  GetAvgHist
+  0.00      2.76     0.00        2     0.00     0.00  GetCommand
+  0.00      2.76     0.00        2     0.00     0.00  InitHashTables
+  0.00      2.76     0.00        2     0.00     0.00  InitTree
+  0.00      2.76     0.00        2     0.00     0.00  LoadTree
+  0.00      2.76     0.00        1     0.00     0.00  AddPenalties
+  0.00      2.76     0.00        1     0.00     0.00  AsimGoals
+  0.00      2.76     0.00        1     0.00     0.00  DelGMTree
+  0.00      2.76     0.00        1     0.00     0.00  DelMaze
+  0.00      2.76     0.00        1     0.00     0.12  FindMacros
+  0.00      2.76     0.00        1     0.00     0.00  GMInitHashTable
+  0.00      2.76     0.00        1     0.00     0.01  GrowDFS
+  0.00      2.76     0.00        1     0.00     0.01  GrowRoom
+  0.00      2.76     0.00        1     0.00     0.00  InitBS
+  0.00      2.76     0.00        1     0.00     0.00  InitGRoom
+  0.00      2.76     0.00        1     0.00     0.00  InitMaze
+  0.00      2.76     0.00        1     0.00     0.00  InitNodeCount
+  0.00      2.76     0.00        1     0.00     0.00  InitRandom
+  0.00      2.76     0.00        1     0.00     2.76  MainMenu
+  0.00      2.76     0.00        1     0.00     0.00  MakeName
+  0.00      2.76     0.00        1     0.00     0.12  MarkAll
+  0.00      2.76     0.00        1     0.00     0.00  MarkDead
+  0.00      2.76     0.00        1     0.00     0.00  MarkOut
+  0.00      2.76     0.00        1     0.00     0.00  MarkTG
+  0.00      2.76     0.00        1     0.00     0.00  MarkTun
+  0.00      2.76     0.00        1     0.00     0.00  My_exit
+  0.00      2.76     0.00        1     0.00     0.00  PrintBit2Maze
+  0.00      2.76     0.00        1     0.00     0.02  PrintSolution
+  0.00      2.76     0.00        1     0.00     0.25  ReadMaze
+  0.00      2.76     0.00        1     0.00     0.00  ResetMaze
+  0.00      2.76     0.00        1     0.00     0.35  ScanSearch
+  0.00      2.76     0.00        1     0.00     0.00  SetAllStonesDone
+  0.00      2.76     0.00        1     0.00     0.00  SetDistDead
+  0.00      2.76     0.00        1     0.00     0.11  SetDistDistances
+  0.00      2.76     0.00        1     0.00     0.01  SetLocalCut
+  0.00      2.76     0.00        1     0.00     0.00  SetMinDist
+  0.00      2.76     0.00        1     0.00     0.00  SetTimer
+  0.00      2.76     0.00        1     0.00     0.11  StartBuildGMTree
+  0.00      2.76     0.00        1     0.00     2.51  StartIda
+  0.00      2.76     0.00        1     0.00     0.01  ValidSolution
+  0.00      2.76     0.00        1     0.00     0.01  XDistHist
+  0.00      2.76     0.00        1     0.00     0.00  init_opts
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2016 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.36% of 2.76 seconds
+
+index % time    self  children    called     name
+                0.00    2.76       1/1           main [2]
+[1]     99.8    0.00    2.76       1         MainMenu [1]
+                0.00    2.51       1/1           StartIda [3]
+                0.00    0.25       1/1           ReadMaze [19]
+                0.00    0.00       2/2           GetCommand [197]
+                0.00    0.00       2/2           CmdParam [193]
+                0.00    0.00       1/1           InitMaze [208]
+                0.00    0.00       1/1           MakeName [211]
+                0.00    0.00       1/734         Mprintf [137]
+                0.00    0.00       1/1           DelMaze [204]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     99.8    0.00    2.76                 main [2]
+                0.00    2.76       1/1           MainMenu [1]
+                0.00    0.00       2/2           InitTree [199]
+                0.00    0.00       2/2           LoadTree [200]
+                0.00    0.00       1/1           init_opts [222]
+                0.00    0.00       1/1           InitRandom [210]
+                0.00    0.00       1/1           InitBS [206]
+                0.00    0.00       1/277         InitIDA [148]
+                0.00    0.00       1/734         Mprintf [137]
+                0.00    0.00       1/1           My_exit [215]
+-----------------------------------------------
+                0.00    2.51       1/1           MainMenu [1]
+[3]     90.9    0.00    2.51       1         StartIda [3]
+                0.00    2.14       3/3           Ida [5]
+                0.00    0.35       1/1           ScanSearch [15]
+                0.00    0.02       1/1           PrintSolution [55]
+                0.00    0.00       3/319992      GetPenalty [17]
+                0.00    0.00       5/8           CopyMaze [182]
+                0.00    0.00       5/8           DelCopiedMaze [183]
+                0.00    0.00       3/36005       Debug [108]
+                0.00    0.00       3/1553        print_stats [130]
+                0.00    0.00       3/256661      AbortSearch [98]
+                0.00    0.00       1/1           InitNodeCount [209]
+                0.00    0.00       1/1           SetTimer [221]
+                0.00    0.00       1/1461        init_stats [131]
+                0.00    0.00       1/2           InitHashTables [198]
+-----------------------------------------------
+[4]     88.9    0.00    2.45    1083+2148    <cycle 1 as a whole> [4]
+                0.00    1.29     988+101937      PenIda <cycle 1> [7]
+                0.00    1.16     707+54930       DeadIda <cycle 1> [10]
+                0.00    0.00      38+12          PenMiniConflict <cycle 1> [80]
+                0.00    0.00      34             DeadMiniConflict <cycle 1> [81]
+                0.00    0.00     847             PenStartIda <cycle 1> [82]
+                0.00    0.00     617             DeadStartIda <cycle 1> [84]
+-----------------------------------------------
+                                 464             Ida [5]
+                0.00    2.14       3/3           StartIda [3]
+[5]     77.4    0.00    2.14       3+464     Ida [5]
+                0.00    1.01      52/70          PenMove [6]
+                0.00    0.89      56/56          DeadMove [11]
+                0.00    0.21     306/306         AreaMove [20]
+                0.00    0.02     464/964         MakeMove [49]
+                0.00    0.01     250/52924       SetManStoneSquares [8]
+                0.00    0.00     298/94345       GenerateMoves [18]
+                0.00    0.00     464/464         UnMakeMove [86]
+                0.00    0.00     298/298         NewMoveOrdering [88]
+                0.00    0.00     637/637         RegisterMove [138]
+                0.00    0.00     626/627         StoreHashTable [140]
+                0.00    0.00     467/256661      AbortSearch [98]
+                0.00    0.00     467/160429      IncNodeCount [101]
+                0.00    0.00     467/467         IsGoalNodeNorm [144]
+                0.00    0.00     464/264366      DiffToDir [97]
+                0.00    0.00     464/189426      DeadTree [100]
+                0.00    0.00     330/331         GetHashTable [146]
+                0.00    0.00     275/275         PenMoveSuspected [149]
+                0.00    0.00     248/248         DeadMoveSuspected [151]
+                0.00    0.00      16/16          SetPathFlag [178]
+                                 464             Ida [5]
+-----------------------------------------------
+                0.00    0.35      18/70          ScanSearch [15]
+                0.00    1.01      52/70          Ida [5]
+[6]     49.4    0.00    1.36      70         PenMove [6]
+                0.00    1.34     591/1083        PenStartIda <cycle 1> [82]
+                0.00    0.02       8/1083        PenMiniConflict <cycle 1> [80]
+                0.00    0.01     591/950         PenDeactivateStones [73]
+                0.00    0.00      70/319992      GetPenalty [17]
+                0.00    0.00     591/429392      BitOrEqBS [48]
+                0.00    0.00     791/157164      BitAndNotEqBS [66]
+                0.00    0.00      21/21          AddTestedPen [91]
+                0.00    0.00     591/984         BitAndNotAndNotBS [134]
+                0.00    0.00     591/256661      AbortSearch [98]
+                0.00    0.00     552/929         FindClosestPosStone [135]
+                0.00    0.00     527/43162       NumberBitsBS [106]
+                0.00    0.00     239/395         FindClosestPosMan [145]
+                0.00    0.00      70/277         InitIDA [148]
+                0.00    0.00      70/199         UpdateMaze [152]
+                0.00    0.00      25/11485       Isnt0BS [116]
+                0.00    0.00      21/21          GoodTested [176]
+-----------------------------------------------
+                              101937             PenIda <cycle 1> [7]
+                                 988             PenStartIda <cycle 1> [82]
+[7]     46.7    0.00    1.29     988+101937  PenIda <cycle 1> [7]
+                0.01    0.65   29504/52924       SetManStoneSquares [8]
+                0.01    0.30  101937/101937      PenMakeMove [16]
+                0.01    0.13   55666/94345       GenerateMoves [18]
+                0.00    0.12  101937/101937      PenUnMakeMove [30]
+                0.00    0.05   55666/55666       PenMoveOrdering [45]
+                0.01    0.00   65564/107567      PSGetHashTable [67]
+                0.00    0.00  158591/256661      AbortSearch [98]
+                0.00    0.00  101937/264366      DiffToDir [97]
+                0.00    0.00  101937/189426      DeadTree [100]
+                0.00    0.00   95862/160429      IncNodeCount [101]
+                0.00    0.00   90724/151423      PSStoreHashTable [102]
+                0.00    0.00   65802/65802       PenIsGoalNode [104]
+                0.00    0.00   18634/33795       PSSetPathFlag [109]
+                0.00    0.00    1974/2876        PSUnSetPathFlag [128]
+                                  10             DeadMiniConflict <cycle 1> [81]
+                              101937             PenIda <cycle 1> [7]
+-----------------------------------------------
+                0.00    0.01     250/52924       Ida [5]
+                0.00    0.51   23170/52924       DeadIda <cycle 1> [10]
+                0.01    0.65   29504/52924       PenIda <cycle 1> [7]
+[8]     42.8    0.01    1.17   52924         SetManStoneSquares [8]
+                0.01    1.15   52924/53174       PushesMoves [9]
+                0.01    0.00  105848/429392      BitOrEqBS [48]
+-----------------------------------------------
+                0.00    0.01     250/53174       ValidSolution [58]
+                0.01    1.15   52924/53174       SetManStoneSquares [8]
+[9]     42.2    0.01    1.16   53174         PushesMoves [9]
+                0.84    0.00   88077/88077       Moves [12]
+                0.29    0.00   53174/128986      MarkReach [13]
+                0.02    0.00  198731/429392      BitOrEqBS [48]
+                0.00    0.00  198731/198731      GenAllSquares [99]
+-----------------------------------------------
+                               54930             DeadIda <cycle 1> [10]
+                                 707             DeadStartIda <cycle 1> [84]
+[10]    41.9    0.00    1.16     707+54930   DeadIda <cycle 1> [10]
+                0.00    0.51   23170/52924       SetManStoneSquares [8]
+                0.00    0.38   54930/54930       DeadMakeMove [14]
+                0.01    0.09   38381/94345       GenerateMoves [18]
+                0.01    0.09   54930/54930       DeadUnMakeMove [41]
+                0.01    0.04   38381/38381       DeadMoveOrdering [47]
+                0.01    0.00   42434/42434       DeadIsGoalNode [68]
+                0.00    0.00   42003/107567      PSGetHashTable [67]
+                0.00    0.00   94018/256661      AbortSearch [98]
+                0.00    0.00   60699/151423      PSStoreHashTable [102]
+                0.00    0.00   54930/264366      DiffToDir [97]
+                0.00    0.00   54930/189426      DeadTree [100]
+                0.00    0.00   53994/160429      IncNodeCount [101]
+                0.00    0.00   15161/33795       PSSetPathFlag [109]
+                0.00    0.00     902/2876        PSUnSetPathFlag [128]
+                                  16             DeadMiniConflict <cycle 1> [81]
+                               54930             DeadIda <cycle 1> [10]
+-----------------------------------------------
+                0.00    0.89      56/56          Ida [5]
+[11]    32.4    0.00    0.89      56         DeadMove [11]
+                0.00    0.89     393/1083        DeadStartIda <cycle 1> [84]
+                0.00    0.00     393/578         DeadDeactivateStones [76]
+                0.00    0.00     377/429392      BitOrEqBS [48]
+                0.00    0.00     533/157164      BitAndNotEqBS [66]
+                0.00    0.00     393/984         BitAndNotAndNotBS [134]
+                0.00    0.00     393/256661      AbortSearch [98]
+                0.00    0.00     377/929         FindClosestPosStone [135]
+                0.00    0.00     345/43162       NumberBitsBS [106]
+                0.00    0.00     156/395         FindClosestPosMan [145]
+                0.00    0.00      56/277         InitIDA [148]
+                0.00    0.00      56/199         UpdateMaze [152]
+                0.00    0.00      56/23329       BitNotAndNotBS [112]
+-----------------------------------------------
+                0.84    0.00   88077/88077       PushesMoves [9]
+[12]    30.4    0.84    0.00   88077         Moves [12]
+-----------------------------------------------
+                0.00    0.00       1/128986      MarkAll [29]
+                0.00    0.00       3/128986      SetStoneDistances [54]
+                0.00    0.00     578/128986      DeadDeactivateStones [76]
+                0.01    0.00     950/128986      PenDeactivateStones [73]
+                0.01    0.00     964/128986      MakeMove [49]
+                0.01    0.00    2663/128986      PenMakeMove [16]
+                0.11    0.00   19165/128986      DistToGoal [26]
+                0.28    0.00   51488/128986      DeadMakeMove [14]
+                0.29    0.00   53174/128986      PushesMoves [9]
+[13]    26.2    0.71    0.01  128986         MarkReach [13]
+                0.01    0.00  128986/327353      BitNotAndNotAndNotBS [51]
+-----------------------------------------------
+                0.00    0.38   54930/54930       DeadIda <cycle 1> [10]
+[14]    13.7    0.00    0.38   54930         DeadMakeMove [14]
+                0.28    0.00   51488/128986      MarkReach [13]
+                0.03    0.05   51488/102976      DeadUpdateLowerBound [24]
+                0.01    0.00    3442/7462        DeadLowerBound [53]
+                0.00    0.00    3442/102716      MarkReachQuick [72]
+                0.00    0.00    3408/1096692     GetManDir [56]
+                0.00    0.00   51488/301032      UpdateHashKey [96]
+                0.00    0.00    3442/15810       NormHashKey [114]
+-----------------------------------------------
+                0.00    0.35       1/1           StartIda [3]
+[15]    12.7    0.00    0.35       1         ScanSearch [15]
+                0.00    0.35      18/70          PenMove [6]
+                0.00    0.00      19/734         Mprintf [137]
+                0.00    0.00       1/331         GetHashTable [146]
+                0.00    0.00       1/627         StoreHashTable [140]
+-----------------------------------------------
+                0.01    0.30  101937/101937      PenIda <cycle 1> [7]
+[16]    11.1    0.01    0.30  101937         PenMakeMove [16]
+                0.00    0.17   95651/95651       UpdateReach [22]
+                0.02    0.09   98314/196628      PenUpdateLowerBound [21]
+                0.01    0.00    2663/128986      MarkReach [13]
+                0.01    0.00    3623/8196        PenLowerBound [52]
+                0.00    0.00    3623/102716      MarkReachQuick [72]
+                0.00    0.00    5227/1096692     GetManDir [56]
+                0.00    0.00   98314/301032      UpdateHashKey [96]
+                0.00    0.00    3623/15810       NormHashKey [114]
+-----------------------------------------------
+                0.00    0.00       3/319992      StartIda [3]
+                0.00    0.00      70/319992      PenMove [6]
+                0.00    0.00      73/319992      AreaMove [20]
+                0.00    0.00    1324/319992      DeadStartIda <cycle 1> [84]
+                0.00    0.00    1429/319992      MinMatch [83]
+                0.00    0.00    1831/319992      PenStartIda <cycle 1> [82]
+                0.00    0.00    7462/319992      DeadLowerBound [53]
+                0.00    0.00    8196/319992      PenLowerBound [52]
+                0.05    0.04  102976/319992      DeadUpdateLowerBound [24]
+                0.10    0.07  196628/319992      PenUpdateLowerBound [21]
+[17]    10.2    0.16    0.12  319992         GetPenalty [17]
+                0.09    0.00 1574089/1574089     AllBitsSetBS [42]
+                0.01    0.00  118426/429392      BitOrEqBS [48]
+                0.01    0.00  319992/319992      BitAndNotButOrBS [70]
+                0.01    0.00  319992/319992      LogAndNotAndNotBS [71]
+                0.00    0.00   25222/26210       LogAndBS [111]
+                0.00    0.00    4225/36221       BitNext [107]
+                0.00    0.00    3015/3015        FindTransitiveClosure [125]
+                0.00    0.00    3015/3015        Maximize [126]
+-----------------------------------------------
+                0.00    0.00     298/94345       Ida [5]
+                0.01    0.09   38381/94345       DeadIda <cycle 1> [10]
+                0.01    0.13   55666/94345       PenIda <cycle 1> [7]
+[18]     9.1    0.03    0.23   94345         GenerateMoves [18]
+                0.02    0.14  670452/670452      SubMacro [23]
+                0.01    0.06  763258/763258      DeadLock [44]
+-----------------------------------------------
+                0.00    0.25       1/1           MainMenu [1]
+[19]     9.0    0.00    0.25       1         ReadMaze [19]
+                0.00    0.12       1/1           FindMacros [27]
+                0.00    0.12       1/1           MarkAll [29]
+                0.00    0.01       1/1           SetLocalCut [74]
+                0.00    0.00       1/9           BetterLowerBound [90]
+                0.00    0.00      37/150         My_realloc [153]
+                0.00    0.00       1/1           ResetMaze [217]
+                0.00    0.00       1/15810       NormHashKey [114]
+-----------------------------------------------
+                0.00    0.21     306/306         Ida [5]
+[20]     7.5    0.00    0.21     306         AreaMove [20]
+                0.00    0.17      73/1083        DeadStartIda <cycle 1> [84]
+                0.00    0.04      18/1083        PenMiniConflict <cycle 1> [80]
+                0.00    0.00      73/950         PenDeactivateStones [73]
+                0.00    0.00      73/319992      GetPenalty [17]
+                0.00    0.00      73/429392      BitOrEqBS [48]
+                0.00    0.00     306/306         FindFringeStones [147]
+                0.00    0.00      73/277         InitIDA [148]
+                0.00    0.00      73/199         UpdateMaze [152]
+                0.00    0.00      73/256661      AbortSearch [98]
+                0.00    0.00      72/72          AddMoreStones [168]
+-----------------------------------------------
+                0.02    0.09   98314/196628      PenMakeMove [16]
+                0.02    0.09   98314/196628      PenUnMakeMove [30]
+[21]     7.5    0.03    0.18  196628         PenUpdateLowerBound [21]
+                0.10    0.07  196628/319992      GetPenalty [17]
+                0.00    0.00  224370/1096692     GetManDir [56]
+-----------------------------------------------
+                0.00    0.17   95651/95651       PenMakeMove [16]
+[22]     6.0    0.00    0.17   95651         UpdateReach [22]
+                0.14    0.01  240758/240758      UnReach [25]
+                0.00    0.01   95651/102716      MarkReachQuick [72]
+                0.01    0.00   95651/327353      BitNotAndNotAndNotBS [51]
+-----------------------------------------------
+                                4650             SubMacro [23]
+                0.02    0.14  670452/670452      GenerateMoves [18]
+[23]     5.7    0.02    0.14  670452+4650    SubMacro [23]
+                0.03    0.11    4727/4727        DistToGoal [26]
+                                4650             SubMacro [23]
+-----------------------------------------------
+                0.03    0.05   51488/102976      DeadMakeMove [14]
+                0.03    0.05   51488/102976      DeadUnMakeMove [41]
+[24]     5.5    0.06    0.09  102976         DeadUpdateLowerBound [24]
+                0.05    0.04  102976/319992      GetPenalty [17]
+                0.00    0.00  144342/1096692     GetManDir [56]
+-----------------------------------------------
+                0.14    0.01  240758/240758      UpdateReach [22]
+[25]     5.4    0.14    0.01  240758         UnReach [25]
+                0.01    0.00  134027/157164      BitAndNotEqBS [66]
+-----------------------------------------------
+                0.03    0.11    4727/4727        SubMacro [23]
+[26]     5.0    0.03    0.11    4727         DistToGoal [26]
+                0.11    0.00   19165/128986      MarkReach [13]
+                0.00    0.00   14658/264366      DiffToDir [97]
+-----------------------------------------------
+                0.00    0.12       1/1           ReadMaze [19]
+[27]     4.5    0.00    0.12       1         FindMacros [27]
+                0.00    0.11       1/1           StartBuildGMTree [34]
+                0.00    0.01       1/1           GrowRoom [59]
+                0.00    0.00       1/1460        PickUpEntrances [62]
+                0.00    0.00      30/30          FindEndTunnel [175]
+                0.00    0.00      18/18          FindStartEndTunnel [177]
+                0.00    0.00       3/3           AddMacro [189]
+                0.00    0.00       2/150         My_realloc [153]
+                0.00    0.00       1/2           InitHashTables [198]
+                0.00    0.00       1/1           InitGRoom [207]
+-----------------------------------------------
+                0.00    0.00    4356/89204       XDistHist [75]
+                0.02    0.10   84848/89204       NewAddScew [31]
+[28]     4.3    0.02    0.10   89204         GetScew [28]
+                0.10    0.00 3705489/3708235     GetOptDist [40]
+-----------------------------------------------
+                0.00    0.12       1/1           ReadMaze [19]
+[29]     4.3    0.00    0.12       1         MarkAll [29]
+                0.00    0.11       1/1           SetDistDistances [32]
+                0.00    0.00       1/7           GetNewDistances [50]
+                0.00    0.00       1/1           MarkTG [89]
+                0.00    0.00       1/128986      MarkReach [13]
+                0.00    0.00       1/1           MarkOut [213]
+                0.00    0.00       1/1           MarkDead [212]
+                0.00    0.00       1/1           SetAllStonesDone [218]
+                0.00    0.00       1/1           MarkTun [214]
+                0.00    0.00       1/1           SetDistDead [219]
+-----------------------------------------------
+                0.00    0.12  101937/101937      PenIda <cycle 1> [7]
+[30]     4.2    0.00    0.12  101937         PenUnMakeMove [30]
+                0.02    0.09   98314/196628      PenUpdateLowerBound [21]
+                0.01    0.00    3623/8196        PenLowerBound [52]
+                0.00    0.00   98314/301032      UpdateHashKey [96]
+                0.00    0.00    3623/15810       NormHashKey [114]
+-----------------------------------------------
+                0.00    0.11   84848/84848       SetDistDistances [32]
+[31]     4.1    0.00    0.11   84848         NewAddScew [31]
+                0.02    0.10   84848/89204       GetScew [28]
+-----------------------------------------------
+                0.00    0.11       1/1           MarkAll [29]
+[32]     4.1    0.00    0.11       1         SetDistDistances [32]
+                0.00    0.11   84848/84848       NewAddScew [31]
+                0.00    0.00       1/109         My_malloc [157]
+-----------------------------------------------
+[33]     4.0    0.00    0.11       1+496     <cycle 2 as a whole> [33]
+                0.00    0.11      95             BuildGMTree <cycle 2> [35]
+                0.00    0.00     391             CreatePropGMacro <cycle 2> [92]
+                0.00    0.00      11             CreateAllGMacro <cycle 2> [181]
+-----------------------------------------------
+                0.00    0.11       1/1           FindMacros [27]
+[34]     4.0    0.00    0.11       1         StartBuildGMTree [34]
+                0.00    0.11       1/1           BuildGMTree <cycle 2> [35]
+                0.00    0.00       1/1           GMInitHashTable [205]
+                0.00    0.00       1/277         InitIDA [148]
+                0.00    0.00       1/8           CopyMaze [182]
+                0.00    0.00       1/36005       Debug [108]
+                0.00    0.00       1/8           DelCopiedMaze [183]
+-----------------------------------------------
+                                   2             CreateAllGMacro <cycle 2> [181]
+                                  92             CreatePropGMacro <cycle 2> [92]
+                0.00    0.11       1/1           StartBuildGMTree [34]
+[35]     4.0    0.00    0.11      95         BuildGMTree <cycle 2> [35]
+                0.00    0.11      56/56          GetSquareValues [36]
+                0.00    0.00     151/15810       NormHashKey [114]
+                0.00    0.00      95/95          GMGetHashTable [158]
+                0.00    0.00      58/58          GetGMTree [171]
+                0.00    0.00      56/56          GMStoreHashTable [172]
+                                 391             CreatePropGMacro <cycle 2> [92]
+                                  11             CreateAllGMacro <cycle 2> [181]
+-----------------------------------------------
+                0.00    0.11      56/56          BuildGMTree <cycle 2> [35]
+[36]     4.0    0.00    0.11      56         GetSquareValues [36]
+                0.00    0.10     490/546         GetBaseProps [39]
+                0.00    0.01      56/56          GetProperties [61]
+                0.00    0.00     546/546         Communicating [78]
+                0.00    0.00     490/490         ValueSquare [142]
+-----------------------------------------------
+                0.00    0.00     967/21813       Communicating [78]
+                0.11    0.00   20846/21813       GoalReach [38]
+[37]     4.0    0.11    0.00   21813         MarkReachGRoom [37]
+                0.00    0.00   21813/157164      BitAndNotEqBS [66]
+                0.00    0.00   21813/21813       CleanReach [113]
+                0.00    0.00   21813/23329       BitNotAndNotBS [112]
+-----------------------------------------------
+                0.00    0.11    4356/4356        GetBaseProps [39]
+[38]     3.9    0.00    0.11    4356         GoalReach [38]
+                0.11    0.00   20846/21813       MarkReachGRoom [37]
+                0.00    0.00   13607/1096692     GetManDir [56]
+                0.00    0.00   25237/264366      DiffToDir [97]
+-----------------------------------------------
+                0.00    0.01      56/546         GetProperties [61]
+                0.00    0.10     490/546         GetSquareValues [36]
+[39]     3.9    0.00    0.11     546         GetBaseProps [39]
+                0.00    0.11    4356/4356        GoalReach [38]
+-----------------------------------------------
+                0.00    0.00    2746/3708235     MarkTG [89]
+                0.10    0.00 3705489/3708235     GetScew [28]
+[40]     3.6    0.10    0.00 3708235         GetOptDist [40]
+-----------------------------------------------
+                0.01    0.09   54930/54930       DeadIda <cycle 1> [10]
+[41]     3.6    0.01    0.09   54930         DeadUnMakeMove [41]
+                0.03    0.05   51488/102976      DeadUpdateLowerBound [24]
+                0.01    0.00    3442/7462        DeadLowerBound [53]
+                0.00    0.00   51488/301032      UpdateHashKey [96]
+                0.00    0.00    3442/15810       NormHashKey [114]
+-----------------------------------------------
+                0.09    0.00 1574089/1574089     GetPenalty [17]
+[42]     3.3    0.09    0.00 1574089         AllBitsSetBS [42]
+-----------------------------------------------
+                0.00    0.00     278/93933       NewMoveOrdering [88]
+                0.00    0.00     915/93933       GrowDFS [60]
+                0.03    0.00   37725/93933       DeadMoveOrdering [47]
+                0.04    0.01   55015/93933       PenMoveOrdering [45]
+[43]     2.9    0.07    0.01   93933         My_qsort [43]
+                0.01    0.00  814570/814570      DeadCompare [65]
+                0.00    0.00 1256734/1256734     PenCompare [94]
+                0.00    0.00   32871/32871       EntrComp [110]
+                0.00    0.00    6609/6609        compare_negval [121]
+-----------------------------------------------
+                0.01    0.06  763258/763258      GenerateMoves [18]
+[44]     2.5    0.01    0.06  763258         DeadLock [44]
+                0.05    0.00  763258/763258      BitOrAndEqBS [46]
+                0.01    0.00  983376/983376      Frozen [64]
+                0.00    0.00  670751/670751      DeadLock2 [95]
+-----------------------------------------------
+                0.00    0.05   55666/55666       PenIda <cycle 1> [7]
+[45]     2.0    0.00    0.05   55666         PenMoveOrdering [45]
+                0.04    0.01   55015/93933       My_qsort [43]
+                0.01    0.00  402286/1096692     GetManDir [56]
+-----------------------------------------------
+                0.05    0.00  763258/763258      DeadLock [44]
+[46]     1.8    0.05    0.00  763258         BitOrAndEqBS [46]
+-----------------------------------------------
+                0.01    0.04   38381/38381       DeadIda <cycle 1> [10]
+[47]     1.7    0.01    0.04   38381         DeadMoveOrdering [47]
+                0.03    0.00   37725/93933       My_qsort [43]
+                0.00    0.00  264712/1096692     GetManDir [56]
+-----------------------------------------------
+                0.00    0.00      21/429392      AddTestedPen [91]
+                0.00    0.00      73/429392      AreaMove [20]
+                0.00    0.00     377/429392      DeadMove [11]
+                0.00    0.00     591/429392      PenMove [6]
+                0.00    0.00    5325/429392      ValidateEntrances [63]
+                0.01    0.00  105848/429392      SetManStoneSquares [8]
+                0.01    0.00  118426/429392      GetPenalty [17]
+                0.02    0.00  198731/429392      PushesMoves [9]
+[48]     1.4    0.04    0.00  429392         BitOrEqBS [48]
+-----------------------------------------------
+                0.00    0.01     250/964         ValidSolution [58]
+                0.00    0.01     250/964         PrintSolution [55]
+                0.00    0.02     464/964         Ida [5]
+[49]     1.2    0.00    0.03     964         MakeMove [49]
+                0.00    0.03       6/7           GetNewDistances [50]
+                0.01    0.00     964/128986      MarkReach [13]
+                0.00    0.00     958/958         BetterUpdateLowerBound [85]
+                0.00    0.00       6/9           BetterLowerBound [90]
+                0.00    0.00     964/301032      UpdateHashKey [96]
+                0.00    0.00      54/54          PropStonesDone [173]
+-----------------------------------------------
+                0.00    0.00       1/7           MarkAll [29]
+                0.00    0.03       6/7           MakeMove [49]
+[50]     1.1    0.00    0.03       7         GetNewDistances [50]
+                0.01    0.02       3/3           SetStoneDistances [54]
+                0.00    0.00       3/3           MarkOneConnected [79]
+                0.00    0.00       7/7           InDCache [185]
+                0.00    0.00       3/3           SetManDistances [192]
+-----------------------------------------------
+                0.01    0.00   95651/327353      UpdateReach [22]
+                0.01    0.00  102716/327353      MarkReachQuick [72]
+                0.01    0.00  128986/327353      MarkReach [13]
+[51]     1.1    0.03    0.00  327353         BitNotAndNotAndNotBS [51]
+-----------------------------------------------
+                0.00    0.00     950/8196        PenDeactivateStones [73]
+                0.01    0.00    3623/8196        PenMakeMove [16]
+                0.01    0.00    3623/8196        PenUnMakeMove [30]
+[52]     1.0    0.02    0.01    8196         PenLowerBound [52]
+                0.00    0.00    8196/319992      GetPenalty [17]
+                0.00    0.00    7974/1096692     GetManDir [56]
+-----------------------------------------------
+                0.00    0.00     578/7462        DeadDeactivateStones [76]
+                0.01    0.00    3442/7462        DeadMakeMove [14]
+                0.01    0.00    3442/7462        DeadUnMakeMove [41]
+[53]     1.0    0.02    0.01    7462         DeadLowerBound [53]
+                0.00    0.00    7462/319992      GetPenalty [17]
+                0.00    0.00   25830/1096692     GetManDir [56]
+-----------------------------------------------
+                0.01    0.02       3/3           GetNewDistances [50]
+[54]     0.9    0.01    0.02       3         SetStoneDistances [54]
+                0.02    0.00    4058/5018        MarkReachDist [57]
+                0.00    0.00       3/128986      MarkReach [13]
+                0.00    0.00       3/109         My_malloc [157]
+                0.00    0.00       3/65          BitOrBS [169]
+-----------------------------------------------
+                0.00    0.02       1/1           StartIda [3]
+[55]     0.8    0.00    0.02       1         PrintSolution [55]
+                0.00    0.01       1/1           ValidSolution [58]
+                0.00    0.01     250/964         MakeMove [49]
+                0.00    0.00     282/36005       Debug [108]
+                0.00    0.00     250/250         HumanMove [150]
+                0.00    0.00       2/8           CopyMaze [182]
+                0.00    0.00       2/8           DelCopiedMaze [183]
+-----------------------------------------------
+                0.00    0.00       1/1096692     BetterLowerBound [90]
+                0.00    0.00      42/1096692     FindBestSquare [93]
+                0.00    0.00     806/1096692     MinMatch [83]
+                0.00    0.00    1960/1096692     GetProperties [61]
+                0.00    0.00    2127/1096692     NewMoveOrdering [88]
+                0.00    0.00    3408/1096692     DeadMakeMove [14]
+                0.00    0.00    5227/1096692     PenMakeMove [16]
+                0.00    0.00    7974/1096692     PenLowerBound [52]
+                0.00    0.00   13607/1096692     GoalReach [38]
+                0.00    0.00   25830/1096692     DeadLowerBound [53]
+                0.00    0.00  144342/1096692     DeadUpdateLowerBound [24]
+                0.00    0.00  224370/1096692     PenUpdateLowerBound [21]
+                0.00    0.00  264712/1096692     DeadMoveOrdering [47]
+                0.01    0.00  402286/1096692     PenMoveOrdering [45]
+[56]     0.7    0.02    0.00 1096692         GetManDir [56]
+-----------------------------------------------
+                0.00    0.00     960/5018        MarkOneConnected [79]
+                0.02    0.00    4058/5018        SetStoneDistances [54]
+[57]     0.7    0.02    0.00    5018         MarkReachDist [57]
+-----------------------------------------------
+                0.00    0.01       1/1           PrintSolution [55]
+[58]     0.5    0.00    0.01       1         ValidSolution [58]
+                0.00    0.01     250/964         MakeMove [49]
+                0.00    0.01     250/53174       PushesMoves [9]
+                0.00    0.00       1/734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.01       1/1           FindMacros [27]
+[59]     0.4    0.00    0.01       1         GrowRoom [59]
+                0.00    0.01       1/1           GrowDFS [60]
+                0.00    0.00       1/1460        PickUpEntrances [62]
+                0.00    0.00      18/10123       GroomExcPos [119]
+                0.00    0.00      18/10141       GroomIncPos [118]
+                0.00    0.00       1/1           SetMinDist [220]
+                0.00    0.00       1/1           AsimGoals [202]
+                0.00    0.00       1/1459        EvaluateGroom [132]
+                0.00    0.00       1/1           PrintBit2Maze [216]
+-----------------------------------------------
+                               10105             GrowDFS [60]
+                0.00    0.01       1/1           GrowRoom [59]
+[60]     0.4    0.00    0.01       1+10105   GrowDFS [60]
+                0.00    0.01    1458/1460        PickUpEntrances [62]
+                0.00    0.00     915/93933       My_qsort [43]
+                0.00    0.00   10106/160429      IncNodeCount [101]
+                0.00    0.00   10105/10141       GroomIncPos [118]
+                0.00    0.00   10105/10123       GroomExcPos [119]
+                0.00    0.00   10000/11460       BitAndNotBS [117]
+                0.00    0.00   10000/11485       Isnt0BS [116]
+                0.00    0.00   10000/10000       GGGetHashTable [120]
+                0.00    0.00    1458/1458        GGStoreHashTable [133]
+                0.00    0.00    1458/1459        EvaluateGroom [132]
+                               10105             GrowDFS [60]
+-----------------------------------------------
+                0.00    0.01      56/56          GetSquareValues [36]
+[61]     0.4    0.00    0.01      56         GetProperties [61]
+                0.00    0.01      56/546         GetBaseProps [39]
+                0.00    0.00    1960/1096692     GetManDir [56]
+                0.00    0.00      56/65          BitOrBS [169]
+-----------------------------------------------
+                0.00    0.00       1/1460        GrowRoom [59]
+                0.00    0.00       1/1460        FindMacros [27]
+                0.00    0.01    1458/1460        GrowDFS [60]
+[62]     0.4    0.00    0.01    1460         PickUpEntrances [62]
+                0.00    0.01    1460/1460        ValidateEntrances [63]
+-----------------------------------------------
+                0.00    0.01    1460/1460        PickUpEntrances [62]
+[63]     0.4    0.00    0.01    1460         ValidateEntrances [63]
+                0.01    0.00    5325/5325        StoneReach [69]
+                0.00    0.00    5325/429392      BitOrEqBS [48]
+                0.00    0.00    1460/11460       BitAndNotBS [117]
+                0.00    0.00    1460/11485       Isnt0BS [116]
+-----------------------------------------------
+                              200130             Frozen [64]
+                0.01    0.00  983376/983376      DeadLock [44]
+[64]     0.4    0.01    0.00  983376+200130  Frozen [64]
+                              200130             Frozen [64]
+-----------------------------------------------
+                0.01    0.00  814570/814570      My_qsort [43]
+[65]     0.4    0.01    0.00  814570         DeadCompare [65]
+-----------------------------------------------
+                0.00    0.00     533/157164      DeadMove [11]
+                0.00    0.00     791/157164      PenMove [6]
+                0.00    0.00   21813/157164      MarkReachGRoom [37]
+                0.01    0.00  134027/157164      UnReach [25]
+[66]     0.4    0.01    0.00  157164         BitAndNotEqBS [66]
+-----------------------------------------------
+                0.00    0.00   42003/107567      DeadIda <cycle 1> [10]
+                0.01    0.00   65564/107567      PenIda <cycle 1> [7]
+[67]     0.4    0.01    0.00  107567         PSGetHashTable [67]
+-----------------------------------------------
+                0.01    0.00   42434/42434       DeadIda <cycle 1> [10]
+[68]     0.4    0.01    0.00   42434         DeadIsGoalNode [68]
+                0.00    0.00   42184/43162       NumberBitsBS [106]
+-----------------------------------------------
+                0.01    0.00    5325/5325        ValidateEntrances [63]
+[69]     0.4    0.01    0.00    5325         StoneReach [69]
+                0.00    0.00   30317/264366      DiffToDir [97]
+-----------------------------------------------
+                0.01    0.00  319992/319992      GetPenalty [17]
+[70]     0.4    0.01    0.00  319992         BitAndNotButOrBS [70]
+-----------------------------------------------
+                0.01    0.00  319992/319992      GetPenalty [17]
+[71]     0.4    0.01    0.00  319992         LogAndNotAndNotBS [71]
+-----------------------------------------------
+                0.00    0.00    3442/102716      DeadMakeMove [14]
+                0.00    0.00    3623/102716      PenMakeMove [16]
+                0.00    0.01   95651/102716      UpdateReach [22]
+[72]     0.3    0.00    0.01  102716         MarkReachQuick [72]
+                0.01    0.00  102716/327353      BitNotAndNotAndNotBS [51]
+-----------------------------------------------
+                0.00    0.00      73/950         AreaMove [20]
+                0.00    0.00     286/950         PenMiniConflict <cycle 1> [80]
+                0.00    0.01     591/950         PenMove [6]
+[73]     0.3    0.00    0.01     950         PenDeactivateStones [73]
+                0.01    0.00     950/128986      MarkReach [13]
+                0.00    0.00     950/8196        PenLowerBound [52]
+                0.00    0.00     950/15810       NormHashKey [114]
+-----------------------------------------------
+                0.00    0.01       1/1           ReadMaze [19]
+[74]     0.2    0.00    0.01       1         SetLocalCut [74]
+                0.00    0.01       1/1           XDistHist [75]
+                0.00    0.00       1/734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.01       1/1           SetLocalCut [74]
+[75]     0.2    0.00    0.01       1         XDistHist [75]
+                0.00    0.00    4356/89204       GetScew [28]
+                0.00    0.00   14686/14686       IncCounter [115]
+                0.00    0.00     132/132         ResetHist [154]
+                0.00    0.00       4/4           InitHist [188]
+                0.00    0.00       2/2           GetAvgHist [196]
+-----------------------------------------------
+                0.00    0.00     185/578         DeadMiniConflict <cycle 1> [81]
+                0.00    0.00     393/578         DeadMove [11]
+[76]     0.2    0.00    0.01     578         DeadDeactivateStones [76]
+                0.00    0.00     578/128986      MarkReach [13]
+                0.00    0.00     578/7462        DeadLowerBound [53]
+                0.00    0.00     578/15810       NormHashKey [114]
+-----------------------------------------------
+                                                 <spontaneous>
+[77]     0.2    0.01    0.00                 compare_val [77]
+-----------------------------------------------
+                0.00    0.00     546/546         GetSquareValues [36]
+[78]     0.2    0.00    0.00     546         Communicating [78]
+                0.00    0.00     967/21813       MarkReachGRoom [37]
+-----------------------------------------------
+                0.00    0.00       3/3           GetNewDistances [50]
+[79]     0.1    0.00    0.00       3         MarkOneConnected [79]
+                0.00    0.00     960/5018        MarkReachDist [57]
+                0.00    0.00       3/109         My_malloc [157]
+                0.00    0.00       3/65          BitOrBS [169]
+-----------------------------------------------
+                                  12             PenMiniConflict <cycle 1> [80]
+                                  12             DeadMiniConflict <cycle 1> [81]
+                0.00    0.02       8/1083        PenMove [6]
+                0.00    0.04      18/1083        AreaMove [20]
+[80]     0.1    0.00    0.00      38+12      PenMiniConflict <cycle 1> [80]
+                0.00    0.00     286/950         PenDeactivateStones [73]
+                0.00    0.00     286/471         FindFarthestPosStone [143]
+                0.00    0.00      42/277         InitIDA [148]
+                0.00    0.00      42/76          SaveMaze [164]
+                0.00    0.00      42/85          AddConflict [160]
+                0.00    0.00      42/76          RestoreMaze [163]
+                                 244             PenStartIda <cycle 1> [82]
+                                   8             DeadMiniConflict <cycle 1> [81]
+                                  12             PenMiniConflict <cycle 1> [80]
+-----------------------------------------------
+                                   8             PenMiniConflict <cycle 1> [80]
+                                  10             PenIda <cycle 1> [7]
+                                  16             DeadIda <cycle 1> [10]
+[81]     0.1    0.00    0.00      34         DeadMiniConflict <cycle 1> [81]
+                0.00    0.00     185/578         DeadDeactivateStones [76]
+                0.00    0.00     185/471         FindFarthestPosStone [143]
+                0.00    0.00      34/277         InitIDA [148]
+                0.00    0.00      34/76          SaveMaze [164]
+                0.00    0.00      34/85          AddConflict [160]
+                0.00    0.00      34/76          RestoreMaze [163]
+                                 151             DeadStartIda <cycle 1> [84]
+                                  12             PenStartIda <cycle 1> [82]
+                                  12             PenMiniConflict <cycle 1> [80]
+-----------------------------------------------
+                                  12             DeadMiniConflict <cycle 1> [81]
+                                 244             PenMiniConflict <cycle 1> [80]
+                0.00    1.34     591/1083        PenMove [6]
+[82]     0.1    0.00    0.00     847         PenStartIda <cycle 1> [82]
+                0.00    0.00    1831/319992      GetPenalty [17]
+                0.00    0.00    1111/256661      AbortSearch [98]
+                0.00    0.00     843/1461        init_stats [131]
+                0.00    0.00     843/23329       BitNotAndNotBS [112]
+                0.00    0.00     843/1553        print_stats [130]
+                                 988             PenIda <cycle 1> [7]
+-----------------------------------------------
+                0.00    0.00       9/1429        BetterLowerBound [90]
+                0.00    0.00     462/1429        BetterUpdateLowerBound2 [87]
+                0.00    0.00     958/1429        BetterUpdateLowerBound [85]
+[83]     0.0    0.00    0.00    1429         MinMatch [83]
+                0.00    0.00    1429/319992      GetPenalty [17]
+                0.00    0.00     806/1096692     GetManDir [56]
+-----------------------------------------------
+                                 151             DeadMiniConflict <cycle 1> [81]
+                0.00    0.17      73/1083        AreaMove [20]
+                0.00    0.89     393/1083        DeadMove [11]
+[84]     0.0    0.00    0.00     617         DeadStartIda <cycle 1> [84]
+                0.00    0.00    1324/319992      GetPenalty [17]
+                0.00    0.00    1414/256661      AbortSearch [98]
+                0.00    0.00     707/1553        print_stats [130]
+                0.00    0.00     617/1461        init_stats [131]
+                0.00    0.00     617/23329       BitNotAndNotBS [112]
+                                 707             DeadIda <cycle 1> [10]
+-----------------------------------------------
+                0.00    0.00     958/958         MakeMove [49]
+[85]     0.0    0.00    0.00     958         BetterUpdateLowerBound [85]
+                0.00    0.00     958/1429        MinMatch [83]
+-----------------------------------------------
+                0.00    0.00     464/464         Ida [5]
+[86]     0.0    0.00    0.00     464         UnMakeMove [86]
+                0.00    0.00     462/462         BetterUpdateLowerBound2 [87]
+                0.00    0.00       2/9           BetterLowerBound [90]
+                0.00    0.00     464/301032      UpdateHashKey [96]
+-----------------------------------------------
+                0.00    0.00     462/462         UnMakeMove [86]
+[87]     0.0    0.00    0.00     462         BetterUpdateLowerBound2 [87]
+                0.00    0.00     462/1429        MinMatch [83]
+-----------------------------------------------
+                0.00    0.00     298/298         Ida [5]
+[88]     0.0    0.00    0.00     298         NewMoveOrdering [88]
+                0.00    0.00     278/93933       My_qsort [43]
+                0.00    0.00    2127/1096692     GetManDir [56]
+-----------------------------------------------
+                0.00    0.00       1/1           MarkAll [29]
+[89]     0.0    0.00    0.00       1         MarkTG [89]
+                0.00    0.00    2746/3708235     GetOptDist [40]
+                0.00    0.00       9/85          AddConflict [160]
+                0.00    0.00       3/264366      DiffToDir [97]
+-----------------------------------------------
+                0.00    0.00       1/9           ReadMaze [19]
+                0.00    0.00       2/9           UnMakeMove [86]
+                0.00    0.00       6/9           MakeMove [49]
+[90]     0.0    0.00    0.00       9         BetterLowerBound [90]
+                0.00    0.00       9/1429        MinMatch [83]
+                0.00    0.00       1/1096692     GetManDir [56]
+-----------------------------------------------
+                0.00    0.00      21/21          PenMove [6]
+[91]     0.0    0.00    0.00      21         AddTestedPen [91]
+                0.00    0.00      21/429392      BitOrEqBS [48]
+                0.00    0.00      21/43162       NumberBitsBS [106]
+                0.00    0.00       1/150         My_realloc [153]
+-----------------------------------------------
+                                 391             BuildGMTree <cycle 2> [35]
+[92]     0.0    0.00    0.00     391         CreatePropGMacro <cycle 2> [92]
+                0.00    0.00     391/391         FindBestSquare [93]
+                0.00    0.00      92/94          CreateGMacro [159]
+                                  92             BuildGMTree <cycle 2> [35]
+-----------------------------------------------
+                0.00    0.00     391/391         CreatePropGMacro <cycle 2> [92]
+[93]     0.0    0.00    0.00     391         FindBestSquare [93]
+                0.00    0.00      42/1096692     GetManDir [56]
+                0.00    0.00     559/559         ValueSquareEntr [141]
+-----------------------------------------------
+                0.00    0.00 1256734/1256734     My_qsort [43]
+[94]     0.0    0.00    0.00 1256734         PenCompare [94]
+-----------------------------------------------
+                0.00    0.00  670751/670751      DeadLock [44]
+[95]     0.0    0.00    0.00  670751         DeadLock2 [95]
+                0.00    0.00   36773/264366      DiffToDir [97]
+                0.00    0.00   32095/189426      DeadTree [100]
+-----------------------------------------------
+                0.00    0.00     464/301032      UnMakeMove [86]
+                0.00    0.00     964/301032      MakeMove [49]
+                0.00    0.00   51488/301032      DeadMakeMove [14]
+                0.00    0.00   51488/301032      DeadUnMakeMove [41]
+                0.00    0.00   98314/301032      PenMakeMove [16]
+                0.00    0.00   98314/301032      PenUnMakeMove [30]
+[96]     0.0    0.00    0.00  301032         UpdateHashKey [96]
+-----------------------------------------------
+                0.00    0.00       3/264366      MarkTG [89]
+                0.00    0.00      18/264366      FindStartEndTunnel [177]
+                0.00    0.00      29/264366      FindEndTunnel [175]
+                0.00    0.00     464/264366      Ida [5]
+                0.00    0.00   14658/264366      DistToGoal [26]
+                0.00    0.00   25237/264366      GoalReach [38]
+                0.00    0.00   30317/264366      StoneReach [69]
+                0.00    0.00   36773/264366      DeadLock2 [95]
+                0.00    0.00   54930/264366      DeadIda <cycle 1> [10]
+                0.00    0.00  101937/264366      PenIda <cycle 1> [7]
+[97]     0.0    0.00    0.00  264366         DiffToDir [97]
+-----------------------------------------------
+                0.00    0.00       3/256661      StartIda [3]
+                0.00    0.00      73/256661      AreaMove [20]
+                0.00    0.00     393/256661      DeadMove [11]
+                0.00    0.00     467/256661      Ida [5]
+                0.00    0.00     591/256661      PenMove [6]
+                0.00    0.00    1111/256661      PenStartIda <cycle 1> [82]
+                0.00    0.00    1414/256661      DeadStartIda <cycle 1> [84]
+                0.00    0.00   94018/256661      DeadIda <cycle 1> [10]
+                0.00    0.00  158591/256661      PenIda <cycle 1> [7]
+[98]     0.0    0.00    0.00  256661         AbortSearch [98]
+-----------------------------------------------
+                0.00    0.00  198731/198731      PushesMoves [9]
+[99]     0.0    0.00    0.00  198731         GenAllSquares [99]
+-----------------------------------------------
+                0.00    0.00     464/189426      Ida [5]
+                0.00    0.00   32095/189426      DeadLock2 [95]
+                0.00    0.00   54930/189426      DeadIda <cycle 1> [10]
+                0.00    0.00  101937/189426      PenIda <cycle 1> [7]
+[100]    0.0    0.00    0.00  189426         DeadTree [100]
+-----------------------------------------------
+                0.00    0.00     467/160429      Ida [5]
+                0.00    0.00   10106/160429      GrowDFS [60]
+                0.00    0.00   53994/160429      DeadIda <cycle 1> [10]
+                0.00    0.00   95862/160429      PenIda <cycle 1> [7]
+[101]    0.0    0.00    0.00  160429         IncNodeCount [101]
+-----------------------------------------------
+                0.00    0.00   60699/151423      DeadIda <cycle 1> [10]
+                0.00    0.00   90724/151423      PenIda <cycle 1> [7]
+[102]    0.0    0.00    0.00  151423         PSStoreHashTable [102]
+-----------------------------------------------
+                0.00    0.00    2423/117418      FindClosestPosMan [145]
+                0.00    0.00  114995/117418      DistantSquares [105]
+[103]    0.0    0.00    0.00  117418         XDistMan [103]
+-----------------------------------------------
+                0.00    0.00   65802/65802       PenIda <cycle 1> [7]
+[104]    0.0    0.00    0.00   65802         PenIsGoalNode [104]
+-----------------------------------------------
+                0.00    0.00    3413/64847       DistantMove [124]
+                0.00    0.00   61434/64847       Crowding [123]
+[105]    0.0    0.00    0.00   64847         DistantSquares [105]
+                0.00    0.00  114995/117418      XDistMan [103]
+-----------------------------------------------
+                0.00    0.00      21/43162       AddTestedPen [91]
+                0.00    0.00      85/43162       AddConflict [160]
+                0.00    0.00     345/43162       DeadMove [11]
+                0.00    0.00     527/43162       PenMove [6]
+                0.00    0.00   42184/43162       DeadIsGoalNode [68]
+[106]    0.0    0.00    0.00   43162         NumberBitsBS [106]
+-----------------------------------------------
+                0.00    0.00    4225/36221       GetPenalty [17]
+                0.00    0.00    8855/36221       FindTransitiveClosure [125]
+                0.00    0.00   23141/36221       Maximize [126]
+[107]    0.0    0.00    0.00   36221         BitNext [107]
+-----------------------------------------------
+                0.00    0.00       1/36005       StartBuildGMTree [34]
+                0.00    0.00       3/36005       StartIda [3]
+                0.00    0.00     282/36005       PrintSolution [55]
+                0.00    0.00   35719/36005       print_stats [130]
+[108]    0.0    0.00    0.00   36005         Debug [108]
+                0.00    0.00     428/734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.00   15161/33795       DeadIda <cycle 1> [10]
+                0.00    0.00   18634/33795       PenIda <cycle 1> [7]
+[109]    0.0    0.00    0.00   33795         PSSetPathFlag [109]
+-----------------------------------------------
+                0.00    0.00   32871/32871       My_qsort [43]
+[110]    0.0    0.00    0.00   32871         EntrComp [110]
+-----------------------------------------------
+                0.00    0.00     475/26210       DeadMoveSuspected [151]
+                0.00    0.00     513/26210       PenMoveSuspected [149]
+                0.00    0.00   25222/26210       GetPenalty [17]
+[111]    0.0    0.00    0.00   26210         LogAndBS [111]
+-----------------------------------------------
+                0.00    0.00      56/23329       DeadMove [11]
+                0.00    0.00     617/23329       DeadStartIda <cycle 1> [84]
+                0.00    0.00     843/23329       PenStartIda <cycle 1> [82]
+                0.00    0.00   21813/23329       MarkReachGRoom [37]
+[112]    0.0    0.00    0.00   23329         BitNotAndNotBS [112]
+-----------------------------------------------
+                0.00    0.00   21813/21813       MarkReachGRoom [37]
+[113]    0.0    0.00    0.00   21813         CleanReach [113]
+-----------------------------------------------
+                0.00    0.00       1/15810       ReadMaze [19]
+                0.00    0.00     151/15810       BuildGMTree <cycle 2> [35]
+                0.00    0.00     578/15810       DeadDeactivateStones [76]
+                0.00    0.00     950/15810       PenDeactivateStones [73]
+                0.00    0.00    3442/15810       DeadMakeMove [14]
+                0.00    0.00    3442/15810       DeadUnMakeMove [41]
+                0.00    0.00    3623/15810       PenMakeMove [16]
+                0.00    0.00    3623/15810       PenUnMakeMove [30]
+[114]    0.0    0.00    0.00   15810         NormHashKey [114]
+-----------------------------------------------
+                0.00    0.00   14686/14686       XDistHist [75]
+[115]    0.0    0.00    0.00   14686         IncCounter [115]
+-----------------------------------------------
+                0.00    0.00      25/11485       PenMove [6]
+                0.00    0.00    1460/11485       ValidateEntrances [63]
+                0.00    0.00   10000/11485       GrowDFS [60]
+[116]    0.0    0.00    0.00   11485         Isnt0BS [116]
+-----------------------------------------------
+                0.00    0.00    1460/11460       ValidateEntrances [63]
+                0.00    0.00   10000/11460       GrowDFS [60]
+[117]    0.0    0.00    0.00   11460         BitAndNotBS [117]
+-----------------------------------------------
+                0.00    0.00      18/10141       AsimGoals [202]
+                0.00    0.00      18/10141       GrowRoom [59]
+                0.00    0.00   10105/10141       GrowDFS [60]
+[118]    0.0    0.00    0.00   10141         GroomIncPos [118]
+-----------------------------------------------
+                0.00    0.00      18/10123       GrowRoom [59]
+                0.00    0.00   10105/10123       GrowDFS [60]
+[119]    0.0    0.00    0.00   10123         GroomExcPos [119]
+-----------------------------------------------
+                0.00    0.00   10000/10000       GrowDFS [60]
+[120]    0.0    0.00    0.00   10000         GGGetHashTable [120]
+-----------------------------------------------
+                0.00    0.00    6609/6609        My_qsort [43]
+[121]    0.0    0.00    0.00    6609         compare_negval [121]
+-----------------------------------------------
+                0.00    0.00    1311/3642        FindClosestPosStone [135]
+                0.00    0.00    2331/3642        FindFarthestPosStone [143]
+[122]    0.0    0.00    0.00    3642         XDistStone [122]
+-----------------------------------------------
+                0.00    0.00    3413/3413        DistantMove [124]
+[123]    0.0    0.00    0.00    3413         Crowding [123]
+                0.00    0.00   61434/64847       DistantSquares [105]
+-----------------------------------------------
+                0.00    0.00    3413/3413        RegisterMove [138]
+[124]    0.0    0.00    0.00    3413         DistantMove [124]
+                0.00    0.00    3413/3413        Crowding [123]
+                0.00    0.00    3413/64847       DistantSquares [105]
+-----------------------------------------------
+                0.00    0.00    3015/3015        GetPenalty [17]
+[125]    0.0    0.00    0.00    3015         FindTransitiveClosure [125]
+                0.00    0.00    8855/36221       BitNext [107]
+-----------------------------------------------
+                               10063             Maximize [126]
+                0.00    0.00    3015/3015        GetPenalty [17]
+[126]    0.0    0.00    0.00    3015+10063   Maximize [126]
+                0.00    0.00   23141/36221       BitNext [107]
+                               10063             Maximize [126]
+-----------------------------------------------
+                0.00    0.00    2920/2920        RemoveDuplicates [161]
+[127]    0.0    0.00    0.00    2920         SubsetBS [127]
+-----------------------------------------------
+                0.00    0.00     902/2876        DeadIda <cycle 1> [10]
+                0.00    0.00    1974/2876        PenIda <cycle 1> [7]
+[128]    0.0    0.00    0.00    2876         PSUnSetPathFlag [128]
+-----------------------------------------------
+                0.00    0.00    2604/2604        ValueSquare [142]
+[129]    0.0    0.00    0.00    2604         NumberBitsInt [129]
+-----------------------------------------------
+                0.00    0.00       3/1553        StartIda [3]
+                0.00    0.00     707/1553        DeadStartIda <cycle 1> [84]
+                0.00    0.00     843/1553        PenStartIda <cycle 1> [82]
+[130]    0.0    0.00    0.00    1553         print_stats [130]
+                0.00    0.00   35719/36005       Debug [108]
+                0.00    0.00     268/734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.00       1/1461        StartIda [3]
+                0.00    0.00     617/1461        DeadStartIda <cycle 1> [84]
+                0.00    0.00     843/1461        PenStartIda <cycle 1> [82]
+[131]    0.0    0.00    0.00    1461         init_stats [131]
+-----------------------------------------------
+                0.00    0.00       1/1459        GrowRoom [59]
+                0.00    0.00    1458/1459        GrowDFS [60]
+[132]    0.0    0.00    0.00    1459         EvaluateGroom [132]
+-----------------------------------------------
+                0.00    0.00    1458/1458        GrowDFS [60]
+[133]    0.0    0.00    0.00    1458         GGStoreHashTable [133]
+-----------------------------------------------
+                0.00    0.00     393/984         DeadMove [11]
+                0.00    0.00     591/984         PenMove [6]
+[134]    0.0    0.00    0.00     984         BitAndNotAndNotBS [134]
+-----------------------------------------------
+                0.00    0.00     377/929         DeadMove [11]
+                0.00    0.00     552/929         PenMove [6]
+[135]    0.0    0.00    0.00     929         FindClosestPosStone [135]
+                0.00    0.00    1311/3642        XDistStone [122]
+-----------------------------------------------
+                0.00    0.00      11/828         FreeDCache [195]
+                0.00    0.00      13/828         DelConflicts [194]
+                0.00    0.00      40/828         DelCopiedMaze [183]
+                0.00    0.00     116/828         DelGMTree [203]
+                0.00    0.00     323/828         ResetMaze [217]
+                0.00    0.00     325/828         DelMaze [204]
+[136]    0.0    0.00    0.00     828         My_free [136]
+-----------------------------------------------
+                0.00    0.00       1/734         ValidSolution [58]
+                0.00    0.00       1/734         SetLocalCut [74]
+                0.00    0.00       1/734         main [2]
+                0.00    0.00       1/734         MainMenu [1]
+                0.00    0.00       2/734         GetCommand [197]
+                0.00    0.00      13/734         PrintBit2Maze [216]
+                0.00    0.00      19/734         ScanSearch [15]
+                0.00    0.00     268/734         print_stats [130]
+                0.00    0.00     428/734         Debug [108]
+[137]    0.0    0.00    0.00     734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.00     637/637         Ida [5]
+[138]    0.0    0.00    0.00     637         RegisterMove [138]
+                0.00    0.00    3413/3413        DistantMove [124]
+-----------------------------------------------
+                0.00    0.00     627/627         StoreHashTable [140]
+[139]    0.0    0.00    0.00     627         QualityCompare [139]
+-----------------------------------------------
+                0.00    0.00       1/627         ScanSearch [15]
+                0.00    0.00     626/627         Ida [5]
+[140]    0.0    0.00    0.00     627         StoreHashTable [140]
+                0.00    0.00     627/627         QualityCompare [139]
+-----------------------------------------------
+                0.00    0.00     559/559         FindBestSquare [93]
+[141]    0.0    0.00    0.00     559         ValueSquareEntr [141]
+-----------------------------------------------
+                0.00    0.00     490/490         GetSquareValues [36]
+[142]    0.0    0.00    0.00     490         ValueSquare [142]
+                0.00    0.00    2604/2604        NumberBitsInt [129]
+-----------------------------------------------
+                0.00    0.00     185/471         DeadMiniConflict <cycle 1> [81]
+                0.00    0.00     286/471         PenMiniConflict <cycle 1> [80]
+[143]    0.0    0.00    0.00     471         FindFarthestPosStone [143]
+                0.00    0.00    2331/3642        XDistStone [122]
+-----------------------------------------------
+                0.00    0.00     467/467         Ida [5]
+[144]    0.0    0.00    0.00     467         IsGoalNodeNorm [144]
+-----------------------------------------------
+                0.00    0.00     156/395         DeadMove [11]
+                0.00    0.00     239/395         PenMove [6]
+[145]    0.0    0.00    0.00     395         FindClosestPosMan [145]
+                0.00    0.00    2423/117418      XDistMan [103]
+-----------------------------------------------
+                0.00    0.00       1/331         ScanSearch [15]
+                0.00    0.00     330/331         Ida [5]
+[146]    0.0    0.00    0.00     331         GetHashTable [146]
+-----------------------------------------------
+                0.00    0.00     306/306         AreaMove [20]
+[147]    0.0    0.00    0.00     306         FindFringeStones [147]
+                0.00    0.00      80/126         MarkReachPos [155]
+                0.00    0.00      73/119         WhichStones [156]
+-----------------------------------------------
+                0.00    0.00       1/277         main [2]
+                0.00    0.00       1/277         StartBuildGMTree [34]
+                0.00    0.00      34/277         DeadMiniConflict <cycle 1> [81]
+                0.00    0.00      42/277         PenMiniConflict <cycle 1> [80]
+                0.00    0.00      56/277         DeadMove [11]
+                0.00    0.00      70/277         PenMove [6]
+                0.00    0.00      73/277         AreaMove [20]
+[148]    0.0    0.00    0.00     277         InitIDA [148]
+-----------------------------------------------
+                0.00    0.00     275/275         Ida [5]
+[149]    0.0    0.00    0.00     275         PenMoveSuspected [149]
+                0.00    0.00     513/26210       LogAndBS [111]
+                0.00    0.00      83/83          WasTestedPen [162]
+-----------------------------------------------
+                0.00    0.00     250/250         PrintSolution [55]
+[150]    0.0    0.00    0.00     250         HumanMove [150]
+-----------------------------------------------
+                0.00    0.00     248/248         Ida [5]
+[151]    0.0    0.00    0.00     248         DeadMoveSuspected [151]
+                0.00    0.00     475/26210       LogAndBS [111]
+-----------------------------------------------
+                0.00    0.00      56/199         DeadMove [11]
+                0.00    0.00      70/199         PenMove [6]
+                0.00    0.00      73/199         AreaMove [20]
+[152]    0.0    0.00    0.00     199         UpdateMaze [152]
+-----------------------------------------------
+                0.00    0.00       1/150         AddPenalties [201]
+                0.00    0.00       1/150         AddTestedPen [91]
+                0.00    0.00       1/150         InDCache [185]
+                0.00    0.00       2/150         FindMacros [27]
+                0.00    0.00       3/150         AddMacro [189]
+                0.00    0.00       4/150         LoadTree [200]
+                0.00    0.00       7/150         AddConflicts [184]
+                0.00    0.00      37/150         ReadMaze [19]
+                0.00    0.00      94/150         CreateGMacro [159]
+[153]    0.0    0.00    0.00     150         My_realloc [153]
+-----------------------------------------------
+                0.00    0.00     132/132         XDistHist [75]
+[154]    0.0    0.00    0.00     132         ResetHist [154]
+-----------------------------------------------
+                0.00    0.00      46/126         AddMoreStones [168]
+                0.00    0.00      80/126         FindFringeStones [147]
+[155]    0.0    0.00    0.00     126         MarkReachPos [155]
+-----------------------------------------------
+                0.00    0.00      46/119         AddMoreStones [168]
+                0.00    0.00      73/119         FindFringeStones [147]
+[156]    0.0    0.00    0.00     119         WhichStones [156]
+-----------------------------------------------
+                0.00    0.00       1/109         InitMaze [208]
+                0.00    0.00       1/109         SetDistDistances [32]
+                0.00    0.00       3/109         MarkOneConnected [79]
+                0.00    0.00       3/109         SetStoneDistances [54]
+                0.00    0.00       3/109         SetManDistances [192]
+                0.00    0.00      40/109         CopyMaze [182]
+                0.00    0.00      58/109         GetGMTree [171]
+[157]    0.0    0.00    0.00     109         My_malloc [157]
+-----------------------------------------------
+                0.00    0.00      95/95          BuildGMTree <cycle 2> [35]
+[158]    0.0    0.00    0.00      95         GMGetHashTable [158]
+-----------------------------------------------
+                0.00    0.00       2/94          CreateAllGMacro <cycle 2> [181]
+                0.00    0.00      92/94          CreatePropGMacro <cycle 2> [92]
+[159]    0.0    0.00    0.00      94         CreateGMacro [159]
+                0.00    0.00      94/150         My_realloc [153]
+-----------------------------------------------
+                0.00    0.00       9/85          MarkTG [89]
+                0.00    0.00      34/85          DeadMiniConflict <cycle 1> [81]
+                0.00    0.00      42/85          PenMiniConflict <cycle 1> [80]
+[160]    0.0    0.00    0.00      85         AddConflict [160]
+                0.00    0.00      85/43162       NumberBitsBS [106]
+                0.00    0.00      85/85          RemoveDuplicates [161]
+                0.00    0.00      74/74          FindPenalty [166]
+                0.00    0.00      74/74          InsertConflict [167]
+-----------------------------------------------
+                0.00    0.00      85/85          AddConflict [160]
+[161]    0.0    0.00    0.00      85         RemoveDuplicates [161]
+                0.00    0.00    2920/2920        SubsetBS [127]
+                0.00    0.00      12/12          LogAndNotBS [180]
+-----------------------------------------------
+                0.00    0.00      83/83          PenMoveSuspected [149]
+[162]    0.0    0.00    0.00      83         WasTestedPen [162]
+                0.00    0.00      32/32          LogAndAndNotBS [174]
+-----------------------------------------------
+                0.00    0.00      34/76          DeadMiniConflict <cycle 1> [81]
+                0.00    0.00      42/76          PenMiniConflict <cycle 1> [80]
+[163]    0.0    0.00    0.00      76         RestoreMaze [163]
+-----------------------------------------------
+                0.00    0.00      34/76          DeadMiniConflict <cycle 1> [81]
+                0.00    0.00      42/76          PenMiniConflict <cycle 1> [80]
+[164]    0.0    0.00    0.00      76         SaveMaze [164]
+-----------------------------------------------
+                0.00    0.00      74/74          InsertConflict [167]
+[165]    0.0    0.00    0.00      74         FindFirstSet [165]
+-----------------------------------------------
+                0.00    0.00      74/74          AddConflict [160]
+[166]    0.0    0.00    0.00      74         FindPenalty [166]
+                0.00    0.00       7/7           InsertPenalty [187]
+-----------------------------------------------
+                0.00    0.00      74/74          AddConflict [160]
+[167]    0.0    0.00    0.00      74         InsertConflict [167]
+                0.00    0.00      74/74          FindFirstSet [165]
+                0.00    0.00       7/7           AddConflicts [184]
+-----------------------------------------------
+                0.00    0.00      72/72          AreaMove [20]
+[168]    0.0    0.00    0.00      72         AddMoreStones [168]
+                0.00    0.00      46/126         MarkReachPos [155]
+                0.00    0.00      46/119         WhichStones [156]
+-----------------------------------------------
+                0.00    0.00       3/65          MarkOneConnected [79]
+                0.00    0.00       3/65          SetStoneDistances [54]
+                0.00    0.00       3/65          SetManDistances [192]
+                0.00    0.00      56/65          GetProperties [61]
+[169]    0.0    0.00    0.00      65         BitOrBS [169]
+-----------------------------------------------
+                0.00    0.00      58/58          DelGMTree [203]
+[170]    0.0    0.00    0.00      58         GMDelHashEntry [170]
+-----------------------------------------------
+                0.00    0.00      58/58          BuildGMTree <cycle 2> [35]
+[171]    0.0    0.00    0.00      58         GetGMTree [171]
+                0.00    0.00      58/109         My_malloc [157]
+-----------------------------------------------
+                0.00    0.00      56/56          BuildGMTree <cycle 2> [35]
+[172]    0.0    0.00    0.00      56         GMStoreHashTable [172]
+-----------------------------------------------
+                0.00    0.00      54/54          MakeMove [49]
+[173]    0.0    0.00    0.00      54         PropStonesDone [173]
+-----------------------------------------------
+                0.00    0.00      32/32          WasTestedPen [162]
+[174]    0.0    0.00    0.00      32         LogAndAndNotBS [174]
+-----------------------------------------------
+                                   2             FindEndTunnel [175]
+                0.00    0.00      30/30          FindMacros [27]
+[175]    0.0    0.00    0.00      30+2       FindEndTunnel [175]
+                0.00    0.00      29/264366      DiffToDir [97]
+                                   2             FindEndTunnel [175]
+-----------------------------------------------
+                0.00    0.00      21/21          PenMove [6]
+[176]    0.0    0.00    0.00      21         GoodTested [176]
+-----------------------------------------------
+                0.00    0.00      18/18          FindMacros [27]
+[177]    0.0    0.00    0.00      18         FindStartEndTunnel [177]
+                0.00    0.00      18/264366      DiffToDir [97]
+-----------------------------------------------
+                0.00    0.00      16/16          Ida [5]
+[178]    0.0    0.00    0.00      16         SetPathFlag [178]
+-----------------------------------------------
+                0.00    0.00      13/13          InDCache [185]
+[179]    0.0    0.00    0.00      13         EqualBS [179]
+-----------------------------------------------
+                0.00    0.00      12/12          RemoveDuplicates [161]
+[180]    0.0    0.00    0.00      12         LogAndNotBS [180]
+-----------------------------------------------
+                                  11             BuildGMTree <cycle 2> [35]
+[181]    0.0    0.00    0.00      11         CreateAllGMacro <cycle 2> [181]
+                0.00    0.00       2/94          CreateGMacro [159]
+                                   2             BuildGMTree <cycle 2> [35]
+-----------------------------------------------
+                0.00    0.00       1/8           StartBuildGMTree [34]
+                0.00    0.00       2/8           PrintSolution [55]
+                0.00    0.00       5/8           StartIda [3]
+[182]    0.0    0.00    0.00       8         CopyMaze [182]
+                0.00    0.00      40/109         My_malloc [157]
+-----------------------------------------------
+                0.00    0.00       1/8           StartBuildGMTree [34]
+                0.00    0.00       2/8           PrintSolution [55]
+                0.00    0.00       5/8           StartIda [3]
+[183]    0.0    0.00    0.00       8         DelCopiedMaze [183]
+                0.00    0.00      40/828         My_free [136]
+-----------------------------------------------
+                0.00    0.00       7/7           InsertConflict [167]
+[184]    0.0    0.00    0.00       7         AddConflicts [184]
+                0.00    0.00       7/150         My_realloc [153]
+-----------------------------------------------
+                0.00    0.00       7/7           GetNewDistances [50]
+[185]    0.0    0.00    0.00       7         InDCache [185]
+                0.00    0.00      13/13          EqualBS [179]
+                0.00    0.00       1/150         My_realloc [153]
+-----------------------------------------------
+                0.00    0.00       7/7           InsertPenalty [187]
+[186]    0.0    0.00    0.00       7         InitPenalty [186]
+-----------------------------------------------
+                0.00    0.00       7/7           FindPenalty [166]
+[187]    0.0    0.00    0.00       7         InsertPenalty [187]
+                0.00    0.00       7/7           InitPenalty [186]
+                0.00    0.00       1/1           AddPenalties [201]
+-----------------------------------------------
+                0.00    0.00       4/4           XDistHist [75]
+[188]    0.0    0.00    0.00       4         InitHist [188]
+-----------------------------------------------
+                0.00    0.00       3/3           FindMacros [27]
+[189]    0.0    0.00    0.00       3         AddMacro [189]
+                0.00    0.00       3/150         My_realloc [153]
+-----------------------------------------------
+                0.00    0.00       1/3           InitMaze [208]
+                0.00    0.00       2/3           DelConflicts [194]
+[190]    0.0    0.00    0.00       3         InitConflicts [190]
+-----------------------------------------------
+                0.00    0.00       1/3           InitMaze [208]
+                0.00    0.00       2/3           FreeDCache [195]
+[191]    0.0    0.00    0.00       3         InitDCache [191]
+-----------------------------------------------
+                0.00    0.00       3/3           GetNewDistances [50]
+[192]    0.0    0.00    0.00       3         SetManDistances [192]
+                0.00    0.00       3/109         My_malloc [157]
+                0.00    0.00       3/65          BitOrBS [169]
+-----------------------------------------------
+                0.00    0.00       2/2           MainMenu [1]
+[193]    0.0    0.00    0.00       2         CmdParam [193]
+-----------------------------------------------
+                0.00    0.00       1/2           ResetMaze [217]
+                0.00    0.00       1/2           DelMaze [204]
+[194]    0.0    0.00    0.00       2         DelConflicts [194]
+                0.00    0.00      13/828         My_free [136]
+                0.00    0.00       2/3           InitConflicts [190]
+-----------------------------------------------
+                0.00    0.00       1/2           ResetMaze [217]
+                0.00    0.00       1/2           DelMaze [204]
+[195]    0.0    0.00    0.00       2         FreeDCache [195]
+                0.00    0.00      11/828         My_free [136]
+                0.00    0.00       2/3           InitDCache [191]
+-----------------------------------------------
+                0.00    0.00       2/2           XDistHist [75]
+[196]    0.0    0.00    0.00       2         GetAvgHist [196]
+-----------------------------------------------
+                0.00    0.00       2/2           MainMenu [1]
+[197]    0.0    0.00    0.00       2         GetCommand [197]
+                0.00    0.00       2/734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.00       1/2           StartIda [3]
+                0.00    0.00       1/2           FindMacros [27]
+[198]    0.0    0.00    0.00       2         InitHashTables [198]
+-----------------------------------------------
+                0.00    0.00       2/2           main [2]
+[199]    0.0    0.00    0.00       2         InitTree [199]
+-----------------------------------------------
+                0.00    0.00       2/2           main [2]
+[200]    0.0    0.00    0.00       2         LoadTree [200]
+                0.00    0.00       4/150         My_realloc [153]
+-----------------------------------------------
+                0.00    0.00       1/1           InsertPenalty [187]
+[201]    0.0    0.00    0.00       1         AddPenalties [201]
+                0.00    0.00       1/150         My_realloc [153]
+-----------------------------------------------
+                                  52             AsimGoals [202]
+                0.00    0.00       1/1           GrowRoom [59]
+[202]    0.0    0.00    0.00       1+52      AsimGoals [202]
+                0.00    0.00      18/10141       GroomIncPos [118]
+                                  52             AsimGoals [202]
+-----------------------------------------------
+                                  94             DelGMTree [203]
+                0.00    0.00       1/1           DelMaze [204]
+[203]    0.0    0.00    0.00       1+94      DelGMTree [203]
+                0.00    0.00     116/828         My_free [136]
+                0.00    0.00      58/58          GMDelHashEntry [170]
+                                  94             DelGMTree [203]
+-----------------------------------------------
+                0.00    0.00       1/1           MainMenu [1]
+[204]    0.0    0.00    0.00       1         DelMaze [204]
+                0.00    0.00     325/828         My_free [136]
+                0.00    0.00       1/1           DelGMTree [203]
+                0.00    0.00       1/2           FreeDCache [195]
+                0.00    0.00       1/2           DelConflicts [194]
+-----------------------------------------------
+                0.00    0.00       1/1           StartBuildGMTree [34]
+[205]    0.0    0.00    0.00       1         GMInitHashTable [205]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[206]    0.0    0.00    0.00       1         InitBS [206]
+-----------------------------------------------
+                0.00    0.00       1/1           FindMacros [27]
+[207]    0.0    0.00    0.00       1         InitGRoom [207]
+-----------------------------------------------
+                0.00    0.00       1/1           MainMenu [1]
+[208]    0.0    0.00    0.00       1         InitMaze [208]
+                0.00    0.00       1/3           InitDCache [191]
+                0.00    0.00       1/109         My_malloc [157]
+                0.00    0.00       1/3           InitConflicts [190]
+-----------------------------------------------
+                0.00    0.00       1/1           StartIda [3]
+[209]    0.0    0.00    0.00       1         InitNodeCount [209]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[210]    0.0    0.00    0.00       1         InitRandom [210]
+-----------------------------------------------
+                0.00    0.00       1/1           MainMenu [1]
+[211]    0.0    0.00    0.00       1         MakeName [211]
+-----------------------------------------------
+                0.00    0.00       1/1           MarkAll [29]
+[212]    0.0    0.00    0.00       1         MarkDead [212]
+-----------------------------------------------
+                                 350             MarkOut [213]
+                0.00    0.00       1/1           MarkAll [29]
+[213]    0.0    0.00    0.00       1+350     MarkOut [213]
+                                 350             MarkOut [213]
+-----------------------------------------------
+                0.00    0.00       1/1           MarkAll [29]
+[214]    0.0    0.00    0.00       1         MarkTun [214]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[215]    0.0    0.00    0.00       1         My_exit [215]
+-----------------------------------------------
+                0.00    0.00       1/1           GrowRoom [59]
+[216]    0.0    0.00    0.00       1         PrintBit2Maze [216]
+                0.00    0.00      13/734         Mprintf [137]
+-----------------------------------------------
+                0.00    0.00       1/1           ReadMaze [19]
+[217]    0.0    0.00    0.00       1         ResetMaze [217]
+                0.00    0.00     323/828         My_free [136]
+                0.00    0.00       1/2           DelConflicts [194]
+                0.00    0.00       1/2           FreeDCache [195]
+-----------------------------------------------
+                0.00    0.00       1/1           MarkAll [29]
+[218]    0.0    0.00    0.00       1         SetAllStonesDone [218]
+-----------------------------------------------
+                0.00    0.00       1/1           MarkAll [29]
+[219]    0.0    0.00    0.00       1         SetDistDead [219]
+-----------------------------------------------
+                0.00    0.00       1/1           GrowRoom [59]
+[220]    0.0    0.00    0.00       1         SetMinDist [220]
+-----------------------------------------------
+                0.00    0.00       1/1           StartIda [3]
+[221]    0.0    0.00    0.00       1         SetTimer [221]
+-----------------------------------------------
+                0.00    0.00       1/1           main [2]
+[222]    0.0    0.00    0.00       1         init_opts [222]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2016 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [98] AbortSearch           [133] GGStoreHashTable       [31] NewAddScew
+ [160] AddConflict           [170] GMDelHashEntry         [88] NewMoveOrdering
+ [184] AddConflicts          [158] GMGetHashTable        [114] NormHashKey
+ [189] AddMacro              [205] GMInitHashTable       [106] NumberBitsBS
+ [168] AddMoreStones         [172] GMStoreHashTable      [129] NumberBitsInt
+ [201] AddPenalties           [99] GenAllSquares          [67] PSGetHashTable
+  [91] AddTestedPen           [18] GenerateMoves         [109] PSSetPathFlag
+  [42] AllBitsSetBS          [196] GetAvgHist            [102] PSStoreHashTable
+  [20] AreaMove               [39] GetBaseProps          [128] PSUnSetPathFlag
+ [202] AsimGoals             [197] GetCommand             [94] PenCompare
+  [90] BetterLowerBound      [171] GetGMTree              [73] PenDeactivateStones
+  [85] BetterUpdateLowerBound [146] GetHashTable           [7] PenIda
+  [87] BetterUpdateLowerBound2 [56] GetManDir            [104] PenIsGoalNode
+ [134] BitAndNotAndNotBS      [50] GetNewDistances        [52] PenLowerBound
+ [117] BitAndNotBS            [40] GetOptDist             [16] PenMakeMove
+  [70] BitAndNotButOrBS       [17] GetPenalty             [80] PenMiniConflict
+  [66] BitAndNotEqBS          [61] GetProperties           [6] PenMove
+ [107] BitNext                [28] GetScew                [45] PenMoveOrdering
+  [51] BitNotAndNotAndNotBS   [36] GetSquareValues       [149] PenMoveSuspected
+ [112] BitNotAndNotBS         [38] GoalReach              [82] PenStartIda
+  [46] BitOrAndEqBS          [176] GoodTested             [30] PenUnMakeMove
+ [169] BitOrBS               [119] GroomExcPos            [21] PenUpdateLowerBound
+  [48] BitOrEqBS             [118] GroomIncPos            [62] PickUpEntrances
+  [35] BuildGMTree            [60] GrowDFS               [216] PrintBit2Maze
+ [113] CleanReach             [59] GrowRoom               [55] PrintSolution
+ [193] CmdParam              [150] HumanMove             [173] PropStonesDone
+  [78] Communicating           [5] Ida                     [9] PushesMoves
+ [182] CopyMaze              [185] InDCache              [139] QualityCompare
+ [181] CreateAllGMacro       [115] IncCounter             [19] ReadMaze
+ [159] CreateGMacro          [101] IncNodeCount          [138] RegisterMove
+  [92] CreatePropGMacro      [206] InitBS                [161] RemoveDuplicates
+ [123] Crowding              [190] InitConflicts         [154] ResetHist
+  [65] DeadCompare           [191] InitDCache            [217] ResetMaze
+  [76] DeadDeactivateStones  [207] InitGRoom             [163] RestoreMaze
+  [10] DeadIda               [198] InitHashTables        [164] SaveMaze
+  [68] DeadIsGoalNode        [188] InitHist               [15] ScanSearch
+  [44] DeadLock              [148] InitIDA               [218] SetAllStonesDone
+  [95] DeadLock2             [208] InitMaze              [219] SetDistDead
+  [53] DeadLowerBound        [209] InitNodeCount          [32] SetDistDistances
+  [14] DeadMakeMove          [186] InitPenalty            [74] SetLocalCut
+  [81] DeadMiniConflict      [210] InitRandom            [192] SetManDistances
+  [11] DeadMove              [199] InitTree                [8] SetManStoneSquares
+  [47] DeadMoveOrdering      [167] InsertConflict        [220] SetMinDist
+ [151] DeadMoveSuspected     [187] InsertPenalty         [178] SetPathFlag
+  [84] DeadStartIda          [144] IsGoalNodeNorm         [54] SetStoneDistances
+ [100] DeadTree              [116] Isnt0BS               [221] SetTimer
+  [41] DeadUnMakeMove        [200] LoadTree               [34] StartBuildGMTree
+  [24] DeadUpdateLowerBound  [174] LogAndAndNotBS          [3] StartIda
+ [108] Debug                 [111] LogAndBS               [69] StoneReach
+ [194] DelConflicts           [71] LogAndNotAndNotBS     [140] StoreHashTable
+ [183] DelCopiedMaze         [180] LogAndNotBS            [23] SubMacro
+ [203] DelGMTree               [1] MainMenu              [127] SubsetBS
+ [204] DelMaze                [49] MakeMove               [86] UnMakeMove
+  [97] DiffToDir             [211] MakeName               [25] UnReach
+  [26] DistToGoal             [29] MarkAll                [96] UpdateHashKey
+ [124] DistantMove           [212] MarkDead              [152] UpdateMaze
+ [105] DistantSquares         [79] MarkOneConnected       [22] UpdateReach
+ [110] EntrComp              [213] MarkOut                [58] ValidSolution
+ [179] EqualBS                [13] MarkReach              [63] ValidateEntrances
+ [132] EvaluateGroom          [57] MarkReachDist         [142] ValueSquare
+  [93] FindBestSquare         [37] MarkReachGRoom        [141] ValueSquareEntr
+ [145] FindClosestPosMan     [155] MarkReachPos          [162] WasTestedPen
+ [135] FindClosestPosStone    [72] MarkReachQuick        [156] WhichStones
+ [175] FindEndTunnel          [89] MarkTG                 [75] XDistHist
+ [143] FindFarthestPosStone  [214] MarkTun               [103] XDistMan
+ [165] FindFirstSet          [126] Maximize              [122] XDistStone
+ [147] FindFringeStones       [83] MinMatch              [121] compare_negval
+  [27] FindMacros             [12] Moves                  [77] compare_val
+ [166] FindPenalty           [137] Mprintf               [222] init_opts
+ [177] FindStartEndTunnel    [215] My_exit               [131] init_stats
+ [125] FindTransitiveClosure [136] My_free               [130] print_stats
+ [195] FreeDCache            [157] My_malloc               [4] <cycle 1>
+  [64] Frozen                 [43] My_qsort               [33] <cycle 2>
+ [120] GGGetHashTable        [153] My_realloc
