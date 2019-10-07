@@ -1,4 +1,4 @@
-/* 
+/*
 ** Copyright (C) 1999 by Andreas Junghanns.
 **
 ** Permission to use, copy, modify, and distribute this software and its
@@ -7,7 +7,7 @@
 ** copyright notice and this permission notice appear in supporting
 ** documentation.  This software is provided "as is" without express or
 ** implied warranty.
-*/ 
+*/
 
 extern unsigned char BitNumber[256];
 extern   signed char BitFirst[256];
@@ -71,6 +71,10 @@ int  LogNorAndNotBS (BitString r, BitString a, BitString b);
 #define SetBitBS(a,p) \
 	   ((a)[(p)/(sizeof(BASETYPE)*8)] \
 	|= (((BASETYPE)1)<<((p)%(sizeof(BASETYPE)*8))))
+
+/* IsBitSetBS
+ * Checks if a bit at position p in bitstring a is set
+ */
 #define IsBitSetBS(a,p) \
-	   ( ((a)[(p)/(sizeof(BASETYPE)*8)] \
-	    &  ((BASETYPE)1)<<((p)%(sizeof(BASETYPE)*8))))
+	((a)[(p) / (sizeof(BASETYPE) * 8)] \
+	& ((BASETYPE) 1) << ((p) % (sizeof(BASETYPE) * 8)))
