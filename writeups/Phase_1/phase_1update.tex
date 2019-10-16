@@ -1,0 +1,101 @@
+\documentclass[10pt, notitlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[letterpaper, margin=0.2in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage[backend=biber, style=numeric, sorting=ynt]{biblatex}
+\addbibresource{citations.bib}
+\nocite{*}
+
+\titleformat*{\section}{\large\itshape}
+\titlelabel{\thetitle.\quad}
+
+\newcommand{\dt}{\textbullet}
+
+\setlength{\droptitle}{-50pt}
+
+\pagestyle{empty}
+
+%opening
+\title{Phase 1 Update - \textbf{Hardware Optimization of Sokoban Solver}}
+\author{Benjamin Huang, Yen-shi Wang, and Zachary Armendariz}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\vspace*{-55pt}
+
+\section{Project Update}
+\begin{enumerate}
+  \item \textit{Algorithm Description}
+  \item \textit{Performance Peak}
+  \item \textit{Design of the kernel}
+\end{enumerate}
+
+\section{Performance Baseline}
+\begin{enumerate}
+  \item Performance Numbers
+  \item Distance from Theoretical Peak
+\end{enumerate}
+\section{Tentative Meeting Schedule}
+
+\begin{table}[!htb]
+    \begin{minipage}{.6\linewidth}
+      \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \multicolumn{2}{|c|}{Tentative division of labor} \\
+            \hline\hline
+            Yen-shi Wang              &Deepening A* Search, Deadlock Tables, Goal Cuts\\
+            Benjamin Huang            & Minmatching, Tunnel Macros, Goal Macros\\
+            Zachary Armendariz \quad  & Hash Tables, Move Ordering, Pattern Searches \\
+            \hline
+        \end{tabular}
+    \end{minipage}%
+    \begin{minipage}{.4\linewidth}
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \multicolumn{2}{|c|}{Tentative Meeting Times} \\
+            \hline\hline
+            1st Preference &Tuesday, 3:00-4:00pm \\
+            2nd Preference &Thursday, 5:30-6:30pm \\
+            3rd Preference &Friday, 1:00-2:00pm \\
+            \hline
+        \end{tabular}
+    \end{minipage} 
+\end{table}
+    
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{.22\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{images/sokoban1.png}
+  \caption{Start of game}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.22\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{images/sokoban2.png}
+  \caption{Near the end of game}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Screenshots of Sokoban}
+\label{fig:test}
+\end{figure}
+
+\printbibliography
+
+\end{document}
