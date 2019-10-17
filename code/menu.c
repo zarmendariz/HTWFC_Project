@@ -19,6 +19,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include "board.h"
+#include "experiments.h"
 
 /*   Menu structures.
 */
@@ -134,6 +135,7 @@ MainMenu()
       switch ( cmd ) {
 
 	case CmdSolve:
+      InitExperiments();
 			MakeName(name,&Cur_Maze_Number, CmdParam(cmdstr,1),
 							CmdParam(cmdstr,2));
 			if ((fp = fopen(name,"r")) != NULL) {
@@ -146,6 +148,7 @@ MainMenu()
 			} else {
                                 My_exit(1,"Menu: %s %s\n",name,strerror(errno));
 			}
+      PrintExperimentsStats();
 			break;
 	case CmdAbort:
 			param = CmdParam(cmdstr,1);

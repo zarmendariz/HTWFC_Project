@@ -450,6 +450,7 @@ typedef struct {
 #include "pensearch.h"
 #include "histogram.h"
 #include "time_rs.h"
+#include "fast_code_utils.h"
 
 extern MOVE DummyMove;
 extern int  PP;

@@ -18,7 +18,8 @@ RS:
 
 OBJ = moves.o debug.o ida.o deadlock.o bitstring.o pensearch.o\
  init.o io.o mark.o conflicts.o deadsearch.o dl.o mymem.o histogram.o\
- weights.o lowerbound.o hashtable.o stats.o tree.o menu.o macro.o gtv.o time_rs.o
+ weights.o lowerbound.o hashtable.o stats.o tree.o menu.o macro.o gtv.o time_rs.o\
+ fast_code_utils.o experiments.o
 
 
 board.o: board.h  init.h

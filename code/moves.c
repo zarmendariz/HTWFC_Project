@@ -10,6 +10,7 @@
 */
 
 #include "board.h"
+#include "experiments.h"
 
 /*******************************************************************************/
 /* 									       */
@@ -357,7 +358,7 @@ int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {
  * man can move to. The reach char array stores Manhattan distances from
  * the man's starting position, and -1 if it is unreachable.
  */
-void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
+void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
   static PHYSID stack[ENDPATH]; // this is really a queue
   static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
@@ -387,6 +388,18 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
     }
 
   }
+}
+
+void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
+  // a wrapper for Moves()
+  // count on how many cycles MovesImpl takes
+  extern unsigned long long moves_cycles;
+  /* a wrapper for counting number of cycles in MarkReach */
+  unsigned long long cnt = rdtsc();
+
+  MovesImpl(maze, from, reach);
+
+  moves_cycles += rdtsc() - cnt;
 }
 
 /* generate a path that does not touch any of the squares in shadows */

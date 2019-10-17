@@ -10,6 +10,8 @@
 */ 
 
 #include "board.h"
+#include "fast_code_utils.h"
+#include "experiments.h"
 
 void MarkAll(MAZE *maze) {
 
@@ -194,7 +196,8 @@ void CleanReach(MAZE *maze) {
 	Set0BS(maze->reach);
 }
 
-void MarkReach(MAZE *maze) {
+void MarkReachImpl(MAZE *maze) {
+  /* true implementation of MarkReach */
   /* recursive function to mark the fields that are reachable */
 	
   static PHYSID stack[ENDPATH];
@@ -223,6 +226,16 @@ void MarkReach(MAZE *maze) {
       stack[ top++ ] = pos - YSIZE;
   }
   BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
+}
+
+void MarkReach(MAZE *maze) {
+  extern unsigned long long mark_reach_cycles;
+  /* a wrapper for counting number of cycles in MarkReach */
+  unsigned long long cnt = rdtsc();
+
+  MarkReachImpl(maze);
+
+  mark_reach_cycles += rdtsc() - cnt;
 }
 
 void MarkReachNoUnreach(MAZE *maze) {
