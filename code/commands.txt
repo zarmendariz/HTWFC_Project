@@ -1,0 +1,5 @@
+b MainMenu
+b GetCommand
+b NewAddScew
+b GetPenalty
+r < input.txt

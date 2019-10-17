@@ -1,0 +1,117 @@
+PrintPriority: 2
+Command:Maze screens/screen.28:
+         #####      
+     #####   #      
+    ##       ####   
+#####        ##0#   
+#           ##00#   
+#  ###### ###000#   
+## #  #    #0000#   
+#     #    #0000#   
+#  #  ## ####000#   
+####        ##00#   
+   ##        000#   
+    #       #000#   
+    #        ####   
+    ######   #      
+         #####      
+?                   
+.   0  YES MACRO, nodes: 287 n: 1
+Auto Set local cut parameter: 1,10, 10.
+ScanSearch: h 286, nodes used: 0
+ScanSearch: h 286, nodes used: 2101
+ScanSearch: h 288, nodes used: 5642
+ScanSearch: h 288, nodes used: 8036
+ScanSearch: h 288, nodes used: 9890
+ScanSearch: h 288, nodes used: 11255
+ScanSearch: h 288, nodes used: 12916
+ScanSearch: h 288, nodes used: 14537
+ScanSearch: h 288, nodes used: 16160
+ScanSearch: h 288, nodes used: 17768
+ScanSearch: h 288, nodes used: 19377
+ScanSearch: h 288, nodes used: 20973
+ScanSearch: h 288, nodes used: 23680
+ScanSearch: h 288, nodes used: 25877
+ScanSearch: h 288, nodes used: 27513
+ScanSearch: h 288, nodes used: 29111
+ScanSearch: h 290, nodes used: 31457
+ScanSearch: h 290, nodes used: 32928
+ScanSearch: h 290, nodes used: 35147
+ScanSearch: h 290, nodes used: 36517
+ScanSearch: h: 286->290, nodes used: 38609
+.   0  Threshold 290 (290)
+.   0  tt: Y, dl_mg: Y, dl2_mg: Y
+.   0  area_srch: Y dl_srch: Y pen_srch: Y
+.   0  scan_srch: Y
+.   0  node limit: 1000, minimize: Y
+.   0  st_testd: Y, dl_db: 7, cut_goal: Y
+.   0  xdist: Y, auto: Y, local: Y(1,10,10)
+.   0  lb_mp: Y, lb_cf: Y, lb_dd: Y(0/1), mc_tu: Y, mc_gm: Y
+.   0  overestim: 0.00, hoverestim: 1.00, assume dead: N
+.   0  limit patterns: Y, lazy maximize: Y
+.   0  nodes searched: total: 67126, top level: 9
+.   0  mini: 8887, scan: 38609
+.   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
+.   0  TT hits: 1, TT collisions: 0 Req: 10, (10.000000)
+ 1 1 1 1 1 1 3 
+.   0  run: sec: 1, usec: 353230, t: 1
+.   0  Nodes per Second:    67126 (1 sec.)
+.   0  AREA POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  AREA NEG: #:   8 (100%) #n:   2614  nodes/search: 326
+.   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  DL   NEG: #:   5 (100%) #n:   5463  nodes/search: 1092
+.   0  PEN  POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  PEN  NEG: #:   7 (100%) #n:  10668  nodes/search: 1524
+.   0  DeadTested:     0, PenTested :     0, patterns: 49, removed: 6, killed: 0
+.   0  
+.   0  Threshold 292 (292)
+.   0  tt: Y, dl_mg: Y, dl2_mg: Y
+.   0  area_srch: Y dl_srch: Y pen_srch: Y
+.   0  scan_srch: Y
+.   0  node limit: 1000, minimize: Y
+.   0  st_testd: Y, dl_db: 7, cut_goal: Y
+.   0  xdist: Y, auto: Y, local: Y(1,10,10)
+.   0  lb_mp: Y, lb_cf: Y, lb_dd: Y(0/1), mc_tu: Y, mc_gm: Y
+.   0  overestim: 0.00, hoverestim: 1.00, assume dead: N
+.   0  limit patterns: Y, lazy maximize: Y
+.   0  nodes searched: total: 789285, top level: 1125
+.   0  mini: 45815, scan: 38609
+.   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
+.   0  TT hits: 125, TT collisions: 2 Req: 400, (31.250000)
+ 2 3 5 12 29 61 103 137 171 182 156 116 75 41 22 10 
+.   0  run: sec: 23, usec: 527207, t: 24
+.   0  Nodes per Second:    32887 (24 sec.)
+.   0  AREA POS: #:  10 (  5%) #n:  13619  nodes/search: 1361
+.   0  AREA NEG: #: 157 ( 94%) #n:  26850  nodes/search: 171
+.   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  DL   NEG: #: 216 (100%) #n:  58685  nodes/search: 271
+.   0  PEN  POS: #:   1 (  0%) #n:   2010  nodes/search: 2010
+.   0  PEN  NEG: #: 237 ( 99%) #n: 118700  nodes/search: 500
+.   0  DeadTested:     0, PenTested :     0, patterns: 200, removed: 6, killed: 0
+.   0  
+.   0  Threshold 294 (292)
+.   0  tt: Y, dl_mg: Y, dl2_mg: Y
+.   0  area_srch: Y dl_srch: Y pen_srch: Y
+.   0  scan_srch: Y
+.   0  node limit: 1000, minimize: Y
+.   0  st_testd: Y, dl_db: 7, cut_goal: Y
+.   0  xdist: Y, auto: Y, local: Y(1,10,10)
+.   0  lb_mp: Y, lb_cf: Y, lb_dd: Y(0/1), mc_tu: Y, mc_gm: Y
+.   0  overestim: 0.00, hoverestim: 1.00, assume dead: N
+.   0  limit patterns: Y, lazy maximize: Y
+.   0  nodes searched: total: 3182803, top level: 4696
+.   0  mini: 476241, scan: 38609
+.   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
+.   0  TT hits: 836, TT collisions: 5 Req: 1811, (46.162342)
+ 3 5 9 23 57 125 219 317 422 485 481 452 415 391 345 290 210 119 90 80 75 49 26 8 
+.   0  run: sec: 115, usec: 670945, t: 116
+.   0  Nodes per Second:    27438 (116 sec.)
+.   0  AREA POS: #:  36 (  5%) #n:  31349  nodes/search: 870
+.   0  AREA NEG: #: 606 ( 94%) #n:  76652  nodes/search: 126
+.   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  DL   NEG: #: 708 (100%) #n: 394308  nodes/search: 556
+.   0  PEN  POS: #:  29 (  3%) #n: 111844  nodes/search: 3856
+.   0  PEN  NEG: #: 819 ( 96%) #n: 890946  nodes/search: 1087
+.   0  DeadTested:     0, PenTested :     0, patterns: 800, removed: 33, killed: 200
+.   0  
+.   0  Threshold 296 (292)

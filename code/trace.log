@@ -1,0 +1,6 @@
+#0  0x0000000000410ac8 in NewAddScew ()
+#1  0x0000000000410c12 in SetDistDistances ()
+#2  0x000000000040b71c in MarkAll ()
+#3  0x0000000000408f69 in ReadMaze ()
+#4  0x0000000000414d12 in MainMenu ()
+#5  0x0000000000400f4a in main ()

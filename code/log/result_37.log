@@ -1,0 +1,42 @@
+PrintPriority: 2
+Command:Maze screens/screen.37:
+###########         
+#000000   ######### 
+#000000   #  ##   # 
+#00###            # 
+#000     #   ##   # 
+#000# #####    #  # 
+###    #   #   #  # 
+  #           ##  # 
+  #      # #  ##  # 
+  ### ## #    ##  # 
+   #      ## ###### 
+   #          #     
+   ##   # #   #     
+    ##### #####     
+        ###         
+?                   
+.   0  No Macro: Too many entries (5)
+Auto Set local cut parameter: 1,10, 10.
+ScanSearch: h 242, nodes used: 0
+ScanSearch: h 244, nodes used: 2419
+ScanSearch: h 244, nodes used: 3633
+ScanSearch: h 244, nodes used: 4792
+ScanSearch: h 244, nodes used: 6748
+ScanSearch: h 244, nodes used: 8326
+ScanSearch: h 246, nodes used: 12328
+ScanSearch: h 246, nodes used: 14040
+ScanSearch: h 246, nodes used: 15239
+ScanSearch: h 246, nodes used: 16539
+ScanSearch: h 246, nodes used: 17714
+ScanSearch: h 246, nodes used: 18857
+ScanSearch: h 248, nodes used: 21400
+ScanSearch: h 248, nodes used: 22517
+ScanSearch: h 248, nodes used: 23736
+ScanSearch: h 248, nodes used: 24951
+ScanSearch: h 248, nodes used: 26432
+ScanSearch: h 248, nodes used: 27551
+ScanSearch: h 248, nodes used: 28653
+ScanSearch: h 248, nodes used: 29755
+ScanSearch: h: 242->248, nodes used: 30831
+.   0  Threshold 248 (248)

@@ -1,0 +1,74 @@
+PrintPriority: 2
+Command:Maze screens/screen.73:
+####################
+#        #   #00#00#
+#     #  # # #00##0#
+#  #     #   #00000#
+## #  #  # # #00#00#
+#   ##       #00000#
+#   #   #   #000#00#
+#   #  #   #0000#00#
+##  #  ####0000#000#
+#      0000000#0000#
+#   #  #00000#00000#
+####################
+                    
+.   0  YES MACRO, nodes: 15 n: 1
+Auto Set local cut parameter: 1,10, 8.
+ScanSearch: h 437, nodes used: 0
+ScanSearch: h 439, nodes used: 2120
+ScanSearch: h 439, nodes used: 3796
+ScanSearch: h 441, nodes used: 5401
+ScanSearch: h 441, nodes used: 7470
+ScanSearch: h 441, nodes used: 9592
+ScanSearch: h 441, nodes used: 10667
+ScanSearch: h 441, nodes used: 11890
+ScanSearch: h 441, nodes used: 13176
+ScanSearch: h 441, nodes used: 14355
+ScanSearch: h 441, nodes used: 15644
+ScanSearch: h 441, nodes used: 16692
+ScanSearch: h 441, nodes used: 16700
+ScanSearch: h 441, nodes used: 18035
+ScanSearch: h: 437->441, nodes used: 19184
+.   0  Threshold 441 (441)
+.   0  tt: Y, dl_mg: Y, dl2_mg: Y
+.   0  area_srch: Y dl_srch: Y pen_srch: Y
+.   0  scan_srch: Y
+.   0  node limit: 1000, minimize: Y
+.   0  st_testd: Y, dl_db: 7, cut_goal: Y
+.   0  xdist: Y, auto: Y, local: Y(1,10,8)
+.   0  lb_mp: Y, lb_cf: Y, lb_dd: Y(0/1), mc_tu: Y, mc_gm: Y
+.   0  overestim: 0.00, hoverestim: 1.00, assume dead: N
+.   0  limit patterns: Y, lazy maximize: Y
+.   0  nodes searched: total: 93634, top level: 214
+.   0  mini: 1169, scan: 19184
+.   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
+.   0  TT hits: 1, TT collisions: 0 Req: 198, (0.505050)
+ 1 1 1 1 1 1 1 1 1 1 2 2 1 1 1 1 3 2 1 1 1 1 1 2 1 1 1 1 2 1 1 1 1 2 1 1 1 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 2 4 7 4 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+.   0  run: sec: 2, usec: 127388, t: 2
+.   0  Nodes per Second:    46817 (2 sec.)
+.   0  AREA POS: #:   1 (  2%) #n:     22  nodes/search:  22
+.   0  AREA NEG: #:  47 ( 97%) #n:   4083  nodes/search:  86
+.   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  DL   NEG: #:  37 (100%) #n:  15276  nodes/search: 412
+.   0  PEN  POS: #:   2 (  5%) #n:    332  nodes/search: 166
+.   0  PEN  NEG: #:  37 ( 94%) #n:  18020  nodes/search: 487
+.   0  DeadTested:     0, PenTested :    25, patterns: 37, removed: 2, killed: 0
+.   0  
+Path:  Oh-Ok* Dj-Cj-Dj-Ej-Fj-Gj-Pk* Ch-Dh-Di Ci-Cj Cc-Cd-Ce-Cf-Cg-Ch Dc-Cc-Cd-Ce-Cf-Cg-Dg Ch-Ci Ic-Id-Ie-If-Jf-Kf Gg-Gh-Gi-Gj-Pj* Fh-Fi Cj-Dj-Ej-Fj-Gj-Qk* Ci-Cj-Dj-Ej-Fj-Gj-Sk* Fi-Fj-Gj-Qj* Di-Dj-Ej-Fj-Gj-Sj* Dg-Dh-Di-Dj-Ej-Fj-Gj-Rk* Hd-Gd Kf-Jf-If-Hf-He Fd-Fc Gd-Fd-Ed-Ec Fc-Fd-Ed Ec-Dc-Cc-Cd-Ce-Cf-Cg-Ch-Ci-Cj-Dj-Ej-Fj-Gj-Qi* Ed-Ec-Dc-Cc-Cd-Ce-Cf-Cg-Ch-Ci-Cj-Dj-Ej-Fj-Gj-Si* Hc-Hd-Gd-Fd-Ed-Ec-Dc-Cc-Cd-Ce-Cf-Cg-Ch-Ci-Cj-Dj-Ej-Fj-Gj-Rj* He-Hd-Gd-Fd-Ed-Ec-Dc-Cc-Cd-Ce-Cf-Cg-Ch-Ci-Cj-Dj-Ej-Fj-Gj-Sh* Kd-Ke-Kf-Jf-If-Hf-He-Hd-Gd-Fd-Ed-Ec-Dc-Cc-Cd-Ce-Cf-Cg-Ch-Ci-Cj-Dj-Ej-Fj-Gj-Ri* Ld-Kd-Ke-Kf-Jf-If-Hf-He-Hd-Gd-Fd-Ed-Ec-Dc-Cc-Cd-Ce-Cf-Cg-Ch-Ci-Cj-Dj-Ej-Fj-Gj-Rh*
+(moves: 441 depth: 187)
+Moves: 1452, Pushes: 441, Treedepth: 187
+Total number of calling MarkReach(): 90757
+Total number of cycles for MarkReach(): 1186766042
+Average number of cycles per call: 13076.303117
+Total number of while loop for MarkReach(): 10332549
+Average number of cycles per loop: 114.857045
+Total number of calling Moves(): 79176
+Total number of cycles for Moves(): 1886443176
+Average number of cycles per call: 23825.946954
+Total number of while loop for Moves(): 10007236
+Average number of cycles per loop: 188.507913
+Command:
+real	0m2.156s
+user	0m2.141s
+sys	0m0.015s

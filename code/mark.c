@@ -199,6 +199,7 @@ void CleanReach(MAZE *maze) {
 void MarkReachImpl(MAZE *maze) {
   /* true implementation of MarkReach */
   /* recursive function to mark the fields that are reachable */
+  extern unsigned long long mark_reach_while_counts;
 	
   static PHYSID stack[ENDPATH];
   PHYSID pos;
@@ -213,6 +214,9 @@ void MarkReachImpl(MAZE *maze) {
     if( IsBitSetBS( maze->reach, pos) ) continue;
     if( maze->PHYSstone[ pos ] >= 0 ) continue;
     if( AvoidThisSquare == pos ) continue;
+    
+    // while counts
+    ++mark_reach_while_counts;
 
     SetBitBS( maze->reach,pos );
 
@@ -229,8 +233,11 @@ void MarkReachImpl(MAZE *maze) {
 }
 
 void MarkReach(MAZE *maze) {
-  extern unsigned long long mark_reach_cycles;
   /* a wrapper for counting number of cycles in MarkReach */
+  extern unsigned long long mark_reach_counts;
+  extern unsigned long long mark_reach_cycles;
+
+  ++mark_reach_counts;
   unsigned long long cnt = rdtsc();
 
   MarkReachImpl(maze);

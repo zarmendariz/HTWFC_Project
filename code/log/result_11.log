@@ -1,0 +1,36 @@
+PrintPriority: 2
+Command:Maze screens/screen.11:
+          ####      
+     #### #  #      
+   ###  ###  #      
+  ##         #      
+ ##      ## ##      
+ #  # ##     #      
+ # #      # ###     
+ #     #  #   ##### 
+####    #     #   # 
+####0##           # 
+#00000###  ######## 
+#00000# ####        
+#000#0#             
+#00000#             
+#######             
+?                   
+.   0  YES MACRO, nodes: 15 n: 1
+Auto Set local cut parameter: 1,9, 7.
+ScanSearch: h 207, nodes used: 0
+ScanSearch: h 209, nodes used: 2408
+ScanSearch: h 209, nodes used: 6354
+ScanSearch: h 211, nodes used: 8292
+ScanSearch: h 215, nodes used: 11049
+ScanSearch: h 217, nodes used: 14824
+ScanSearch: h 217, nodes used: 19768
+ScanSearch: h 219, nodes used: 22121
+ScanSearch: h 221, nodes used: 23906
+ScanSearch: h 221, nodes used: 25189
+ScanSearch: h 221, nodes used: 26487
+ScanSearch: h 221, nodes used: 27865
+ScanSearch: h 221, nodes used: 29111
+ScanSearch: h 221, nodes used: 31116
+ScanSearch: h: 207->223, nodes used: 37525
+.   0  Threshold 223 (223)
