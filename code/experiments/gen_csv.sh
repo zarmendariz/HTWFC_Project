@@ -1,5 +1,7 @@
 #!/bin/bash
-for n in $(cat can_solve.txt);
+LIST_OF_PUZZLES=can_solve.txt
+
+for n in $(cat ${LIST_OF_PUZZLES});
 do
   printf "Puzzle_%s", $n;
   cat log/result_${n}.log | tail -n 16 | head -n 14 |\
