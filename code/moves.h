@@ -33,6 +33,7 @@ int  GenerateMoves(MAZE *maze, MOVE *moves);
 int  MakeMove(MAZE *maze, MOVE *move, UNMOVE *unmove, int targetpen);
 int  UnMakeMove(MAZE *maze, UNMOVE *unmove, int targetpen);
 int  DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over);
+void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach);
 void Moves(MAZE *maze, PHYSID *from, signed char *reach);
 void GenAllSquares( PHYSID pos, PHYSID *from, BitString all_squares );
 void PushesMoves(MAZE *maze, PHYSID start, PHYSID goal,
