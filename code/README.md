@@ -1,6 +1,6 @@
 ## Current Structure of Experiments
 
-- Functions and Variables are defined in the following files:
+- Functions and Variables are defined in following files:
 ```
 experiments.c
 experiments.h
@@ -18,4 +18,4 @@ experiments.h
 
 The log will be written to `experiments/log/result_<i>.log`.
 
-Run `./gen_csv.sh` can generate a csv format output parsing from `experiments/log`
+- Run `./gen_csv.sh` under `experiments/` directory can generate a csv format output parsing from `experiments/log`
