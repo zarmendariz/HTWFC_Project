@@ -19,7 +19,6 @@ mkdir -p log
 
 for i in $(cat can_solve.txt);
 do
-  i=52
   echo "Running benchmark #${i}"
   { time timeout ${TIME_LIMIT} bash -c "echo \"S ${i}\" | ${BIN} > log/result_${i}.log 2>&1"; } >> log/result_${i}.log 2>&1;
   RETVAL=$?
@@ -28,7 +27,6 @@ do
   else
     count=$((count + 1));
   fi
-  break;
 done
 
 echo "Solved a total of ${count} benchmarks"

@@ -52,8 +52,8 @@ ScanSearch: h: 220->226, nodes used: 51924
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 2, TT collisions: 0 Req: 37, (5.405406)
  1 4 5 9 5 5 5 7 4 2 2 1 1 1 
-.   0  run: sec: 4, usec: 161317, t: 4
-.   0  Nodes per Second:    40010 (4 sec.)
+.   0  run: sec: 1, usec: 903658, t: 2
+.   0  Nodes per Second:    80019 (2 sec.)
 .   0  AREA POS: #:   1 (  5%) #n:   1966  nodes/search: 1966
 .   0  AREA NEG: #:  17 ( 94%) #n:   4377  nodes/search: 257
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -77,8 +77,8 @@ ScanSearch: h: 220->226, nodes used: 51924
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 30, TT collisions: 0 Req: 79, (37.974682)
  2 8 15 22 10 10 9 13 8 3 3 2 2 2 6 1 
-.   0  run: sec: 5, usec: 560917, t: 6
-.   0  Nodes per Second:    38004 (6 sec.)
+.   0  run: sec: 2, usec: 594274, t: 3
+.   0  Nodes per Second:    76009 (3 sec.)
 .   0  AREA POS: #:   2 (  6%) #n:   3657  nodes/search: 1828
 .   0  AREA NEG: #:  28 ( 93%) #n:  11857  nodes/search: 423
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -102,8 +102,8 @@ ScanSearch: h: 220->226, nodes used: 51924
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 59, TT collisions: 0 Req: 263, (22.433460)
  3 10 20 33 21 20 12 21 13 10 11 13 6 3 7 2 1 3 1 3 1 1 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 2 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 9, usec: 690343, t: 10
-.   0  Nodes per Second:    38892 (10 sec.)
+.   0  run: sec: 4, usec: 634474, t: 5
+.   0  Nodes per Second:    77783 (5 sec.)
 .   0  AREA POS: #:   7 (  9%) #n:   7863  nodes/search: 1123
 .   0  AREA NEG: #:  66 ( 90%) #n:  22361  nodes/search: 338
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -116,16 +116,16 @@ Path:  Fg-Gg Fh-Fi-Do* Ei-Fi-Dn* Ih-Ig-If-Ig-Ih Ji-Ii-Hi-Gi Ih-Ii-Hi Li-Ki-Ji Ni
 (moves: 230 depth: 139)
 Moves: 782, Pushes: 230, Treedepth: 139
 Total number of calling MarkReach(): 246660
-Total number of cycles for MarkReach(): 2425281983
-Average number of cycles per call: 9832.489998
+Total number of cycles for MarkReach(): 1160783623
+Average number of cycles per call: 4706.006742
 Total number of while loop for MarkReach(): 20992279
-Average number of cycles per loop: 115.532096
+Average number of cycles per loop: 55.295741
 Total number of calling Moves(): 310687
-Total number of cycles for Moves(): 5406720143
-Average number of cycles per call: 17402.466608
+Total number of cycles for Moves(): 3157295219
+Average number of cycles per call: 10162.302314
 Total number of while loop for Moves(): 30815116
-Average number of cycles per loop: 175.456751
+Average number of cycles per loop: 102.459300
 Command:
-real	0m9.730s
-user	0m9.701s
-sys	0m0.026s
+real	0m4.655s
+user	0m4.641s
+sys	0m0.011s

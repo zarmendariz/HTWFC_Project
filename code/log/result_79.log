@@ -43,7 +43,7 @@ ScanSearch: h: 166->172, nodes used: 6794
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 1, TT collisions: 0 Req: 14, (7.142857)
  1 2 4 1 1 1 1 1 1 1 2 3 
-.   0  run: sec: 0, usec: 737456, t: 1
+.   0  run: sec: 0, usec: 302759, t: 1
 .   0  Nodes per Second:    11501 (1 sec.)
 .   0  AREA POS: #:   0 (  0%) #n:      0  nodes/search:   0
 .   0  AREA NEG: #:   3 (100%) #n:    681  nodes/search: 227
@@ -68,7 +68,7 @@ ScanSearch: h: 166->172, nodes used: 6794
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 12, TT collisions: 0 Req: 109, (11.009174)
  2 3 6 2 2 2 2 2 2 2 3 5 4 3 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 0, usec: 896349, t: 1
+.   0  run: sec: 0, usec: 385881, t: 1
 .   0  Nodes per Second:    16505 (1 sec.)
 .   0  AREA POS: #:   0 (  0%) #n:      0  nodes/search:   0
 .   0  AREA NEG: #:  21 (100%) #n:   1882  nodes/search:  89
@@ -82,16 +82,16 @@ Path:  Ih-Ig Hh-Ih Ig-Jg-Kg-Rg* Ih-Ig-Jg-Kg-Qg* Ie-Id-Ic Jd-Kd-Jd Ic-Id-Ie-If-Ig
 (moves: 174 depth: 92)
 Moves: 562, Pushes: 174, Treedepth: 92
 Total number of calling MarkReach(): 80144
-Total number of cycles for MarkReach(): 1012846186
-Average number of cycles per call: 12637.829232
+Total number of cycles for MarkReach(): 430585976
+Average number of cycles per call: 5372.653923
 Total number of while loop for MarkReach(): 7461732
-Average number of cycles per loop: 135.738752
+Average number of cycles per loop: 57.705902
 Total number of calling Moves(): 20646
-Total number of cycles for Moves(): 398642923
-Average number of cycles per call: 19308.482176
+Total number of cycles for Moves(): 203290210
+Average number of cycles per call: 9846.469534
 Total number of while loop for Moves(): 1869652
-Average number of cycles per loop: 213.217713
+Average number of cycles per loop: 108.731577
 Command:
-real	0m0.922s
-user	0m0.903s
-sys	0m0.018s
+real	0m0.403s
+user	0m0.390s
+sys	0m0.011s

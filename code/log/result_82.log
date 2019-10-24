@@ -44,7 +44,7 @@ ScanSearch: h: 135->143, nodes used: 17551
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 1, TT collisions: 2 Req: 74, (1.351351)
  1 3 1 1 1 1 1 1 1 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 3 1 1 1 1 1 1 1 3 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 0, usec: 319465, t: 1
+.   0  run: sec: 0, usec: 169811, t: 1
 .   0  Nodes per Second:    32224 (1 sec.)
 .   0  AREA POS: #:   2 (  6%) #n:   1123  nodes/search: 561
 .   0  AREA NEG: #:  29 ( 93%) #n:   1038  nodes/search:  35
@@ -58,16 +58,16 @@ Path:  Eg-Ef Fg-Gg Hf-If Hg-Hh Ig-Pi* Gg-Hg-Ig-Pf* If-Ie-Id-Ic-Id-Ie-If-Ig-Ph* D
 (moves: 143 depth: 70)
 Moves: 406, Pushes: 143, Treedepth: 70
 Total number of calling MarkReach(): 18740
-Total number of cycles for MarkReach(): 117793492
-Average number of cycles per call: 6285.671932
+Total number of cycles for MarkReach(): 60411138
+Average number of cycles per call: 3223.646638
 Total number of while loop for MarkReach(): 1099700
-Average number of cycles per loop: 107.114206
+Average number of cycles per loop: 54.934198
 Total number of calling Moves(): 10985
-Total number of cycles for Moves(): 126184727
-Average number of cycles per call: 11487.002913
+Total number of cycles for Moves(): 71979396
+Average number of cycles per call: 6552.516705
 Total number of while loop for Moves(): 714266
-Average number of cycles per loop: 176.663494
+Average number of cycles per loop: 100.773936
 Command:
-real	0m0.340s
-user	0m0.323s
-sys	0m0.017s
+real	0m0.179s
+user	0m0.173s
+sys	0m0.006s
