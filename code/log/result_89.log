@@ -1,7 +1,0 @@
-PrintPriority: 2
-Command:Maze screens/screen.89:
-Maze too large for YSIZE, recompile with larger YSIZE!
-
-real	0m0.010s
-user	0m0.002s
-sys	0m0.008s

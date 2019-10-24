@@ -1,0 +1,112 @@
+PrintPriority: 2
+Command:Maze screens/screen.10:
+ ###  ############# 
+## ####       #000# 
+#             0000# 
+#     #       #000# 
+#     #       #000# 
+###   #       #000# 
+#     #       #000# 
+#    ###### ###000# 
+## #  #       #000# 
+#  ## #       ##00# 
+#   # #         #0# 
+#   # #         #0# 
+##### #       # #0# 
+    # ######### #0# 
+    #           #0# 
+?   ############### 
+.   0  YES MACRO, nodes: 29 n: 1
+ ###  ############# 
+## ####       #000# 
+#             0000# 
+#     #       #000# 
+#     #       #000# 
+###   #       #000# 
+#     #       #000# 
+#    ###### ###000# 
+## #  #       #000# 
+#  ## #       ##00# 
+#   # #         #0# 
+#   # #         #0# 
+##### #       # #0# 
+    # ######### #0# 
+    #           #0# 
+?   ############### 
+.   0  YES MACRO, nodes: 5 n: 1
+Auto Set local cut parameter: 1,10, 11.
+ScanSearch: h 506, nodes used: 0
+ScanSearch: h 510, nodes used: 4248
+ScanSearch: h 510, nodes used: 5671
+ScanSearch: h 510, nodes used: 7078
+ScanSearch: h 510, nodes used: 9044
+ScanSearch: h 510, nodes used: 11122
+ScanSearch: h 510, nodes used: 12813
+ScanSearch: h 510, nodes used: 14480
+ScanSearch: h 510, nodes used: 16570
+ScanSearch: h 510, nodes used: 18178
+ScanSearch: h 510, nodes used: 20026
+ScanSearch: h 510, nodes used: 21666
+ScanSearch: h 510, nodes used: 24957
+ScanSearch: h 510, nodes used: 27991
+ScanSearch: h 510, nodes used: 29115
+ScanSearch: h 510, nodes used: 31931
+ScanSearch: h 510, nodes used: 33112
+ScanSearch: h 510, nodes used: 34368
+ScanSearch: h 510, nodes used: 35538
+ScanSearch: h 510, nodes used: 36711
+ScanSearch: h 510, nodes used: 37990
+ScanSearch: h 510, nodes used: 39165
+ScanSearch: h 510, nodes used: 40542
+ScanSearch: h 510, nodes used: 41908
+ScanSearch: h 512, nodes used: 43257
+ScanSearch: h 512, nodes used: 45332
+ScanSearch: h 512, nodes used: 46727
+ScanSearch: h 512, nodes used: 48477
+ScanSearch: h 512, nodes used: 49902
+ScanSearch: h 512, nodes used: 51174
+ScanSearch: h 512, nodes used: 52770
+ScanSearch: h 512, nodes used: 54020
+ScanSearch: h: 506->512, nodes used: 55314
+.   0  Threshold 512 (512)
+.   0  tt: Y, dl_mg: Y, dl2_mg: Y
+.   0  area_srch: Y dl_srch: Y pen_srch: Y
+.   0  scan_srch: Y
+.   0  node limit: 1000, minimize: Y
+.   0  st_testd: Y, dl_db: 7, cut_goal: Y
+.   0  xdist: Y, auto: Y, local: Y(1,10,11)
+.   0  lb_mp: Y, lb_cf: Y, lb_dd: Y(0/1), mc_tu: Y, mc_gm: Y
+.   0  overestim: 0.00, hoverestim: 1.00, assume dead: N
+.   0  limit patterns: Y, lazy maximize: Y
+.   0  nodes searched: total: 1860689, top level: 2066
+.   0  mini: 352314, scan: 55314
+.   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
+.   0  TT hits: 113, TT collisions: 2 Req: 928, (12.176724)
+ 1 1 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 8 27 56 106 142 157 106 54 37 69 125 166 160 133 131 70 33 19 3 3 3 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 4 3 3 6 3 3 3 3 4 5 7 7 3 3 3 6 10 5 2 2 5 2 2 2 2 2 5 2 2 2 5 2 2 2 3 2 2 2 2 2 2 5 2 2 3 2 2 2 2 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+.   0  run: sec: 43, usec: 618818, t: 44
+.   0  Nodes per Second:    42288 (44 sec.)
+.   0  AREA POS: #:  14 (  3%) #n:  17301  nodes/search: 1235
+.   0  AREA NEG: #: 352 ( 96%) #n:  41372  nodes/search: 117
+.   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
+.   0  DL   NEG: #: 311 (100%) #n: 219774  nodes/search: 706
+.   0  PEN  POS: #:   7 (  2%) #n:  48293  nodes/search: 6899
+.   0  PEN  NEG: #: 316 ( 97%) #n: 566737  nodes/search: 1793
+.   0  DeadTested:     0, PenTested :    26, patterns: 563, removed: 151, killed: 0
+.   0  
+Path:  Cc-Cd Dc-Ec Dd-De-Df-Dg-Dh-Ch-Dl* Ce-De-Df-Dg-Dh-Ch-Dk* Cd-Ce-De-Df-Dg-Dh-Ch-Cl* Nj-Nk Ml-Mk-Mj Li-Mi Nc-Ro* Lc-Mc-Nc-Rn* Me-Md-Mc-Nc-Rm* Ld-Md-Nd-Nc-Rl* Le-Me-Ne-Nd-Nc-Rk* Ie-Id-Jd-Kd-Kc-Lc-Mc-Nc-Rj* Je-Ke-Le-Me-Ne-Nd-Nc-Pi* Jf-Kf-Lf-Mf Lj-Li-Lh-Lg-Lf-Le-Me Mg-Lg Mf-Nf Me-Md-Nd-Nc-Ri* Hc-Hd Nf-Ne-Nd-Nc-Qj* Ic-Jc-Kc-Lc-Mc-Nc-Ph* Fd-Fe Ed-Dd-De-Df-Dg-Dh-Ch-Ck* Ec-Fc-Gc-Hc-Ic-Jc-Kc-Lc-Mc-Nc-Rh* Fe-Fd-Fc-Gc-Hc-Ic-Jc-Kc-Lc-Mc-Nc-Qi* Nk-Mk-Lk-Lj Lg-Lf-Le-Ld-Lc-Mc-Nc-Pg* Hd-Hc-Ic-Jc-Kc-Lc-Mc-Nc-Rg* Kg-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Qh* Ig-Jg-Kg-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Pf* Lj-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Rf* Mi-Li-Lh-Lg-Lf-Le-Ld-Lc-Mc-Nc-Qg* Ji-Ki-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Pe* Mj-Mi-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Re* Ij-Ii-Ji-Ki-Li-Lh-Lg-Lf-Le-Ld-Lc-Mc-Nc-Qf* Jj-Kj-Lj-Li-Lh-Lg-Lf-Le-Ld-Lc-Mc-Nc-Pd* Jk-Kk-Lk-Lj-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Rd* Kl-Kk-Lk-Lj-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Qe* Jl-Jk-Kk-Lk-Lj-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Rc* Nl-Nk-Mk-Lk-Lj-Li-Lh-Lg-Lf-Mf-Nf-Ne-Nd-Nc-Qd* Il-Ik-Ij-Ii-Ji-Ki-Li-Lh-Lg-Lf-Le-Ld-Lc-Mc-Nc-Qc* Ol-Nl-Ml-Ll-Lk-Lj-Li-Lh-Lg-Lf-Le-Ld-Lc-Mc-Nc-Pc*
+(moves: 512 depth: 299)
+Moves: 1583, Pushes: 512, Treedepth: 299
+Total number of calling MarkReach(): 1455351
+Total number of cycles for MarkReach(): 17435190750
+Average number of cycles per call: 11980.058934
+Total number of while loop for MarkReach(): 198954884
+Average number of cycles per loop: 87.633892
+Total number of calling Moves(): 925524
+Total number of cycles for Moves(): 21783210132
+Average number of cycles per call: 23536.083486
+Total number of while loop for Moves(): 144382632
+Average number of cycles per loop: 150.871402
+Command:
+real	0m43.685s
+user	0m43.636s
+sys	0m0.024s
