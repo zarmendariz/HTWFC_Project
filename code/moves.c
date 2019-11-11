@@ -10,6 +10,7 @@
 */
 
 #include "board.h"
+#include "experiments.h"
 
 /*******************************************************************************/
 /* 									       */
@@ -357,7 +358,8 @@ int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {
  * man can move to. The reach char array stores Manhattan distances from
  * the man's starting position, and -1 if it is unreachable.
  */
-void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
+void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
   static PHYSID stack[ENDPATH]; // this is really a queue
   static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
@@ -376,6 +378,10 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
     if (reach[pos] >= 0) continue; // we have visited this square
     if (maze->PHYSstone[pos] >= 0) continue; // there's a stone here
     if (AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
     reach[pos] = reach[from[pos] = f[next_out]] + 1; // get the parent's distance + 1
 
     for (dir = NORTH; dir <= WEST; dir++) {
@@ -387,6 +393,19 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
     }
 
   }
+}
+
+void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
+  /* a wrapper for counting number of cycles in MovesImpl() */
+  extern unsigned long long moves_cycles;
+  extern unsigned long long moves_counts;
+
+  ++moves_counts;
+  unsigned long long cnt = rdtsc();
+
+  MovesImpl(maze, from, reach);
+
+  moves_cycles += rdtsc() - cnt;
 }
 
 /* generate a path that does not touch any of the squares in shadows */
