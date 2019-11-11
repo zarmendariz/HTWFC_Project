@@ -1,4 +1,4 @@
-/* 
+/*
 ** Copyright (C) 1999 by Andreas Junghanns.
 **
 ** Permission to use, copy, modify, and distribute this software and its
@@ -7,7 +7,7 @@
 ** copyright notice and this permission notice appear in supporting
 ** documentation.  This software is provided "as is" without express or
 ** implied warranty.
-*/ 
+*/
 
 #include "board.h"
 
@@ -37,7 +37,7 @@ void MarkAll(MAZE *maze) {
 
 	SR(Debug(2,0,"SetDistDead\n"));
 	SetDistDead(maze);
-	
+
 	SR(Debug(2,0,"MarkTG\n"));
 	MarkTG(maze);
 }
@@ -157,7 +157,7 @@ void MarkTG(MAZE *maze) {
 			}
 		}
 	}
-	
+
 	Set0BS(zero);
 	Set1BS(ones);
 	for (i=0; i<XSIZE*YSIZE; i++) {
@@ -181,11 +181,11 @@ void MarkTG(MAZE *maze) {
 void MarkOut(MAZE *maze, PHYSID pos) {
 /* recursive function to unmark the inner fields from the out-flag */
 	int dir;
-	
+
 	if (!IsBitSetBS(maze->out,pos)) return;
 	UnsetBitBS(maze->out,pos);
 	for (dir=NORTH; dir<=WEST; dir++) {
-		if (IsBitSetBS(maze->M[dir],pos)) 
+		if (IsBitSetBS(maze->M[dir],pos))
 			MarkOut(maze, pos+DirToDiff[dir]);
 	}
 }
@@ -194,20 +194,20 @@ void CleanReach(MAZE *maze) {
 	Set0BS(maze->reach);
 }
 
-void MarkReach(MAZE *maze) {
-  /* recursive function to mark the fields that are reachable */
-	
+void MarkReach_Original(MAZE *maze) { // original
+  /* DFS function to mark the fields that are reachable */
+
   static PHYSID stack[ENDPATH];
   PHYSID pos;
   int top;
 
-  Set0BS(maze->reach);
+  Set0BS(maze->reach); // This is a bitstring
 
   stack[0] = maze->manpos;
   top = 1;
   while( top ) {
     pos = stack[ --top ];
-    if( IsBitSetBS( maze->reach, pos) ) continue;
+    if( IsBitSetBS( maze->reach, pos) ) continue; // visited, bitstring 320 bits
     if( maze->PHYSstone[ pos ] >= 0 ) continue;
     if( AvoidThisSquare == pos ) continue;
 
@@ -225,9 +225,58 @@ void MarkReach(MAZE *maze) {
   BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
 }
 
+void MarkReach(MAZE *maze) {
+  /* DFS function to mark the fields that are reachable */
+
+  static PHYSID stack[ENDPATH];
+  PHYSID pos;
+  int top;
+
+  Set0BS(maze->reach); // This is a bitstring
+
+  stack[0] = maze->manpos;
+  top = 1;
+  while( top ) {
+    pos = stack[ --top ];
+    if( IsBitSetBS( maze->reach, pos) ) continue; // visited, bitstring 320 bits
+    if( maze->PHYSstone[ pos ] >= 0 ) continue;
+    if( AvoidThisSquare == pos ) continue;
+    SetBitBS( maze->reach,pos );
+
+    if( IsBitSetBS( maze->M[ 1 ], pos ) )
+    stack[ top++ ] = pos + YSIZE;
+    if( IsBitSetBS( maze->M[ 3 ], pos ) )
+    stack[ top++ ] = pos - YSIZE;
+
+    PHYSID pos_temp = pos;
+    while( IsBitSetBS( maze->M[ 0 ], pos_temp ) ) {
+      pos_temp++;
+      if( maze->PHYSstone[ pos_temp ] >= 0 ) continue;
+      if( AvoidThisSquare == pos_temp ) continue;
+      SetBitBS( maze->reach, pos_temp );
+      if( IsBitSetBS( maze->M[ 1 ], pos_temp ) )
+        stack[ top++ ] = pos_temp + YSIZE;
+      if( IsBitSetBS( maze->M[ 3 ], pos_temp ) )
+        stack[ top++ ] = pos_temp - YSIZE;
+    }
+    pos_temp = pos;
+    if( IsBitSetBS( maze->M[ 2 ], pos ) ) {
+      pos_temp--;
+      if( maze->PHYSstone[ pos_temp ] >= 0 ) continue;
+      if( AvoidThisSquare == pos_temp ) continue;
+      SetBitBS( maze->reach, pos_temp );
+      if( IsBitSetBS( maze->M[ 1 ], pos_temp ) )
+        stack[ top++ ] = pos_temp + YSIZE;
+      if( IsBitSetBS( maze->M[ 3 ], pos_temp ) )
+        stack[ top++ ] = pos_temp - YSIZE;
+    }
+  }
+  BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
+}
+
 void MarkReachNoUnreach(MAZE *maze) {
   /* recursive function to mark the fields that are reachable */
-	
+
   static PHYSID stack[ENDPATH];
   PHYSID pos;
   int top;
@@ -257,7 +306,7 @@ void MarkReachNoUnreach(MAZE *maze) {
 
 void MarkReachQuick( MAZE *maze, PHYSID from ) {
   /* recursive function to mark the fields that are reachable */
-	
+
   static PHYSID stack[ENDPATH];
   PHYSID pos;
   int top;
@@ -374,7 +423,7 @@ void UpdateReach( MAZE *maze, PHYSID stonepos )
 
 void MarkDead(MAZE *maze) {
 /* function to mark the fields that create a deadlock if a stone is on  */
-	
+
 	PHYSID pos,p;
 	int dead,dir;
 
@@ -387,15 +436,15 @@ void MarkDead(MAZE *maze) {
 			 IsBitSetBS( maze->M[EAST], pos ) ) ) ) {
 			SetBitBS(maze->dead,pos);
 			for (dir=NORTH; dir<=WEST; dir++) {
-				if (IsBitSetBS(maze->M[dir],pos)) 
+				if (IsBitSetBS(maze->M[dir],pos))
 					UnsetBitBS(maze->S[OppDir[dir]],
 						   pos+DirToDiff[dir]);
 			}
-		} 
+		}
 		/* check x direction only in east, since we start */
 		/* lower left corner and move right */
 		/* we assume dead and if not found otherwise mark */
-		if (!IsBitSetBS(maze->M[WEST],pos)) dead = 1; 
+		if (!IsBitSetBS(maze->M[WEST],pos)) dead = 1;
 		else dead = 0;
 		for (p=pos; dead==1 && p<YSIZE*XSIZE; p+=YSIZE) {
 			/* if we hit goal state, not dead */
@@ -417,14 +466,14 @@ void MarkDead(MAZE *maze) {
 			SetBitBS(maze->dead,p);
 			/* set neighbours S[NEWS] flags */
 			for (dir=NORTH; dir<=WEST; dir++) {
-				if (IsBitSetBS(maze->M[dir],p)) 
+				if (IsBitSetBS(maze->M[dir],p))
 					UnsetBitBS(maze->S[OppDir[dir]],
 						   p+DirToDiff[dir]);
 			}
 			if (!IsBitSetBS(maze->M[EAST],p)) break;
 		}
 		/* now same for E/W, asume south was done */
-		if (!IsBitSetBS(maze->M[SOUTH],pos)) dead = 1; 
+		if (!IsBitSetBS(maze->M[SOUTH],pos)) dead = 1;
 		else dead = 0;
 		for (p=pos; dead==1 && (p%YSIZE)!=0; p++) {
 			/* if we hit goal state, not dead */
@@ -446,7 +495,7 @@ void MarkDead(MAZE *maze) {
 			SetBitBS(maze->dead,p);
 			/* set neighbours S[NEWS] flags */
 			for (dir=NORTH; dir<=WEST; dir++) {
-				if (IsBitSetBS(maze->M[dir],p)) 
+				if (IsBitSetBS(maze->M[dir],p))
 					UnsetBitBS(maze->S[OppDir[dir]],
 						   p+DirToDiff[dir]);
 			}
@@ -462,7 +511,7 @@ void MarkOneConnected(MAZE *maze)
 	BitString obstacles;
 
 	/* Initialize both */
-	Set0BS(maze->one_way);	
+	Set0BS(maze->one_way);
 	maze->connected	     = (CONN*)My_malloc(sizeof(CONN));
 	memset(maze->connected,0,sizeof(CONN));
 
