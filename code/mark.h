@@ -19,7 +19,6 @@ void MarkTun(MAZE *maze);
 void MarkTG(MAZE *maze);
 
 void MarkReach(MAZE *maze);
-void MarkReachImpl(MAZE *maze);
 void CleanReach(MAZE *maze);
 void UpdateReach(MAZE *maze, PHYSID stonepos);
 void MarkReachNoUnreach(MAZE *maze);

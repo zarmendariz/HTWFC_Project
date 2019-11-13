@@ -359,7 +359,6 @@ int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {
  * the man's starting position, and -1 if it is unreachable.
  */
 void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
-  extern unsigned long long moves_while_counts;
   static PHYSID stack[ENDPATH]; // this is really a queue
   static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
@@ -397,8 +396,6 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
 
 void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   /* a wrapper for counting number of cycles in MovesImpl() */
-  extern unsigned long long moves_cycles;
-  extern unsigned long long moves_counts;
 
   ++moves_counts;
   unsigned long long cnt = rdtsc();

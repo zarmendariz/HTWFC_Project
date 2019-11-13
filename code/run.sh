@@ -10,7 +10,7 @@ LIST_OF_PUZZLES=experiments/can_solve.txt
 LOG_DIR=experiments/log
 TIME_LIMIT=${1}
 COUNT=0
-BIN=./RS_O0
+BIN=./RS
 
 # the first argument is the time limit to run
 if [ "$#" -ne 1 ];

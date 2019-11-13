@@ -1,6 +1,14 @@
 #include "board.h"
 #include "experiments.h"
 
+unsigned long long mark_reach_counts;
+unsigned long long mark_reach_cycles;
+unsigned long long mark_reach_while_counts;
+
+unsigned long long moves_counts;
+unsigned long long moves_cycles;
+unsigned long long moves_while_counts;
+
 void InitExperiments() {
   mark_reach_counts = 0;
   mark_reach_cycles = 0;
