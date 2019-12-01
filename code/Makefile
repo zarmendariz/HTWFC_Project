@@ -1,7 +1,7 @@
 #CC = purify -freeze-on-error=yes -inuse-at-exit=yes gcc
 CC = gcc
 
-OPT = -O0 -std=c99
+OPT = -O0 -std=c99 -march=native
 #OPT = -pg -std=c99
 #OPT = -g -std=c99
 #WARN = -Wall
