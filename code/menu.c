@@ -136,6 +136,7 @@ MainMenu()
 
 	case CmdSolve:
       InitExperiments();
+      PrintExperimentsStats();
 			MakeName(name,&Cur_Maze_Number, CmdParam(cmdstr,1),
 							CmdParam(cmdstr,2));
 			if ((fp = fopen(name,"r")) != NULL) {

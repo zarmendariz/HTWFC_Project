@@ -1,5 +1,15 @@
 PrintPriority: 2
-Command:Maze screens/screen.80:
+Command:Total number of calling MarkReach(): 0
+Total number of cycles for MarkReach(): 0
+Average number of cycles per call: -nan
+Total number of while loop for MarkReach(): 0
+Average number of cycles per loop: -nan
+Total number of calling Moves(): 0
+Total number of cycles for Moves(): 0
+Average number of cycles per call: -nan
+Total number of while loop for Moves(): 0
+Average number of cycles per loop: -nan
+Maze screens/screen.80:
   ################# 
 ### ## 00000000000# 
 #    # 00000000000# 
@@ -44,7 +54,7 @@ ScanSearch: h: 231->231, nodes used: 8205
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 5, TT collisions: 0 Req: 119, (4.201681)
  1 1 1 1 2 1 1 7 9 21 9 7 9 21 9 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 0, usec: 623014, t: 1
+.   0  run: sec: 0, usec: 391047, t: 1
 .   0  Nodes per Second:    29631 (1 sec.)
 .   0  AREA POS: #:  10 ( 20%) #n:   1041  nodes/search: 104
 .   0  AREA NEG: #:  39 ( 79%) #n:   1544  nodes/search:  39
@@ -58,16 +68,16 @@ Path:  Df-Cf De-Df Ce-De Cf-Ci* Fh-Gh-Hh Ig-Hg If-Rb* Hg-Ig Hh-Hg Ih-Hh Ig-Qb* H
 (moves: 231 depth: 78)
 Moves: 637, Pushes: 231, Treedepth: 78
 Total number of calling MarkReach(): 42795
-Total number of cycles for MarkReach(): 274323726
-Average number of cycles per call: 6410.181703
+Total number of cycles for MarkReach(): 171212208
+Average number of cycles per call: 4000.752611
 Total number of while loop for MarkReach(): 2958676
-Average number of cycles per loop: 92.718407
+Average number of cycles per loop: 57.867846
 Total number of calling Moves(): 35991
-Total number of cycles for Moves(): 451480779
-Average number of cycles per call: 12544.268817
+Total number of cycles for Moves(): 330667581
+Average number of cycles per call: 9187.507460
 Total number of while loop for Moves(): 3211773
-Average number of cycles per loop: 140.570576
+Average number of cycles per loop: 102.954842
 Command:
-real	0m0.644s
-user	0m0.626s
-sys	0m0.016s
+real	0m0.405s
+user	0m0.395s
+sys	0m0.010s

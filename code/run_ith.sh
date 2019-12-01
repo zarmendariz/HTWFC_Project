@@ -5,7 +5,7 @@
 # take one arguemnt which is the index of the puzzle
 ##
 
-BIN=./RS_O0
+BIN=./RS
 
 if [ "$#" -ne 1 ];
 then

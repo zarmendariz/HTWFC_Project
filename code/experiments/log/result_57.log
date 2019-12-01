@@ -1,5 +1,15 @@
 PrintPriority: 2
-Command:Maze screens/screen.57:
+Command:Total number of calling MarkReach(): 0
+Total number of cycles for MarkReach(): 0
+Average number of cycles per call: -nan
+Total number of while loop for MarkReach(): 0
+Average number of cycles per loop: -nan
+Total number of calling Moves(): 0
+Total number of cycles for Moves(): 0
+Average number of cycles per call: -nan
+Total number of while loop for Moves(): 0
+Average number of cycles per loop: -nan
+Maze screens/screen.57:
 ####################
 #      ###   #  #  #
 # # #  #           #
@@ -47,8 +57,8 @@ ScanSearch: h: 217->223, nodes used: 46056
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 2, TT collisions: 0 Req: 19, (10.526316)
  1 4 10 4 1 1 1 1 2 
-.   0  run: sec: 2, usec: 133033, t: 2
-.   0  Nodes per Second:    50718 (2 sec.)
+.   0  run: sec: 1, usec: 268969, t: 1
+.   0  Nodes per Second:   101437 (1 sec.)
 .   0  AREA POS: #:   1 ( 10%) #n:     11  nodes/search:  11
 .   0  AREA NEG: #:   9 ( 90%) #n:   1628  nodes/search: 180
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -72,8 +82,8 @@ ScanSearch: h: 217->223, nodes used: 46056
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 7, TT collisions: 0 Req: 201, (3.482587)
  2 5 13 9 2 3 2 2 3 1 1 7 1 1 1 1 1 3 5 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 9 5 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 4 1 1 1 3 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 2, usec: 715661, t: 3
-.   0  Nodes per Second:    40341 (3 sec.)
+.   0  run: sec: 1, usec: 624493, t: 2
+.   0  Nodes per Second:    60512 (2 sec.)
 .   0  AREA POS: #:   2 (  8%) #n:     65  nodes/search:  32
 .   0  AREA NEG: #:  21 ( 91%) #n:   1956  nodes/search:  93
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -86,16 +96,16 @@ Path:  Kc-Lc Kj-Lj-Mj-Mi Kh-Jh-Ih-Hh-Gh-Gg-Bh* Nc-Oc Kf-Jf-If-Hf-Gf-Be* Lc-Mc Md
 (moves: 225 depth: 177)
 Moves: 720, Pushes: 225, Treedepth: 177
 Total number of calling MarkReach(): 117865
-Total number of cycles for MarkReach(): 1152562401
-Average number of cycles per call: 9778.665431
+Total number of cycles for MarkReach(): 697998272
+Average number of cycles per call: 5922.014780
 Total number of while loop for MarkReach(): 12764248
-Average number of cycles per loop: 90.296146
+Average number of cycles per loop: 54.683854
 Total number of calling Moves(): 87084
-Total number of cycles for Moves(): 1777037778
-Average number of cycles per call: 20406.019223
+Total number of cycles for Moves(): 1168956513
+Average number of cycles per call: 13423.321310
 Total number of while loop for Moves(): 10579743
-Average number of cycles per loop: 167.966063
+Average number of cycles per loop: 110.490067
 Command:
-real	0m2.746s
-user	0m2.726s
-sys	0m0.020s
+real	0m1.650s
+user	0m1.629s
+sys	0m0.019s

@@ -391,9 +391,80 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
         next_in++;
       }
     }
-
   }
 }
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID stack[ENDPATH]; // this is really a queue
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  stack[0] = maze->manpos;  // start at the current position
+  f[0] = 0;
+  from[0] = -1;
+  next_in = 1;
+  next_out = -1;
+  while(++next_out < next_in) { // Loop until queue is empty
+
+    pos = stack[next_out]; // Grab the next location from the queue
+
+    if (reach[pos] >= 0) continue; // we have visited this square
+    if (maze->PHYSstone[pos] >= 0) continue; // there's a stone here
+    if (AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    reach[pos] = reach[from[pos] = f[next_out]] + 1; // get the parent's distance + 1
+
+    for (dir = NORTH; dir <= WEST; dir++) {
+      if (IsBitSetBS(maze->M[dir], pos)) { // Check if we can move this way
+	      f[next_in] = pos;  // record our current location as the parent
+	      stack[next_in] = pos + DirToDiff[dir]; // enqueue adjacent location
+        next_in++;
+      }
+    }
+  }
+}
+/*      U
+ *     LCR
+ *      B
+ *
+ *  Fixed Map of occupations (Max 320, 4-bit)
+ *
+ *  Queue of positions (Max 160, 9-bit)
+ *  Queue of parents (Max 320, 2-bit)
+ *
+ *  Output: Map of parents (Max 320, 2-bit)
+ *  Output: Map of distances (Max 320, 6-bit)
+ *
+ *  Input:
+ *  Map with manpos, walls, and stones
+ *
+ *  Output:
+ *  Distances and Parents of each position
+ *
+ *  1. Pop position queue (increment end + load) -> 2 cycles
+ *  2. Check visited (load) -> 1 cycle
+ *  3. Check stone (load) -> 1 cycle
+ *  4. Update Map of parents (load and store) -> 2 cycle
+ *  5. Update Map of distances (load, increment, and store) -> 3 cycles
+ *  6. Try 4 directions: 4 x 5 cycles = 20 cycles
+ *     - check occupations (load) -> 1 cycle
+ *     - update Queue of parents (store) -> 1 cycle
+ *     - push into Queue of positions (add and store) -> 2 cycles
+ *     - increment front (increment) -> 1 cycle
+ *
+ *  Total 29 cycles.
+ */
 
 void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   /* a wrapper for counting number of cycles in MovesImpl() */

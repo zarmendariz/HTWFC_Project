@@ -10,6 +10,7 @@
 */ 
 
 #include "board.h"
+#include "experiments.h"
 
 #define STARTP 27
 #define ENDP   60

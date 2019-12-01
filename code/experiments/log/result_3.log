@@ -1,5 +1,15 @@
 PrintPriority: 2
-Command:Maze screens/screen.3:
+Command:Total number of calling MarkReach(): 0
+Total number of cycles for MarkReach(): 0
+Average number of cycles per call: -nan
+Total number of while loop for MarkReach(): 0
+Average number of cycles per loop: -nan
+Total number of calling Moves(): 0
+Total number of cycles for Moves(): 0
+Average number of cycles per call: -nan
+Total number of while loop for Moves(): 0
+Average number of cycles per loop: -nan
+Maze screens/screen.3:
         ########    
         #      #    
         #  #  ##    
@@ -40,7 +50,7 @@ ScanSearch: h: 132->134, nodes used: 3487
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 1, TT collisions: 0 Req: 81, (1.234568)
  1 2 3 4 10 4 1 2 1 1 1 3 1 1 1 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 0, usec: 163391, t: 1
+.   0  run: sec: 0, usec: 95220, t: 1
 .   0  Nodes per Second:    14919 (1 sec.)
 .   0  AREA POS: #:   2 (  7%) #n:   1220  nodes/search: 610
 .   0  AREA NEG: #:  25 ( 92%) #n:    902  nodes/search:  36
@@ -54,16 +64,16 @@ Path:  Nd-Ne Jh-Bg* Ne-Nf Ng-Og-Ng-Mg Mh-Lh-Kh-Jh-Bi* Nf-Ng-Nh-Mh-Lh-Kh-Jh-Cg* M
 (moves: 134 depth: 67)
 Moves: 377, Pushes: 134, Treedepth: 67
 Total number of calling MarkReach(): 15372
-Total number of cycles for MarkReach(): 62200989
-Average number of cycles per call: 4046.382319
+Total number of cycles for MarkReach(): 35303280
+Average number of cycles per call: 2296.596409
 Total number of while loop for MarkReach(): 644964
-Average number of cycles per loop: 96.441025
+Average number of cycles per loop: 54.736823
 Total number of calling Moves(): 17316
-Total number of cycles for Moves(): 118013169
-Average number of cycles per call: 6815.267325
+Total number of cycles for Moves(): 74387766
+Average number of cycles per call: 4295.897782
 Total number of while loop for Moves(): 762270
-Average number of cycles per loop: 154.818068
+Average number of cycles per loop: 97.587162
 Command:
-real	0m0.178s
-user	0m0.165s
-sys	0m0.013s
+real	0m0.108s
+user	0m0.097s
+sys	0m0.011s
