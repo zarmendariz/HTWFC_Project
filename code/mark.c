@@ -396,35 +396,12 @@ void MarkReachImp5(MAZE *maze) {
   
   // Make the stone bitvectors fold into the map
   
-  /*DBG
-  memset(buf, 0, 40);
-  for (int i = 0; i < 320; i++) {
-    if (maze->PHYSstone[ i ] >= 0) {
-      SetBitBS((BASETYPE*)buf, i);
-    }
-  }
-  
-  printf("REFSTN ");
-  for (int i = 0; i < 16; i++) {
-    printf("%08x ", ((int *)buf)[i]);
-  }
-  printf("\n");
-  //EBDDBG*/
-  
   memset(buf, 0, 40);
   for (int i = 0; i < maze->number_stones; i++) {
     if (maze->PHYSstone[maze->stones[i].loc] >= 0) {
       SetBitBS((BASETYPE*)buf, maze->stones[i].loc);
     }
   }
-  
-  /*DBG
-  printf("OBSSTN ");
-  for (int i = 0; i < 16; i++) {
-    printf("%08x ", ((int *)buf)[i]);
-  }
-  printf("\n");
-  //EBDDBG*/
   
   SetBitBS((BASETYPE*)buf, AvoidThisSquare);
   UnsetBitBS((BASETYPE*)buf, maze->manpos);
