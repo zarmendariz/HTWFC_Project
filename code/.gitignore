@@ -33,3 +33,6 @@
 
 # RS execution file
 RS
+
+# afs files
+*.__afs*

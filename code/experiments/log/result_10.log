@@ -83,8 +83,8 @@ ScanSearch: h: 506->512, nodes used: 55314
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 113, TT collisions: 2 Req: 928, (12.176724)
  1 1 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 8 27 56 106 142 157 106 54 37 69 125 166 160 133 131 70 33 19 3 3 3 3 3 3 3 3 3 3 4 3 3 3 3 3 3 3 4 3 3 6 3 3 3 3 4 5 7 7 3 3 3 6 10 5 2 2 5 2 2 2 2 2 5 2 2 2 5 2 2 2 3 2 2 2 2 2 2 5 2 2 3 2 2 2 2 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 43, usec: 618818, t: 44
-.   0  Nodes per Second:    42288 (44 sec.)
+.   0  run: sec: 20, usec: 458603, t: 20
+.   0  Nodes per Second:    93034 (20 sec.)
 .   0  AREA POS: #:  14 (  3%) #n:  17301  nodes/search: 1235
 .   0  AREA NEG: #: 352 ( 96%) #n:  41372  nodes/search: 117
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -97,16 +97,16 @@ Path:  Cc-Cd Dc-Ec Dd-De-Df-Dg-Dh-Ch-Dl* Ce-De-Df-Dg-Dh-Ch-Dk* Cd-Ce-De-Df-Dg-Dh
 (moves: 512 depth: 299)
 Moves: 1583, Pushes: 512, Treedepth: 299
 Total number of calling MarkReach(): 1455351
-Total number of cycles for MarkReach(): 17435190750
-Average number of cycles per call: 11980.058934
-Total number of while loop for MarkReach(): 198954884
-Average number of cycles per loop: 87.633892
+Total number of cycles for MarkReach(): 1509398075
+Average number of cycles per call: 1037.136797
+Total number of while loop for MarkReach(): 0
+Average number of cycles per loop: inf
 Total number of calling Moves(): 925524
-Total number of cycles for Moves(): 21783210132
-Average number of cycles per call: 23536.083486
+Total number of cycles for Moves(): 13552382621
+Average number of cycles per call: 14642.929433
 Total number of while loop for Moves(): 144382632
-Average number of cycles per loop: 150.871402
+Average number of cycles per loop: 93.864355
 Command:
-real	0m43.685s
-user	0m43.636s
-sys	0m0.024s
+real	0m20.564s
+user	0m20.468s
+sys	0m0.021s
