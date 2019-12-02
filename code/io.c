@@ -79,6 +79,13 @@ void ReadMaze(FILE *fp, MAZE *maze ) {
 			UnsetBitBS(maze->M[NORTH],pos);
 			UnsetBitBS(maze->S[NORTH],pos);
 		}
+    // maze->Packed_M[(pos * 4) / (NUMBERINTS * BYTEPERINT * 8)]
+
+/* #define UnsetPackedBitBS(a,p) \ */
+      /* a[p / (NUMBERINTS * BYTEPERINT * 2)][(p % (NUMBERINTS * BYTEPERINT * 2))] \ */
+		 /* ((a)[(p)/(sizeof(BASETYPE)*8)] \ */
+	/* &=~ (((BASETYPE)1)<<((p)%(sizeof(BASETYPE)*8)))) */
+
 		switch (sq) {
 		case '\n': 
 			if (x==0) goto END_INPUT;

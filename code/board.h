@@ -326,6 +326,7 @@ typedef struct {
   BitString    wall;
   BitString    dead;
   BitString    M[4];    /* Can the man go there? */
+  BitString    Packed_M[4];    /* Can the man go there? */
   BitString    S[4];    /* Can the stone move there? */
 
   GMNODE     **gmtrees;

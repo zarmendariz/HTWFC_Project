@@ -147,7 +147,7 @@ MainMenu()
 				IdaInfo = &MainIdaInfo;
 				StartIda(YES);
 			} else {
-                                My_exit(1,"Menu: %s %s\n",name,strerror(errno));
+        My_exit(1,"Menu: %s %s\n",name,strerror(errno));
 			}
       PrintExperimentsStats();
 			break;

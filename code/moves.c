@@ -360,20 +360,20 @@ int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {
  */
 void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
-  static PHYSID stack[ENDPATH]; // this is really a queue
-  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // a queue of parents
   PHYSID pos;
   int next_in, next_out, dir;
 
   memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
-  stack[0] = maze->manpos;  // start at the current position
+  queue[0] = maze->manpos;  // start at the current position
   f[0] = 0;
   from[0] = -1;
   next_in = 1;
   next_out = -1;
   while(++next_out < next_in) { // Loop until queue is empty
 
-    pos = stack[next_out]; // Grab the next location from the queue
+    pos = queue[next_out]; // Grab the next location from the queue
 
     if (reach[pos] >= 0) continue; // we have visited this square
     if (maze->PHYSstone[pos] >= 0) continue; // there's a stone here
@@ -382,13 +382,50 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
     // while counts
     ++moves_while_counts;
 
-    reach[pos] = reach[from[pos] = f[next_out]] + 1; // get the parent's distance + 1
+#define CHECK_AND_PUSH_INTO_QUEUE(dir, cur) \
+    if (IsBitSetBS(maze->M[dir], cur)) { \
+      f[next_in] = cur; \
+      queue[next_in] = cur + DirToDiff[dir]; \
+      next_in++; \
+    }
 
-    for (dir = NORTH; dir <= WEST; dir++) {
-      if (IsBitSetBS(maze->M[dir], pos)) { // Check if we can move this way
-	      f[next_in] = pos;  // record our current location as the parent
-	      stack[next_in] = pos + DirToDiff[dir]; // enqueue adjacent location
-        next_in++;
+    // move in horizontal direction
+    int parent = f[next_out];
+    from[pos] = parent;
+    reach[pos] = reach[parent] + 1; // get the parent's distance + 1
+
+    CHECK_AND_PUSH_INTO_QUEUE(EAST, pos);
+    CHECK_AND_PUSH_INTO_QUEUE(WEST, pos);
+
+    {
+      // move to the right (+1)
+      int lpos = pos;
+      while(IsBitSetBS(maze->M[0], lpos)) {
+        ++lpos;
+        if (reach[lpos] >= 0 || maze->PHYSstone[lpos] >= 0 || AvoidThisSquare == lpos) {
+          break;
+        }
+        parent = lpos - 1;
+        from[lpos] = parent;
+        reach[lpos] = reach[parent] + 1;
+        CHECK_AND_PUSH_INTO_QUEUE(EAST, lpos);
+        CHECK_AND_PUSH_INTO_QUEUE(WEST, lpos);
+      }
+    }
+
+    {
+      // move to the left (-1)
+      int lpos = pos;
+      while(IsBitSetBS(maze->M[2], lpos)) {
+        --lpos;
+        if (reach[lpos] >= 0 || maze->PHYSstone[lpos] >= 0 || AvoidThisSquare == lpos) {
+          break;
+        }
+        parent = lpos + 1;
+        from[lpos] = parent;
+        reach[lpos] = reach[parent] + 1;
+        CHECK_AND_PUSH_INTO_QUEUE(EAST, lpos);
+        CHECK_AND_PUSH_INTO_QUEUE(WEST, lpos);
       }
     }
   }

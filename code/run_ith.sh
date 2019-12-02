@@ -5,13 +5,13 @@
 # take one arguemnt which is the index of the puzzle
 ##
 
-BIN=./RS
-
-if [ "$#" -ne 1 ];
+if [ "$#" -ne 2 ];
 then
-  echo "./run.sh <ith benchmark>";
+  echo "./run_ith.sh <ith benchmark> <bin>";
   exit 0;
 fi
+
+BIN=./$2
 
 if [ ! -f "${BIN}" ]; then
   echo "Executable '${BIN}' does not exist.";
