@@ -16,159 +16,158 @@ HASHENTRY HashTableDead[MAX_HASHENTRIES];
 HASHENTRY HashTablePen[MAX_HASHENTRIES];
 
 void InitHashTables() {
-	memset(HashTableNorm,0,sizeof(HASHENTRY)*MAX_HASHENTRIES);
-	memset(HashTableDead,0,sizeof(HASHENTRY)*MAX_HASHENTRIES);
-	memset(HashTablePen,0,sizeof(HASHENTRY)*MAX_HASHENTRIES);
+  memset(HashTableNorm, 0, sizeof(HASHENTRY)*MAX_HASHENTRIES);
+  memset(HashTableDead, 0, sizeof(HASHENTRY)*MAX_HASHENTRIES);
+  memset(HashTablePen, 0, sizeof(HASHENTRY)*MAX_HASHENTRIES);
 }
 
 void GGStoreHashTable(HASHKEY hashkey)
 {
-	HASHENTRY *entry = &(IdaInfo->HashTable[hashkey&HASHMASK]);
-	
-	entry->lock = hashkey;
+  HASHENTRY *entry = &(IdaInfo->HashTable[hashkey&HASHMASK]);
+  entry->lock = hashkey;
 }
 
 int GGGetHashTable(HASHKEY hashkey)
 {
-	HASHENTRY *entry = &(IdaInfo->HashTable[hashkey&HASHMASK]);
+  HASHENTRY *entry = &(IdaInfo->HashTable[hashkey&HASHMASK]);
 
-	if (entry->lock==hashkey)
-		return(YES);
-	else
-		return(NO);
+  if (entry->lock==hashkey) return(YES);
+  else return(NO);
 }
 
 void SetPathFlag(MAZE *maze)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	if( entry->lock != maze->hashkey ) {
-	  hashkey++;
-	  entry++;
-	}
-	if( entry->lock == maze->hashkey )
-		entry->pathflag = 1;
+  if( entry->lock != maze->hashkey ) {
+    hashkey++;
+    entry++;
+  }
+  if( entry->lock == maze->hashkey )
+    entry->pathflag = 1;
 }
 
 void UnSetPathFlag(MAZE *maze)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	if( entry->lock != maze->hashkey ) {
-	  hashkey++;
-	  entry++;
-	}
-	if( entry->lock == maze->hashkey )
-		entry->pathflag = 0;
+  if( entry->lock != maze->hashkey ) {
+    hashkey++;
+    entry++;
+  }
+  if( entry->lock == maze->hashkey )
+    entry->pathflag = 0;
 }
 
-void ClearHashTable(MAZE *maze)
 /* clear a certain entry in the hashtable */
+void ClearHashTable(MAZE *maze)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	if( entry->lock == maze->hashkey ) {
-	  SR(Debug(6,0,"ClearHashTable: %llx %llx\n", maze->hashkey, hashkey));
-	  memcpy( entry, entry + 1, sizeof( HASHENTRY ) );
-	} else {
-	  hashkey++;
-	  if( entry->lock != maze->hashkey ) return;
-	  SR(Debug(6,0,"ClearHashTable: %llx %llx\n", maze->hashkey, hashkey));
-	  entry = &( IdaInfo->HashTable[ hashkey ] );
-	  entry->lock = 0;
-	  entry->down = 0;
-	}
+  if( entry->lock == maze->hashkey ) {
+    SR(Debug(6,0,"ClearHashTable: %llx %llx\n", maze->hashkey, hashkey));
+    memcpy( entry, entry + 1, sizeof( HASHENTRY ) );
+  }
+  else {
+    hashkey++;
+    if( entry->lock != maze->hashkey ) return;
+    SR(Debug(6,0,"ClearHashTable: %llx %llx\n", maze->hashkey, hashkey));
+    entry = &( IdaInfo->HashTable[ hashkey ] );
+    entry->lock = 0;
+    entry->down = 0;
+  }
 }
 
 /* entry <,=,> new entry */
 int QualityCompare( HASHENTRY *entry, int down )
 {
-	  if( (int)entry->down > down )
-	    return 1;
-	  else if( entry->down == down )
-	    return 0;
-	  else
-	    return -1;
+  if( (int)entry->down > down )
+    return 1;
+  else if( entry->down == down )
+    return 0;
+  else
+    return -1;
 }
 
-HASHENTRY *StoreHashTable(MAZE *maze, int down, int min_h,
-	int area, int dl, int pen, int pathflag)
+HASHENTRY *StoreHashTable(MAZE *maze, int down, int min_h, int area, int dl,
+    int pen, int pathflag)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK&~1;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	if( QualityCompare( entry, down ) > 0 ) {
-		  /* even entry is "better": use odd entry */
-		  hashkey++;
-		  entry++;
-	} else {
-		  /* odd entry is "better": copy even to odd, use even */
-		  memcpy( entry + 1, entry, sizeof( HASHENTRY ) );
-	}
+  if( QualityCompare( entry, down ) > 0 ) {
+    /* even entry is "better": use odd entry */
+    hashkey++;
+    entry++;
+  }
+  else {
+    /* odd entry is "better": copy even to odd, use even */
+    memcpy( entry + 1, entry, sizeof( HASHENTRY ) );
+  }
 
-	SR(Debug(6,0,"StoreHashTable: %llx %llx down: %i min_h: %i\n",
-		maze->hashkey, hashkey, down, min_h));
-	if (   entry->lock != 0
-	    && entry->lock != maze->hashkey) {
-		IdaInfo->tt_cols++;
-	}
+  SR(Debug(6, 0, "StoreHashTable: %llx %llx down: %i min_h: %i\n", maze->hashkey,
+        hashkey, down, min_h));
+  if (entry->lock != 0
+      && entry->lock != maze->hashkey) {
+    IdaInfo->tt_cols++;
+  }
 
-	entry->lock         = maze->hashkey;
-	entry->man          = maze->manpos;
-	entry->down         = (short)down;
-	entry->min_h        = (short)min_h;
-	entry->areasearched = (unsigned short) area;
-	entry->dlsearched   = (unsigned short) dl;
-	entry->pensearched  = (unsigned short) pen;
-	entry->pathflag     = (unsigned short) pathflag;
-	entry->goal_sqto    = maze->goal_sqto;
+  entry->lock         = maze->hashkey;
+  entry->man          = maze->manpos;
+  entry->down         = (short)down;
+  entry->min_h        = (short)min_h;
+  entry->areasearched = (unsigned short) area;
+  entry->dlsearched   = (unsigned short) dl;
+  entry->pensearched  = (unsigned short) pen;
+  entry->pathflag     = (unsigned short) pathflag;
+  entry->goal_sqto    = maze->goal_sqto;
 
-	return(entry);
+  return(entry);
 }
 
 HASHENTRY *GetHashTable(MAZE *maze) {
-	HASHKEY hashkey = maze->hashkey&HASHMASK&~1;
-	HASHENTRY *entry = &IdaInfo->HashTable[ hashkey ];
+  HASHKEY hashkey = maze->hashkey&HASHMASK&~1;
+  HASHENTRY *entry = &IdaInfo->HashTable[ hashkey ];
 
-	SR(Debug(6,0,"  GetHashTable: %llx %llx down: %i min_h: %i\n",
-		maze->hashkey, hashkey, entry->down, entry->min_h));
-	IdaInfo->tt_reqs++;
-	if (Options.tt==0) return(NULL);
+  SR(Debug(6, 0, "  GetHashTable: %llx %llx down: %i min_h: %i\n", maze->hashkey,
+        hashkey, entry->down, entry->min_h));
+  IdaInfo->tt_reqs++;
+  if (Options.tt==0) return(NULL);
 
-	if( entry->lock != maze->hashkey ) {
-		  hashkey++;
-		  entry++;
-	}
+  if( entry->lock != maze->hashkey ) {
+    hashkey++;
+    entry++;
+  }
 
-	if ( (entry->lock == maze->hashkey) &&
-	     IsBitSetBS( maze->reach, entry->man ) ) {
-		IdaInfo->tt_hits++;
-		return entry;
-	}
-	return(NULL);
+  if ((entry->lock == maze->hashkey)
+      && IsBitSetBS( maze->reach, entry->man )) {
+    IdaInfo->tt_hits++;
+    return entry;
+  }
+  return(NULL);
 }
 
 void PSSetPathFlag(MAZE *maze)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	entry->pathflag = 1;
+  entry->pathflag = 1;
 }
 
 void PSUnSetPathFlag(MAZE *maze)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	entry->pathflag = 0;
+  entry->pathflag = 0;
 }
 
-void PSClearHashTable(MAZE *maze)
 /* clear a certain entry in the hashtable */
+void PSClearHashTable(MAZE *maze)
 {
   HASHKEY    hashkey = maze->hashkey&HASHMASK;
   HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
@@ -180,63 +179,62 @@ void PSClearHashTable(MAZE *maze)
 
 HASHENTRY *PSStoreHashTable(MAZE *maze, int down, int min_h, int pathflag)
 {
-	HASHKEY    hashkey = maze->hashkey&HASHMASK;
-	HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
+  HASHKEY    hashkey = maze->hashkey&HASHMASK;
+  HASHENTRY *entry   = &(IdaInfo->HashTable[hashkey]);
 
-	SR(Debug(6,0,"StoreHashTable: %llx %llx down: %i min_h: %i\n",
-		maze->hashkey, hashkey, down, min_h));
-	if (   entry->lock != 0
-	    && entry->lock != maze->hashkey) {
-		IdaInfo->tt_cols++;
-	}
+  SR(Debug(6, 0, "StoreHashTable: %llx %llx down: %i min_h: %i\n", maze->hashkey,
+        hashkey, down, min_h));
+  if (entry->lock != 0
+      && entry->lock != maze->hashkey) {
+    IdaInfo->tt_cols++;
+  }
+  entry->lock       = maze->hashkey;
+  entry->man        = maze->manpos;
+  entry->down       = (short)down;
+  entry->min_h      = (short)min_h;
+  entry->pathflag   = (unsigned short) pathflag;
+  entry->goal_sqto  = maze->goal_sqto;
 
-	entry->lock       = maze->hashkey;
-	entry->man        = maze->manpos;
-	entry->down       = (short)down;
-	entry->min_h      = (short)min_h;
-	entry->pathflag   = (unsigned short) pathflag;
-	entry->goal_sqto  = maze->goal_sqto;
-
-	return(entry);
+  return(entry);
 }
 
 HASHENTRY *PSGetHashTable(MAZE *maze) {
-	HASHKEY hashkey = maze->hashkey&HASHMASK;
-	HASHENTRY *entry = &IdaInfo->HashTable[ hashkey ];
+  HASHKEY hashkey = maze->hashkey&HASHMASK;
+  HASHENTRY *entry = &IdaInfo->HashTable[ hashkey ];
 
-	SR(Debug(6,0,"  GetHashTable: %llx %llx down: %i min_h: %i\n",
-		maze->hashkey, hashkey, entry->down, entry->min_h));
-	IdaInfo->tt_reqs++;
-	if (Options.tt==0) return(NULL);
+  SR(Debug(6, 0, "  GetHashTable: %llx %llx down: %i min_h: %i\n", maze->hashkey,
+        hashkey, entry->down, entry->min_h));
+  IdaInfo->tt_reqs++;
+  if (Options.tt==0) return(NULL);
 
-	if ( (entry->lock == maze->hashkey) &&
-	     IsBitSetBS( maze->reach, entry->man ) ) {
-		IdaInfo->tt_hits++;
-		return entry;
-	}
-	return(NULL);
+  if ((entry->lock == maze->hashkey)
+      && IsBitSetBS( maze->reach, entry->man ) ) {
+    IdaInfo->tt_hits++;
+    return entry;
+  }
+  return(NULL);
 }
 
-HASHKEY NormHashKey(MAZE *maze) {
 /* Creates the Hashkey for maze from scratch, enters it in structure
-   and returns it */
-	int        i=0;
-	HASHKEY    hashkey=RandomTable[0];
-
-	for (i=0; i<maze->number_stones; i++) {
-		hashkey ^= RandomTable[maze->stones[i].loc];
-	}
-	maze->hashkey = hashkey;
-	return(hashkey);
+ * and returns it 
+ */
+HASHKEY NormHashKey(MAZE *maze) {
+  int        i=0;
+  HASHKEY    hashkey=RandomTable[0];
+  for (i=0; i<maze->number_stones; i++) {
+    hashkey ^= RandomTable[maze->stones[i].loc];
+  }
+  maze->hashkey = hashkey;
+  return(hashkey);
 }
 
-HASHKEY UpdateHashKey( MAZE *maze, UNMOVE *move) {
 /* Updates the HashKey of maze according to UNMOVE, and returns it:
-   Assumtion, Moves was made before calling this procedure */
-
-	maze->hashkey ^= RandomTable[move->stonefrom];
-	maze->hashkey ^= RandomTable[move->stoneto];
-	return(maze->hashkey);
+ * Assumtion, Moves was made before calling this procedure
+ */
+HASHKEY UpdateHashKey( MAZE *maze, UNMOVE *move) {
+  maze->hashkey ^= RandomTable[move->stonefrom];
+  maze->hashkey ^= RandomTable[move->stoneto];
+  return(maze->hashkey);
 }
 
 unsigned long RandomTable32[1792] = {

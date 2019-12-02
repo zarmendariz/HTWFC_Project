@@ -9,6 +9,8 @@
 ** implied warranty.
 */ 
 
+#include "board.h"
+
 int  VerifyConflict(CONFLICTS *c, BitString conflict, BitString reach, int pen);
 void InitConflicts(CONFLICTS *c);
 void DelConflicts(CONFLICTS *c);
@@ -22,6 +24,7 @@ void AddConflict(CONFLICTS *c,BitString conflict,BitString no_reach,int penalty)
 
 int  GetPriorPostPen(MAZE *maze, int penalty, int *prior, int *post);
 int  GetPenalty(MAZE *maze, int targetpen);
+int  GetPenaltyImp1(MAZE *maze, int targetpen);
 
 
 void PrintConflicts(MAZE *maze, CONFLICTS *c);

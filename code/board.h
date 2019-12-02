@@ -23,6 +23,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#ifndef BOARDS_H
+#define BOARDS_H
 #define CONFLICT_INC 1000 /* lumb increment of tested array */
 #define CONFLICT_RESET 5000 /* number of conflicts after which we set to 0*/
 #define PATTERN_LIMIT 800 /* Maximum number of patterns allowed */
@@ -460,3 +462,4 @@ extern long dl_pos_nc, dl_neg_nc; /* node counts for pos/neg searches */
 extern int  dl_pos_sc, dl_neg_sc; /* search count for pos/neg */
 extern long pen_pos_nc, pen_neg_nc; /* node counts for pos/neg searches */
 extern int  pen_pos_sc, pen_neg_sc; /* search count for pos/neg */
+#endif
