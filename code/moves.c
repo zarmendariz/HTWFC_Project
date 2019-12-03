@@ -358,7 +358,8 @@ int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {
  * man can move to. The reach char array stores Manhattan distances from
  * the man's starting position, and -1 if it is unreachable.
  */
-void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
+void MovesImplLeftRight(MAZE *maze, PHYSID *from, signed char *reach) {
+  // this one is wrong...
   extern unsigned long long moves_while_counts;
   static PHYSID queue[ENDPATH];
   static PHYSID f[ENDPATH]; // a queue of parents
@@ -367,8 +368,7 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
 
   memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
   queue[0] = maze->manpos;  // start at the current position
-  f[0] = 0;
-  from[0] = -1;
+  f[0] = -1;
   next_in = 1;
   next_out = -1;
   while(++next_out < next_in) { // Loop until queue is empty
@@ -436,7 +436,7 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
  * man can move to. The reach char array stores Manhattan distances from
  * the man's starting position, and -1 if it is unreachable.
  */
-void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
+void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
   static PHYSID stack[ENDPATH]; // this is really a queue
   static PHYSID f[ENDPATH]; // This is also a queue of parents
@@ -445,8 +445,7 @@ void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
 
   memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
   stack[0] = maze->manpos;  // start at the current position
-  f[0] = 0;
-  from[0] = -1;
+  f[0] = -1;
   next_in = 1;
   next_out = -1;
   while(++next_out < next_in) { // Loop until queue is empty
@@ -503,6 +502,7 @@ void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
  *  Total 29 cycles.
  */
 
+#include<assert.h>
 void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   /* a wrapper for counting number of cycles in MovesImpl() */
   extern unsigned long long moves_cycles;
@@ -512,6 +512,29 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   unsigned long long cnt = rdtsc();
 
   MovesImpl(maze, from, reach);
+
+  /* signed char * second = malloc(XSIZE * YSIZE); */
+  /* MovesImplOriginal(maze, from, second); */
+  /* for(int j = YSIZE; j >= 0; --j) { */
+    /* for(int i = 0; i < XSIZE; ++i) { */
+      /* printf("%d ", second[i * YSIZE + j]); */
+    /* } */
+    /* puts(""); */
+  /* } */
+  /* puts("---------------"); */
+  /* for(int j = YSIZE; j >= 0; --j) { */
+    /* for(int i = 0; i < XSIZE; ++i) { */
+      /* printf("%d ", reach[i * YSIZE + j]); */
+    /* } */
+    /* puts(""); */
+  /* } */
+  /* assert(0); */
+  /* for(int i = 0; i < XSIZE * YSIZE; ++i) { */
+    /* printf("%d %d\n", second[i], reach[i]); */
+    /* if (second[i] != reach[i]) { */
+      /* assert(0 && "It's different"); */
+    /* } */
+  /* } */
 
   moves_cycles += rdtsc() - cnt;
 }
