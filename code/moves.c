@@ -651,7 +651,7 @@ void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach)
 
 #define CHECK_AND_PUSH_3(dir, pos, amount) \
     if (IsBitSetBS(maze->M[dir], pos)) { \
-	      f[next_in] = pos; \
+        f[next_in] = pos; \
 	      queue[next_in] = pos + amount; \
         next_in++; \
     }
@@ -681,6 +681,11 @@ void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach)
   }
 }
 
+#include<assert.h>
+/* #define ULL unsigned __int128 */
+/* #define NUM_OF_SHORTS 8 */
+#define ULL unsigned long long
+#define NUM_OF_SHORTS 4
 /* Moves:
  * Fills in the reach char array with the possible locations the
  * man can move to. The reach char array stores Manhattan distances from
@@ -688,20 +693,74 @@ void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach)
  */
 void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
-  static PHYSID queue[ENDPATH];
-  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  /* static PHYSID queue[ENDPATH]; */
+  /* static PHYSID f[ENDPATH]; // This is also a queue of parents */
+
+  static ULL queue[ENDPATH/4];
+  static ULL f[ENDPATH/4]; // This is also a queue of parents
+  ULL cur_queue, cur_f;
+
   PHYSID pos;
-  int next_in, next_out, dir;
+  PHYSID cur_in, cur_out, next_in, next_out, sz;
 
   memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
-  queue[0] = maze->manpos;  // start at the current position
-  f[0] = -1;
-  next_in = 1;
+  cur_queue = maze->manpos;
+  cur_f = (PHYSID)-1;
+
+  cur_in = 1;
+  cur_out = -1;
+
+  next_in = 0;
   next_out = -1;
 
+#define PHYSID_MASK (ULL)(0xffff)
+#define CHECK_AND_PUSH_4(dir, pos, amount) \
+    if (IsBitSetBS(maze->M[dir], pos)) { \
+      if (cur_in < NUM_OF_SHORTS) { \
+        cur_f = (cur_f & (~(PHYSID_MASK << (cur_in << 4)))) | ((ULL)pos << (cur_in << 4)) ; \
+        cur_queue = (cur_queue & (~(PHYSID_MASK << (cur_in << 4)))) | (((ULL)pos + amount) << (cur_in << 4)) ; \
+        cur_in++; \
+      } else { \
+        f[next_in / NUM_OF_SHORTS] = (f[next_in / NUM_OF_SHORTS] & (~(PHYSID_MASK << ((next_in % NUM_OF_SHORTS) << 4)))) | ((ULL)pos << ((next_in % NUM_OF_SHORTS) << 4)) ; \
+        queue[next_in / NUM_OF_SHORTS] = (queue[next_in / NUM_OF_SHORTS] & (~(PHYSID_MASK << ((next_in % NUM_OF_SHORTS) << 4)))) | ((ULL)(pos + amount) << ((next_in % NUM_OF_SHORTS) << 4)) ; \
+        next_in++; \
+      } \
+    }
+      /* switch(cur_in) { \ */
+        /* case 0: \ */
+          /* cur_f = (cur_f & (~(PHYSID_MASK))) | ((ULL)pos) ; \ */
+          /* cur_queue = (cur_queue & (~(PHYSID_MASK))) | (((ULL)pos + amount)) ; \ */
+          /* cur_in++; \ */
+          /* break; \ */
+        /* case 1: \ */
+          /* cur_f = (cur_f & (~(PHYSID_MASK << (1 << 4)))) | ((ULL)pos << (1 << 4)) ; \ */
+          /* cur_queue = (cur_queue & (~(PHYSID_MASK << (1 << 4)))) | (((ULL)pos + amount) << (1 << 4)) ; \ */
+          /* cur_in++; \ */
+        /* case 2: \ */
+          /* cur_f = (cur_f & (~(PHYSID_MASK << (2 << 4)))) | ((ULL)pos << (2 << 4)) ; \ */
+          /* cur_queue = (cur_queue & (~(PHYSID_MASK << (2 << 4)))) | (((ULL)pos + amount) << (2 << 4)) ; \ */
+          /* cur_in++; \ */
+        /* case 3: \ */
+          /* cur_f = (cur_f & (~(PHYSID_MASK << (3 << 4)))) | ((ULL)pos << (3 << 4)) ; \ */
+          /* cur_queue = (cur_queue & (~(PHYSID_MASK << (3 << 4)))) | (((ULL)pos + amount) << (3 << 4)) ; \ */
+          /* cur_in++; \ */
+        /* case 4: \ */
+          /* f[next_in / 4] = (f[next_in / 4] & (~(PHYSID_MASK << ((next_in % 4) << 4)))) | ((ULL)pos << ((next_in % 4) << 4)) ; \ */
+          /* queue[next_in / 4] = (queue[next_in / 4] & (~(PHYSID_MASK << ((next_in % 4) << 4)))) | ((ULL)(pos + amount) << ((next_in % 4) << 4)) ; \ */
+          /* next_in++; \ */
+          /* break; \ */
+      /* } \ */
+
+      /* if (cur_in < 4) { */
+        /* ULL multi_pos = pos; */
+        /* multi_pos |= multi_pos << 16; */
+        /* multi_pos |= multi_pos << 32; */
+        /* cur_f = (cur_f & (~0ULL >> ((4 - cur_in) << 4))) | (multi_pos << (cur_in << 4)); */
+      /* } */
+
   {
-    ++next_out;
-    pos = queue[next_out]; // Grab the next location from the queue
+    ++cur_out;
+    pos = (cur_queue >> (cur_out << 4)) & PHYSID_MASK;
 
     // check whether it has been reached or there is a stone
     if (!(reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos))  {
@@ -709,58 +768,70 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
       ++moves_while_counts;
 
       // get the parent's distance + 1, it will access reach[-1]...
-      int parent = f[next_out];
+      int parent = (cur_f >> (cur_out << 4)) & PHYSID_MASK;
       from[pos] = parent;
       reach[pos] = reach[parent] + 1;
-      CHECK_AND_PUSH(NORTH, pos, 1)
-      CHECK_AND_PUSH(EAST, pos, YSIZE)
-      CHECK_AND_PUSH(SOUTH, pos, -1)
-      CHECK_AND_PUSH(WEST, pos, -YSIZE)
+
+      CHECK_AND_PUSH_4(NORTH, pos, 1)
+      CHECK_AND_PUSH_4(EAST, pos, YSIZE)
+      CHECK_AND_PUSH_4(SOUTH, pos, -1)
+      CHECK_AND_PUSH_4(WEST, pos, -YSIZE)
     }
   }
 
-  while(++next_out < next_in) { // Loop until queue is empty
-    pos = queue[next_out]; // Grab the next location from the queue
+  while(++cur_out < cur_in) { // Loop until queue is empty
+    pos = (cur_queue >> (cur_out << 4)) & PHYSID_MASK;
 
     // check whether it has been reached or there is a stone
-    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) goto END_OF_WHILE;
 
     // while counts
     ++moves_while_counts;
 
-    // get the parent's distance + 1, it will access reach[-1]...
-    int parent = f[next_out];
+    int parent = (cur_f >> (cur_out << 4)) & PHYSID_MASK;
     from[pos] = parent;
     reach[pos] = reach[parent] + 1;
 
-#define CHECK_AND_PUSH_3(dir, pos, amount) \
-    if (IsBitSetBS(maze->M[dir], pos)) { \
-	      f[next_in] = pos; \
-	      queue[next_in] = pos + amount; \
-        next_in++; \
-    }
-
     switch(parent-pos) {
       case 1:
-        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
-        CHECK_AND_PUSH_3(SOUTH, pos, -1)
-        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        CHECK_AND_PUSH_4(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_4(SOUTH, pos, -1)
+        CHECK_AND_PUSH_4(WEST, pos, -YSIZE)
         break;
       case YSIZE:
-        CHECK_AND_PUSH_3(NORTH, pos, 1)
-        CHECK_AND_PUSH_3(SOUTH, pos, -1)
-        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        CHECK_AND_PUSH_4(NORTH, pos, 1)
+        CHECK_AND_PUSH_4(SOUTH, pos, -1)
+        CHECK_AND_PUSH_4(WEST, pos, -YSIZE)
         break;
       case -1:
-        CHECK_AND_PUSH_3(NORTH, pos, 1)
-        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
-        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        CHECK_AND_PUSH_4(NORTH, pos, 1)
+        CHECK_AND_PUSH_4(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_4(WEST, pos, -YSIZE)
         break;
       case -YSIZE:
-        CHECK_AND_PUSH_3(NORTH, pos, 1)
-        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
-        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        CHECK_AND_PUSH_4(NORTH, pos, 1)
+        CHECK_AND_PUSH_4(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_4(SOUTH, pos, -1)
         break;
+      default:
+        assert(0 && "Should not reach here.");
+    }
+
+END_OF_WHILE:
+    if (cur_out == NUM_OF_SHORTS - 1) {
+      if (next_out + NUM_OF_SHORTS < next_in) {
+        cur_in  = NUM_OF_SHORTS;
+        next_out += NUM_OF_SHORTS;
+      } else if (next_out + 1 < next_in) {
+        cur_in  = next_in - 1 - next_out;
+        next_in = ((next_in + NUM_OF_SHORTS - 1) / NUM_OF_SHORTS) * NUM_OF_SHORTS;
+        next_out = next_in - 1;
+      } else {
+        cur_in  = 0;
+      }
+      cur_out = -1;
+      cur_queue = queue[next_out / NUM_OF_SHORTS];
+      cur_f = f[next_out / NUM_OF_SHORTS];
     }
   }
 }
@@ -806,30 +877,8 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   ++moves_counts;
   unsigned long long cnt = rdtsc();
 
-  MovesImpl(maze, from, reach);
-
-  /* signed char * second = malloc(XSIZE * YSIZE); */
-  /* MovesImplOriginal(maze, from, second); */
-  /* for(int j = YSIZE; j >= 0; --j) { */
-    /* for(int i = 0; i < XSIZE; ++i) { */
-      /* printf("%d ", second[i * YSIZE + j]); */
-    /* } */
-    /* puts(""); */
-  /* } */
-  /* puts("---------------"); */
-  /* for(int j = YSIZE; j >= 0; --j) { */
-    /* for(int i = 0; i < XSIZE; ++i) { */
-      /* printf("%d ", reach[i * YSIZE + j]); */
-    /* } */
-    /* puts(""); */
-  /* } */
-  /* assert(0); */
-  /* for(int i = 0; i < XSIZE * YSIZE; ++i) { */
-    /* printf("%d %d\n", second[i], reach[i]); */
-    /* if (second[i] != reach[i]) { */
-      /* assert(0 && "It's different"); */
-    /* } */
-  /* } */
+  /* MovesImpl(maze, from, reach); */
+  MovesImplDoNotPushPreviousOne(maze, from, reach);
 
   moves_cycles += rdtsc() - cnt;
 }
