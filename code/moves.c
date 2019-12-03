@@ -471,6 +471,94 @@ void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
     }
   }
 }
+
+#define CHECK_AND_PUSH(dir, pos, amount) \
+    if (IsBitSetBS(maze->M[dir], pos)) { \
+	      f[next_in] = pos; \
+	      queue[next_in] = pos + (amount); \
+        next_in++; \
+    }
+#include<assert.h>
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  /* memset(from, 0, XSIZE * YSIZE * sizeof(PHYSID)); // default to all unreachable */
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = -1;
+  next_in = 1;
+  next_out = -1;
+
+  {
+    ++next_out;
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (!(reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos))  {
+      // while counts
+      ++moves_while_counts;
+
+      // get the parent's distance + 1, it will access reach[-1]...
+      int parent = f[next_out];
+      from[pos] = parent;
+      reach[pos] = 1;
+      CHECK_AND_PUSH(NORTH, pos, 1)
+      CHECK_AND_PUSH(EAST, pos, YSIZE)
+      CHECK_AND_PUSH(SOUTH, pos, -1)
+      CHECK_AND_PUSH(WEST, pos, -YSIZE)
+    }
+  }
+
+  while(++next_out < next_in) { // Loop until queue is empty
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1
+    int parent = f[next_out];
+    from[pos] = parent;
+    reach[pos] = reach[parent] + 1;
+
+    switch (parent-pos) {
+      case 1:
+        CHECK_AND_PUSH(EAST, pos, YSIZE)
+        CHECK_AND_PUSH(SOUTH, pos, -1)
+        CHECK_AND_PUSH(WEST, pos, -YSIZE)
+        break;
+      case YSIZE:
+        CHECK_AND_PUSH(NORTH, pos, 1)
+        CHECK_AND_PUSH(SOUTH, pos, -1)
+        CHECK_AND_PUSH(WEST, pos, -YSIZE)
+        break;
+      case -1:
+        CHECK_AND_PUSH(NORTH, pos, 1)
+        CHECK_AND_PUSH(EAST, pos, YSIZE)
+        CHECK_AND_PUSH(WEST, pos, -YSIZE)
+        break;
+      case -YSIZE:
+        CHECK_AND_PUSH(NORTH, pos, 1)
+        CHECK_AND_PUSH(EAST, pos, YSIZE)
+        CHECK_AND_PUSH(SOUTH, pos, -1)
+        break;
+      default:
+        assert(0 && "Should not reach here");
+    }
+  }
+}
+
 /*      U
  *     LCR
  *      B
@@ -511,7 +599,8 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   ++moves_counts;
   unsigned long long cnt = rdtsc();
 
-  MovesImpl(maze, from, reach);
+  // MovesImplDoNotPushPreviousOne(maze, from, reach);
+  MovesImplOriginal(maze, from, reach);
 
   moves_cycles += rdtsc() - cnt;
 }
