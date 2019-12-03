@@ -119,6 +119,7 @@ typedef struct {
 } LBENTRY;
 
 typedef BASETYPE BitString[NUMBERINTS];
+typedef BASETYPE LongBitString[NUMBERINTS*4];
 
 typedef struct {    /* defines one low level square */
   USHORT  tunnel:6;
@@ -326,7 +327,7 @@ typedef struct {
   BitString    wall;
   BitString    dead;
   BitString    M[4];    /* Can the man go there? */
-  BitString    Packed_M[4];    /* Can the man go there? */
+  LongBitString Packed_M;    /* Can the man go there? */
   BitString    S[4];    /* Can the stone move there? */
 
   GMNODE     **gmtrees;

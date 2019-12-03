@@ -358,11 +358,10 @@ int DistToGoal(MAZE *maze, PHYSID start, PHYSID goal, PHYSID *last_over) {
  * man can move to. The reach char array stores Manhattan distances from
  * the man's starting position, and -1 if it is unreachable.
  */
-void MovesImplLeftRight(MAZE *maze, PHYSID *from, signed char *reach) {
-  // this one is wrong...
+void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
   static PHYSID queue[ENDPATH];
-  static PHYSID f[ENDPATH]; // a queue of parents
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
   int next_in, next_out, dir;
 
@@ -375,58 +374,309 @@ void MovesImplLeftRight(MAZE *maze, PHYSID *from, signed char *reach) {
 
     pos = queue[next_out]; // Grab the next location from the queue
 
-    if (reach[pos] >= 0) continue; // we have visited this square
-    if (maze->PHYSstone[pos] >= 0) continue; // there's a stone here
-    if (AvoidThisSquare == pos) continue;
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
 
     // while counts
     ++moves_while_counts;
 
-#define CHECK_AND_PUSH_INTO_QUEUE(dir, cur) \
-    if (IsBitSetBS(maze->M[dir], cur)) { \
-      f[next_in] = cur; \
-      queue[next_in] = cur + DirToDiff[dir]; \
-      next_in++; \
-    }
+    // get the parent's distance + 1, it will access reach[-1]...
+    reach[pos] = reach[from[pos] = f[next_out]] + 1;
 
-    // move in horizontal direction
+    for (dir = NORTH; dir <= WEST; dir++) {
+      if (IsBitSetBS(maze->M[dir], pos)) { // Check if we can move this way
+	      f[next_in] = pos;
+	      queue[next_in] = pos + DirToDiff[dir];
+        next_in++;
+      }
+    }
+  }
+}
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplLongBitString(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = -1;
+  next_in = 1;
+  next_out = -1;
+
+#define IsBitSetLBS(a,p,dir) ((a)[(p) / 8] & (((BASETYPE)(1 << (dir))) << (((p) % 8) * 4)))
+
+  while(++next_out < next_in) { // Loop until queue is empty
+
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1, it will access reach[-1]...
+    reach[pos] = reach[from[pos] = f[next_out]] + 1;
+
+    for (dir = NORTH; dir <= WEST; dir++) {
+      if (IsBitSetLBS(maze->Packed_M, pos, dir)) {
+	      f[next_in] = pos;
+	      queue[next_in] = pos + DirToDiff[dir];
+        next_in++;
+      }
+    }
+  }
+}
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplUnrollFor(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = -1;
+  next_in = 1;
+  next_out = -1;
+  while(++next_out < next_in) { // Loop until queue is empty
+
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1, it will access reach[-1]...
     int parent = f[next_out];
     from[pos] = parent;
-    reach[pos] = reach[parent] + 1; // get the parent's distance + 1
+    reach[pos] = reach[parent] + 1;
 
-    CHECK_AND_PUSH_INTO_QUEUE(EAST, pos);
-    CHECK_AND_PUSH_INTO_QUEUE(WEST, pos);
-
-    {
-      // move to the right (+1)
-      int lpos = pos;
-      while(IsBitSetBS(maze->M[0], lpos)) {
-        ++lpos;
-        if (reach[lpos] >= 0 || maze->PHYSstone[lpos] >= 0 || AvoidThisSquare == lpos) {
-          break;
-        }
-        parent = lpos - 1;
-        from[lpos] = parent;
-        reach[lpos] = reach[parent] + 1;
-        CHECK_AND_PUSH_INTO_QUEUE(EAST, lpos);
-        CHECK_AND_PUSH_INTO_QUEUE(WEST, lpos);
-      }
+#define CHECK_AND_PUSH(dir, pos, amount) \
+    if (IsBitSetBS(maze->M[dir], pos)) { \
+	      f[next_in] = pos; \
+	      queue[next_in] = pos + amount; \
+        next_in++; \
     }
 
-    {
-      // move to the left (-1)
-      int lpos = pos;
-      while(IsBitSetBS(maze->M[2], lpos)) {
-        --lpos;
-        if (reach[lpos] >= 0 || maze->PHYSstone[lpos] >= 0 || AvoidThisSquare == lpos) {
-          break;
-        }
-        parent = lpos + 1;
-        from[lpos] = parent;
-        reach[lpos] = reach[parent] + 1;
-        CHECK_AND_PUSH_INTO_QUEUE(EAST, lpos);
-        CHECK_AND_PUSH_INTO_QUEUE(WEST, lpos);
-      }
+    CHECK_AND_PUSH(NORTH, pos, 1)
+    CHECK_AND_PUSH(EAST, pos, YSIZE)
+    CHECK_AND_PUSH(SOUTH, pos, -1)
+    CHECK_AND_PUSH(WEST, pos, -YSIZE)
+  }
+}
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplUnrollWhile(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  int next_in, next_out, dir;
+  
+  PHYSID first_pos, second_pos;
+
+#define CHECK_AND_PUSH(dir, pos, amount) \
+    if (IsBitSetBS(maze->M[dir], pos)) { \
+	      f[next_in] = pos; \
+	      queue[next_in] = pos + amount; \
+        next_in++; \
+    }
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = -1;
+  next_in = 1;
+  next_out = -1;
+  while(1) {
+    if (!(++next_out < next_in)) break;
+    first_pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[first_pos] >= 0 || maze->PHYSstone[first_pos] >= 0 || AvoidThisSquare == first_pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1, it will access reach[-1]...
+    int first_parent = f[next_out];
+    from[first_pos] = first_parent;
+    reach[first_pos] = reach[first_parent] + 1;
+
+    CHECK_AND_PUSH(NORTH, first_pos, 1)
+    CHECK_AND_PUSH(EAST, first_pos, YSIZE)
+    CHECK_AND_PUSH(SOUTH, first_pos, -1)
+    CHECK_AND_PUSH(WEST, first_pos, -YSIZE)
+
+    if (!(++next_out < next_in)) break;
+    second_pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[second_pos] >= 0 || maze->PHYSstone[second_pos] >= 0 || AvoidThisSquare == second_pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1, it will access reach[-1]...
+    int second_parent = f[next_out];
+    from[second_pos] = second_parent;
+    reach[second_pos] = reach[second_parent] + 1;
+
+    CHECK_AND_PUSH(NORTH, second_pos, 1)
+    CHECK_AND_PUSH(EAST, second_pos, YSIZE)
+    CHECK_AND_PUSH(SOUTH, second_pos, -1)
+    CHECK_AND_PUSH(WEST, second_pos, -YSIZE)
+  }
+}
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplLoadLBS(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = -1;
+  next_in = 1;
+  next_out = -1;
+  while(++next_out < next_in) { // Loop until queue is empty
+
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1, it will access reach[-1]...
+    int parent = f[next_out];
+    from[pos] = parent;
+    reach[pos] = reach[parent] + 1;
+
+#define CHECK_AND_PUSH_2(cond, pos, amount) \
+    if (cond) { \
+	      f[next_in] = pos; \
+	      queue[next_in] = pos + amount; \
+        next_in++; \
+    }
+
+#define LoadFourBitsLBS(a, p) ((((a)[(p) / 8]) >> (((p) % 8) * 4)) & 15)
+    PHYSID fourBits = LoadFourBitsLBS(maze->Packed_M, pos);
+
+    CHECK_AND_PUSH_2(fourBits & 1, pos, 1)
+    CHECK_AND_PUSH_2(fourBits & 2, pos, YSIZE)
+    CHECK_AND_PUSH_2(fourBits & 4, pos, -1)
+    CHECK_AND_PUSH_2(fourBits & 8, pos, -YSIZE)
+  }
+}
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH];
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = -1;
+  next_in = 1;
+  next_out = -1;
+
+  {
+    ++next_out;
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (!(reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos))  {
+      // while counts
+      ++moves_while_counts;
+
+      // get the parent's distance + 1, it will access reach[-1]...
+      int parent = f[next_out];
+      from[pos] = parent;
+      reach[pos] = reach[parent] + 1;
+      CHECK_AND_PUSH(NORTH, pos, 1)
+      CHECK_AND_PUSH(EAST, pos, YSIZE)
+      CHECK_AND_PUSH(SOUTH, pos, -1)
+      CHECK_AND_PUSH(WEST, pos, -YSIZE)
+    }
+  }
+
+  while(++next_out < next_in) { // Loop until queue is empty
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    // get the parent's distance + 1, it will access reach[-1]...
+    int parent = f[next_out];
+    from[pos] = parent;
+    reach[pos] = reach[parent] + 1;
+
+#define CHECK_AND_PUSH_3(dir, pos, amount) \
+    if (IsBitSetBS(maze->M[dir], pos)) { \
+	      f[next_in] = pos; \
+	      queue[next_in] = pos + amount; \
+        next_in++; \
+    }
+
+    switch(parent-pos) {
+      case 1:
+        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        break;
+      case YSIZE:
+        CHECK_AND_PUSH_3(NORTH, pos, 1)
+        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        break;
+      case -1:
+        CHECK_AND_PUSH_3(NORTH, pos, 1)
+        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        break;
+      case -YSIZE:
+        CHECK_AND_PUSH_3(NORTH, pos, 1)
+        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        break;
     }
   }
 }
@@ -438,38 +688,83 @@ void MovesImplLeftRight(MAZE *maze, PHYSID *from, signed char *reach) {
  */
 void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
-  static PHYSID stack[ENDPATH]; // this is really a queue
+  static PHYSID queue[ENDPATH];
   static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
   int next_in, next_out, dir;
 
   memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
-  stack[0] = maze->manpos;  // start at the current position
+  queue[0] = maze->manpos;  // start at the current position
   f[0] = -1;
   next_in = 1;
   next_out = -1;
+
+  {
+    ++next_out;
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    // check whether it has been reached or there is a stone
+    if (!(reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos))  {
+      // while counts
+      ++moves_while_counts;
+
+      // get the parent's distance + 1, it will access reach[-1]...
+      int parent = f[next_out];
+      from[pos] = parent;
+      reach[pos] = reach[parent] + 1;
+      CHECK_AND_PUSH(NORTH, pos, 1)
+      CHECK_AND_PUSH(EAST, pos, YSIZE)
+      CHECK_AND_PUSH(SOUTH, pos, -1)
+      CHECK_AND_PUSH(WEST, pos, -YSIZE)
+    }
+  }
+
   while(++next_out < next_in) { // Loop until queue is empty
+    pos = queue[next_out]; // Grab the next location from the queue
 
-    pos = stack[next_out]; // Grab the next location from the queue
-
-    if (reach[pos] >= 0) continue; // we have visited this square
-    if (maze->PHYSstone[pos] >= 0) continue; // there's a stone here
-    if (AvoidThisSquare == pos) continue;
+    // check whether it has been reached or there is a stone
+    if (reach[pos] >= 0 || maze->PHYSstone[pos] >= 0 || AvoidThisSquare == pos) continue;
 
     // while counts
     ++moves_while_counts;
 
-    reach[pos] = reach[from[pos] = f[next_out]] + 1; // get the parent's distance + 1
+    // get the parent's distance + 1, it will access reach[-1]...
+    int parent = f[next_out];
+    from[pos] = parent;
+    reach[pos] = reach[parent] + 1;
 
-    for (dir = NORTH; dir <= WEST; dir++) {
-      if (IsBitSetBS(maze->M[dir], pos)) { // Check if we can move this way
-	      f[next_in] = pos;  // record our current location as the parent
-	      stack[next_in] = pos + DirToDiff[dir]; // enqueue adjacent location
-        next_in++;
-      }
+#define CHECK_AND_PUSH_3(dir, pos, amount) \
+    if (IsBitSetBS(maze->M[dir], pos)) { \
+	      f[next_in] = pos; \
+	      queue[next_in] = pos + amount; \
+        next_in++; \
+    }
+
+    switch(parent-pos) {
+      case 1:
+        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        break;
+      case YSIZE:
+        CHECK_AND_PUSH_3(NORTH, pos, 1)
+        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        break;
+      case -1:
+        CHECK_AND_PUSH_3(NORTH, pos, 1)
+        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_3(WEST, pos, -YSIZE)
+        break;
+      case -YSIZE:
+        CHECK_AND_PUSH_3(NORTH, pos, 1)
+        CHECK_AND_PUSH_3(EAST, pos, YSIZE)
+        CHECK_AND_PUSH_3(SOUTH, pos, -1)
+        break;
     }
   }
 }
+
 /*      U
  *     LCR
  *      B

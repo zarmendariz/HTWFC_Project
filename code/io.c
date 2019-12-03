@@ -63,28 +63,34 @@ void ReadMaze(FILE *fp, MAZE *maze ) {
 		if (y<0) {
 			My_exit(1, "Maze too large for YSIZE, recompile with larger YSIZE!\n");
 		}
+
+#define UnsetBitLBS(a,p,dir) \
+      (a)[(p) / 8] &= ~ (((BASETYPE)(1 << (dir))) << (((p) % 8) * 4))
+
 		if (x == 0) {
 			UnsetBitBS(maze->M[WEST],pos);
 			UnsetBitBS(maze->S[WEST],pos);
+
+      UnsetBitLBS(maze->Packed_M, pos, WEST);
 		}
 		if (x == XSIZE-1) {
 			UnsetBitBS(maze->M[EAST],pos);
 			UnsetBitBS(maze->S[EAST],pos);
+
+      UnsetBitLBS(maze->Packed_M, pos, EAST);
 		}
 		if (y == 0) {
 			UnsetBitBS(maze->M[SOUTH],pos);
 			UnsetBitBS(maze->S[SOUTH],pos);
+
+      UnsetBitLBS(maze->Packed_M, pos, SOUTH);
 		}
 		if (y == YSIZE-1) {
 			UnsetBitBS(maze->M[NORTH],pos);
 			UnsetBitBS(maze->S[NORTH],pos);
-		}
-    // maze->Packed_M[(pos * 4) / (NUMBERINTS * BYTEPERINT * 8)]
 
-/* #define UnsetPackedBitBS(a,p) \ */
-      /* a[p / (NUMBERINTS * BYTEPERINT * 2)][(p % (NUMBERINTS * BYTEPERINT * 2))] \ */
-		 /* ((a)[(p)/(sizeof(BASETYPE)*8)] \ */
-	/* &=~ (((BASETYPE)1)<<((p)%(sizeof(BASETYPE)*8)))) */
+      UnsetBitLBS(maze->Packed_M, pos, NORTH);
+		}
 
 		switch (sq) {
 		case '\n': 
@@ -103,22 +109,35 @@ void ReadMaze(FILE *fp, MAZE *maze ) {
 				UnsetBitBS(maze->M[SOUTH],pos+1);
 				UnsetBitBS(maze->S[SOUTH],pos+1);
 				UnsetBitBS(maze->S[NORTH],pos+1);
+
+        UnsetBitLBS(maze->Packed_M, pos+1, SOUTH);
 			}
 			if (IsBitSetBS(maze->M[EAST],pos)) {
 				UnsetBitBS(maze->M[WEST],pos+YSIZE);
 				UnsetBitBS(maze->S[WEST],pos+YSIZE);
 				UnsetBitBS(maze->S[EAST],pos+YSIZE);
+
+        UnsetBitLBS(maze->Packed_M, pos+YSIZE, WEST);
 			}
 			if (x>0) {
 				UnsetBitBS(maze->M[EAST],pos-YSIZE);
 				UnsetBitBS(maze->S[EAST],pos-YSIZE);
 				UnsetBitBS(maze->S[WEST],pos-YSIZE);
+
+        UnsetBitLBS(maze->Packed_M, pos-YSIZE, EAST);
 			}
 			if (y>0) {
 				UnsetBitBS(maze->M[NORTH],pos-1);
 				UnsetBitBS(maze->S[NORTH],pos-1);
 				UnsetBitBS(maze->S[SOUTH],pos-1);
+
+        UnsetBitLBS(maze->Packed_M, pos-1, NORTH);
 			}
+      UnsetBitLBS(maze->Packed_M, pos, NORTH);
+      UnsetBitLBS(maze->Packed_M, pos, EAST);
+      UnsetBitLBS(maze->Packed_M, pos, WEST);
+      UnsetBitLBS(maze->Packed_M, pos, SOUTH);
+
 			UnsetBitBS(maze->M[NORTH],pos);
 			UnsetBitBS(maze->M[EAST],pos);
 			UnsetBitBS(maze->M[WEST],pos);

@@ -43,8 +43,9 @@ void InitMaze(MAZE *maze)  {
 	for (dir=NORTH; dir<=WEST; dir++) {
 		Set1BS(maze->S[dir]);
 		Set1BS(maze->M[dir]);
-		Set1BS(maze->Packed_M[dir]);
 	}
+  memset(maze->Packed_M, 0xff,sizeof(LongBitString));
+
 	Set0BS(maze->wall);
 	Set0BS(maze->dead);
 	Set1BS(maze->out);
@@ -87,8 +88,9 @@ void ResetMaze(MAZE *maze)  {
 	for (dir=NORTH; dir<=WEST; dir++) {
 		Set1BS(maze->S[dir]);
 		Set1BS(maze->M[dir]);
-		Set1BS(maze->Packed_M[dir]);
 	}
+  memset(maze->Packed_M, 0xff,sizeof(LongBitString));
+
 	Set0BS(maze->wall);
 	Set0BS(maze->dead);
 	Set1BS(maze->out);
