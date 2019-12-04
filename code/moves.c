@@ -478,6 +478,45 @@ void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
 	      queue[next_in] = pos + (amount); \
         next_in++; \
     }
+
+/* Moves:
+ * Fills in the reach char array with the possible locations the
+ * man can move to. The reach char array stores Manhattan distances from
+ * the man's starting position, and -1 if it is unreachable.
+ */
+void MovesImplRemoveGlobal(MAZE *maze, PHYSID *from, signed char *reach) {
+  extern unsigned long long moves_while_counts;
+  static PHYSID queue[ENDPATH]; // this is really a queue
+  static PHYSID f[ENDPATH]; // This is also a queue of parents
+  PHYSID pos;
+  int next_in, next_out, dir;
+
+  memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
+  queue[0] = maze->manpos;  // start at the current position
+  f[0] = 0;
+  from[0] = -1;
+  next_in = 1;
+  next_out = -1;
+  while(++next_out < next_in) { // Loop until queue is empty
+
+    pos = queue[next_out]; // Grab the next location from the queue
+
+    if (reach[pos] >= 0) continue; // we have visited this square
+    if (maze->PHYSstone[pos] >= 0) continue; // there's a stone here
+    if (AvoidThisSquare == pos) continue;
+
+    // while counts
+    ++moves_while_counts;
+
+    reach[pos] = reach[from[pos] = f[next_out]] + 1; // get the parent's distance + 1
+
+    CHECK_AND_PUSH(NORTH, pos, 1)
+    CHECK_AND_PUSH(EAST, pos, YSIZE)
+    CHECK_AND_PUSH(SOUTH, pos, -1)
+    CHECK_AND_PUSH(WEST, pos, -YSIZE)
+  }
+}
+
 #include<assert.h>
 /* Moves:
  * Fills in the reach char array with the possible locations the
@@ -600,7 +639,8 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   unsigned long long cnt = rdtsc();
 
   // MovesImplDoNotPushPreviousOne(maze, from, reach);
-  MovesImplOriginal(maze, from, reach);
+  // MovesImplOriginal(maze, from, reach);
+  MovesImplRemoveGlobal(maze, from, reach);
 
   moves_cycles += rdtsc() - cnt;
 }
