@@ -1,7 +1,7 @@
 #!/bin/bash
 LIST_OF_PUZZLES=can_solve.txt
 
-echo "Name,Moves,Pushes,Treedepth,#call of MarkReach(),#cycles of MarkReach(),Avg #cycles/call,#loop,Avg #cycle/loop,#call of Moves(),#cycles of Moves(),Avg #cycles/call,#loop,Avg #cycle/loop,total time(s)";
+echo "Name,Moves,Pushes,Treedepth,MarkReach calls,MarkReach cycles,Avg cycles/call,loops,Approx cycles/loop,Stones loops,Avg stones,unused,unused,unused,total time(s)";
 for n in $(cat ${LIST_OF_PUZZLES});
 do
   printf "Puzzle_%s", $n;

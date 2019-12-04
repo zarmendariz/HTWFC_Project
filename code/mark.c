@@ -402,8 +402,9 @@ void MarkReachImp5(MAZE *maze) {
       SetBitBS((BASETYPE*)buf, maze->stones[i].loc);
     }
   }
+  
   //mark_reach_stone_counts += maze->number_stones;
-
+  
   SetBitBS((BASETYPE*)buf, AvoidThisSquare);
   UnsetBitBS((BASETYPE*)buf, maze->manpos);
 
@@ -435,12 +436,14 @@ void MarkReachImp5(MAZE *maze) {
   int done0, done1;
 
   while (1) {
+  
     //mark_reach_while_counts++;
+    
     reach0B = _mm256_blend_epi16(reach0A, temp, 0);
     reach1B = _mm256_blend_epi16(reach1A, temp, 0);
     temp = _mm256_slli_epi16(reach0A, 1);
     reach0B = _mm256_or_si256(reach0B, temp);
-    temp = _mm256_srli_epi16(reach0A, 1);
+    temp = _mm256_srli_epi16(reach0A, 1); // no l/t data. Assume same as left shift
     reach0B = _mm256_or_si256(reach0B, temp);
 
     temp = _mm256_slli_epi16(reach1A, 1);
@@ -479,7 +482,9 @@ void MarkReachImp5(MAZE *maze) {
     done1 = _mm256_testz_si256(temp, temp);
 
     if (done0 && done1) break;
+    
     //mark_reach_while_counts++;
+    
 
     reach0A = _mm256_blend_epi16(reach0B, temp, 0);
     reach1A = _mm256_blend_epi16(reach1B, temp, 0);
