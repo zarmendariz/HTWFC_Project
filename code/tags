@@ -396,7 +396,7 @@ NumberBitsBS	bitstring.c	/^int NumberBitsBS(BitString a) {$/;"	f
 NumberBitsInt	bitstring.c	/^int NumberBitsInt(int a) {$/;"	f
 NumberTrees	tree.c	/^short NumberTrees = 0;$/;"	v
 OBJ	Makefile	/^OBJ = moves.o debug.o ida.o deadlock.o bitstring.o pensearch.o\\$/;"	m
-OPT	Makefile	/^OPT = -O0 -fopenmp -mavx$/;"	m
+OPT	Makefile	/^OPT = -O0 -fopenmp -march=native$/;"	m
 OPTIONS	Makefile	/^OPTIONS = $(DEBUG) $(GTV) $(PC)$/;"	m
 OPTIONS	stats.h	/^} OPTIONS;$/;"	t	typeref:struct:__anon27
 OppDir	moves.c	/^int  OppDir[8] = {2, 3, 0, 1, 6, 7, 4, 5};$/;"	v

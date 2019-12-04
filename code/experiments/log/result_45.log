@@ -50,8 +50,8 @@ ScanSearch: h: 284->298, nodes used: 28655
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 5, TT collisions: 0 Req: 59, (8.474576)
  1 2 6 14 24 31 23 10 6 
-.   0  run: sec: 2, usec: 118324, t: 2
-.   0  Nodes per Second:    79122 (2 sec.)
+.   0  run: sec: 0, usec: 939257, t: 1
+.   0  Nodes per Second:   158244 (1 sec.)
 .   0  AREA POS: #:   4 ( 11%) #n:   2104  nodes/search: 526
 .   0  AREA NEG: #:  30 ( 88%) #n:  15120  nodes/search: 504
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -75,8 +75,8 @@ ScanSearch: h: 284->298, nodes used: 28655
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 41, TT collisions: 0 Req: 288, (14.236111)
  2 3 8 18 35 59 59 26 24 13 15 8 3 4 1 5 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 3, usec: 684734, t: 4
-.   0  Nodes per Second:    60541 (4 sec.)
+.   0  run: sec: 1, usec: 684773, t: 2
+.   0  Nodes per Second:   121082 (2 sec.)
 .   0  AREA POS: #:  10 ( 10%) #n:   2736  nodes/search: 273
 .   0  AREA NEG: #:  87 ( 89%) #n:  19077  nodes/search: 219
 .   0  DL   POS: #:   0 (  0%) #n:      0  nodes/search:   0
@@ -89,16 +89,16 @@ Path:  Dj-Cj Hj-Ij-Jj Hi-Hj-Gj Ki-Li Jj-Ij Jk-Jj Ik-Jk-Kk Jj-Ji Ij-Hj Gk-Hk-Ik H
 (moves: 300 depth: 161)
 Moves: 865, Pushes: 300, Treedepth: 161
 Total number of calling MarkReach(): 297207
-Total number of cycles for MarkReach(): 1626018720
-Average number of cycles per call: 5470.997386
-Total number of while loop for MarkReach(): 17567188
-Average number of cycles per loop: 92.559989
+Total number of cycles for MarkReach(): 178407731
+Average number of cycles per call: 600.281053
+Total number of while loop for MarkReach(): 0
+Average number of cycles per loop: inf
 Total number of calling Moves(): 105482
-Total number of cycles for Moves(): 1374890322
-Average number of cycles per call: 13034.359625
+Total number of cycles for Moves(): 849677296
+Average number of cycles per call: 8055.187577
 Total number of while loop for Moves(): 8766918
-Average number of cycles per loop: 156.827100
+Average number of cycles per loop: 96.918586
 Command:
-real	0m3.716s
-user	0m3.691s
-sys	0m0.023s
+real	0m1.708s
+user	0m1.690s
+sys	0m0.015s
