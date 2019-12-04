@@ -527,6 +527,7 @@ void MovesImplRemoveGlobal(MAZE *maze, PHYSID *from, signed char *reach) {
  */
 void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
+  extern unsigned long long moves_queue_counts;
   static PHYSID queue[ENDPATH];
   static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
@@ -560,6 +561,7 @@ void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach)
   }
 
   while(++next_out < next_in) { // Loop until queue is empty
+    ++moves_queue_counts;
     pos = queue[next_out]; // Grab the next location from the queue
 
     // check whether it has been reached or there is a stone
@@ -640,8 +642,8 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   ++moves_counts;
   unsigned long long cnt = rdtsc();
 
-  // MovesImplDoNotPushPreviousOne(maze, from, reach);
-  MovesImplOriginal(maze, from, reach);
+  MovesImplDoNotPushPreviousOne(maze, from, reach);
+  // MovesImplOriginal(maze, from, reach);
   // MovesImplRemoveGlobal(maze, from, reach);
 
   moves_cycles += rdtsc() - cnt;
