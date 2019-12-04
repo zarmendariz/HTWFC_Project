@@ -438,6 +438,7 @@ void MovesImpl(MAZE *maze, PHYSID *from, signed char *reach) {
  */
 void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
   extern unsigned long long moves_while_counts;
+  extern unsigned long long moves_queue_counts;
   static PHYSID stack[ENDPATH]; // this is really a queue
   static PHYSID f[ENDPATH]; // This is also a queue of parents
   PHYSID pos;
@@ -450,6 +451,7 @@ void MovesImplOriginal(MAZE *maze, PHYSID *from, signed char *reach) {
   next_in = 1;
   next_out = -1;
   while(++next_out < next_in) { // Loop until queue is empty
+    ++moves_queue_counts;
 
     pos = stack[next_out]; // Grab the next location from the queue
 
@@ -639,8 +641,8 @@ void Moves(MAZE *maze, PHYSID *from, signed char *reach) {
   unsigned long long cnt = rdtsc();
 
   // MovesImplDoNotPushPreviousOne(maze, from, reach);
-  // MovesImplOriginal(maze, from, reach);
-  MovesImplRemoveGlobal(maze, from, reach);
+  MovesImplOriginal(maze, from, reach);
+  // MovesImplRemoveGlobal(maze, from, reach);
 
   moves_cycles += rdtsc() - cnt;
 }

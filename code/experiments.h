@@ -8,6 +8,7 @@ unsigned long long mark_reach_while_counts;
 unsigned long long moves_counts;
 unsigned long long moves_cycles;
 unsigned long long moves_while_counts;
+unsigned long long moves_queue_counts;
 
 void InitExperiments();
 void PrintExperimentsStats();
