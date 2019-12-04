@@ -214,7 +214,7 @@ void MarkReachImpl(MAZE *maze) {
 
     // while counts
     //++mark_reach_while_counts;
-    
+
     if( IsBitSetBS( maze->reach, pos) ) continue; // visited, bitstring 320 bits
     if( maze->PHYSstone[ pos ] >= 0 ) continue;
     if( AvoidThisSquare == pos ) continue;
@@ -236,14 +236,14 @@ void MarkReachImpl(MAZE *maze) {
 void MarkReachImp4(MAZE *maze) {
   /* true implementation of MarkReach */
   /* recursive function to mark the fields that are reachable */
-  
+
   char buf[64] = {0};
   memcpy(buf, maze->wall, 40);
-  
+
   __m256i temp, temp1;
   __m256i map0 = _mm256_loadu_si256((void *)buf);
   __m256i map1 = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   // Make the stone bitvectors fold into the map
   memset(buf, 0, 40);
   for (int i = 0; i < 320; i++) {
@@ -253,59 +253,59 @@ void MarkReachImp4(MAZE *maze) {
   }
   SetBitBS((BASETYPE*)buf, AvoidThisSquare);
   UnsetBitBS((BASETYPE*)buf, maze->manpos);
-  
+
   temp = _mm256_loadu_si256((void *)buf);
   temp1 = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   map0 = _mm256_or_si256(map0, temp);
   map1 = _mm256_or_si256(map1, temp1);
-  
+
   memcpy(buf, maze->out, 40);
-  
+
   temp = _mm256_loadu_si256((void *)buf);
   temp1 = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   map0 = _mm256_or_si256(map0, temp);
   map1 = _mm256_or_si256(map1, temp1);
-  
+
   memset(buf, 0, 64); // This is a bitstring
-  
+
   __m256i reach0B = _mm256_loadu_si256((void *)buf);
   __m256i reach1B = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   SetBitBS((BASETYPE*)buf, maze->manpos);
-  
+
   __m256i reach0A = _mm256_loadu_si256((void *)buf);
   __m256i reach1A = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   int carry;
   int done0, done1;
-  
+
   while (1) {
-  
+
     reach0B = _mm256_blend_epi16(reach0A, temp, 0);
     reach1B = _mm256_blend_epi16(reach1A, temp, 0);
     temp = _mm256_slli_epi16(reach0A, 1);
     reach0B = _mm256_or_si256(reach0B, temp);
     temp = _mm256_srli_epi16(reach0A, 1);
     reach0B = _mm256_or_si256(reach0B, temp);
-    
+
     temp = _mm256_slli_epi16(reach1A, 1);
     reach1B = _mm256_or_si256(reach1B, temp);
     temp = _mm256_srli_epi16(reach1A, 1);
     reach1B = _mm256_or_si256(reach1B, temp);
-    
+
     // Do the left shift by 16
     temp = _mm256_slli_si256(reach1A, 2);
     carry = _mm256_extract_epi16(reach0A, 15);
     temp = _mm256_insert_epi16(temp, carry, 0);
     reach1B = _mm256_or_si256(reach1B, temp);
-    
+
     temp = _mm256_slli_si256(reach0A, 2);
     carry = _mm256_extract_epi16(reach0A, 7);
     temp = _mm256_insert_epi16(temp, carry, 8);
     reach0B = _mm256_or_si256(reach0B, temp);
-    
+
     // Do the right shift by 16
     temp = _mm256_srli_si256(reach0A, 2);
     carry = _mm256_extract_epi16(reach0A, 8);
@@ -313,151 +313,152 @@ void MarkReachImp4(MAZE *maze) {
     carry = _mm256_extract_epi16(reach1A, 0);
     temp = _mm256_insert_epi16(temp, carry, 15);
     reach0B = _mm256_or_si256(reach0B, temp);
-    
+
     temp = _mm256_srli_si256(reach1A, 2);
     reach1B = _mm256_or_si256(reach1B, temp);
-    
+
     reach0B = _mm256_andnot_si256(map0, reach0B);
     reach1B = _mm256_andnot_si256(map1, reach1B);
-    
+
     temp = _mm256_xor_si256(reach0A, reach0B);
-    done0 = _mm256_testz_si256(temp, temp);    
+    done0 = _mm256_testz_si256(temp, temp);
     temp = _mm256_xor_si256(reach1A, reach1B);
     done1 = _mm256_testz_si256(temp, temp);
-    
+
     if (done0 && done1) break;
-    
+
     reach0A = _mm256_blend_epi16(reach0B, temp, 0);
     reach1A = _mm256_blend_epi16(reach1B, temp, 0);
-    
+
     temp = _mm256_slli_epi16(reach0B, 1);
     reach0A = _mm256_or_si256(reach0A, temp);
     temp = _mm256_srli_epi16(reach0B, 1);
     reach0A = _mm256_or_si256(reach0A, temp);
-    
+
     temp = _mm256_slli_epi16(reach1B, 1);
-    reach1A = _mm256_or_si256(reach1A, temp); 
+    reach1A = _mm256_or_si256(reach1A, temp);
     temp = _mm256_srli_epi16(reach1B, 1);
-    reach1A = _mm256_or_si256(reach1A, temp); 
-    
+    reach1A = _mm256_or_si256(reach1A, temp);
+
     // Do the left shift by 16
     temp = _mm256_slli_si256(reach1B, 2);
     carry = _mm256_extract_epi16(reach0B, 15);
     temp = _mm256_insert_epi16(temp, carry, 0);
     reach1A = _mm256_or_si256(reach1A, temp);
-    
+
     temp = _mm256_slli_si256(reach0B, 2);
     carry = _mm256_extract_epi16(reach0B, 7);
     temp = _mm256_insert_epi16(temp, carry, 8);
     reach0A = _mm256_or_si256(reach0A, temp);
-    
+
     // Do the right shift by 16
-    
+
     temp = _mm256_srli_si256(reach0B, 2);
     carry = _mm256_extract_epi16(reach0B, 8);
     temp = _mm256_insert_epi16(temp, carry, 7);
     carry = _mm256_extract_epi16(reach1B, 0);
     temp = _mm256_insert_epi16(temp, carry, 15);
     reach0A = _mm256_or_si256(reach0A, temp);
-    
+
     temp = _mm256_srli_si256(reach1B, 2);
     reach1A = _mm256_or_si256(reach1A, temp);
-    
+
     reach0A = _mm256_andnot_si256(map0, reach0A);
     reach1A = _mm256_andnot_si256(map1, reach1A);
-    
+
     temp = _mm256_xor_si256(reach0A, reach0B);
-    done0 = _mm256_testz_si256(temp, temp);    
+    done0 = _mm256_testz_si256(temp, temp);
     temp = _mm256_xor_si256(reach1A, reach1B);
     done1 = _mm256_testz_si256(temp, temp);
-    
+
     if (done0 && done1) break;
-    
+
   }
-  
+
   _mm256_storeu_si256((void *)buf, reach0A);
   _mm256_storeu_si256((void *)(buf + 32), reach1A);
-  
+
   memcpy(maze->reach, buf, 40);
-  
+
   BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
 }
 
 void MarkReachImp5(MAZE *maze) {
   /* true implementation of MarkReach */
   /* recursive function to mark the fields that are reachable */
-  
+
   char buf[64] = {0};
   memcpy(buf, maze->wall, 40);
-  
+
   __m256i temp, temp1;
   __m256i map0 = _mm256_loadu_si256((void *)buf);
   __m256i map1 = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   // Make the stone bitvectors fold into the map
-  
+
   memset(buf, 0, 40);
   for (int i = 0; i < maze->number_stones; i++) {
     if (maze->PHYSstone[maze->stones[i].loc] >= 0) {
       SetBitBS((BASETYPE*)buf, maze->stones[i].loc);
     }
   }
-  
+  //mark_reach_stone_counts += maze->number_stones;
+
   SetBitBS((BASETYPE*)buf, AvoidThisSquare);
   UnsetBitBS((BASETYPE*)buf, maze->manpos);
-  
+
   temp = _mm256_loadu_si256((void *)buf);
   temp1 = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   map0 = _mm256_or_si256(map0, temp);
   map1 = _mm256_or_si256(map1, temp1);
-  
+
   memcpy(buf, maze->out, 40);
-  
+
   temp = _mm256_loadu_si256((void *)buf);
   temp1 = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   map0 = _mm256_or_si256(map0, temp);
   map1 = _mm256_or_si256(map1, temp1);
-  
+
   memset(buf, 0, 64); // This is a bitstring
-  
+
   __m256i reach0B = _mm256_loadu_si256((void *)buf);
   __m256i reach1B = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   SetBitBS((BASETYPE*)buf, maze->manpos);
-  
+
   __m256i reach0A = _mm256_loadu_si256((void *)buf);
   __m256i reach1A = _mm256_loadu_si256((void *)(buf + 32));
-  
+
   int carry;
   int done0, done1;
-  
+
   while (1) {
-  
+    //mark_reach_while_counts++;
     reach0B = _mm256_blend_epi16(reach0A, temp, 0);
     reach1B = _mm256_blend_epi16(reach1A, temp, 0);
     temp = _mm256_slli_epi16(reach0A, 1);
     reach0B = _mm256_or_si256(reach0B, temp);
     temp = _mm256_srli_epi16(reach0A, 1);
     reach0B = _mm256_or_si256(reach0B, temp);
-    
+
     temp = _mm256_slli_epi16(reach1A, 1);
     reach1B = _mm256_or_si256(reach1B, temp);
     temp = _mm256_srli_epi16(reach1A, 1);
     reach1B = _mm256_or_si256(reach1B, temp);
-    
+
     // Do the left shift by 16
     temp = _mm256_slli_si256(reach1A, 2);
     carry = _mm256_extract_epi16(reach0A, 15);
     temp = _mm256_insert_epi16(temp, carry, 0);
     reach1B = _mm256_or_si256(reach1B, temp);
-    
+
     temp = _mm256_slli_si256(reach0A, 2);
     carry = _mm256_extract_epi16(reach0A, 7);
     temp = _mm256_insert_epi16(temp, carry, 8);
     reach0B = _mm256_or_si256(reach0B, temp);
-    
+
     // Do the right shift by 16
     temp = _mm256_srli_si256(reach0A, 2);
     carry = _mm256_extract_epi16(reach0A, 8);
@@ -465,76 +466,215 @@ void MarkReachImp5(MAZE *maze) {
     carry = _mm256_extract_epi16(reach1A, 0);
     temp = _mm256_insert_epi16(temp, carry, 15);
     reach0B = _mm256_or_si256(reach0B, temp);
-    
+
     temp = _mm256_srli_si256(reach1A, 2);
     reach1B = _mm256_or_si256(reach1B, temp);
-    
+
     reach0B = _mm256_andnot_si256(map0, reach0B);
     reach1B = _mm256_andnot_si256(map1, reach1B);
-    
+
     temp = _mm256_xor_si256(reach0A, reach0B);
-    done0 = _mm256_testz_si256(temp, temp);    
+    done0 = _mm256_testz_si256(temp, temp);
     temp = _mm256_xor_si256(reach1A, reach1B);
     done1 = _mm256_testz_si256(temp, temp);
-    
+
     if (done0 && done1) break;
-    
+    //mark_reach_while_counts++;
+
     reach0A = _mm256_blend_epi16(reach0B, temp, 0);
     reach1A = _mm256_blend_epi16(reach1B, temp, 0);
-    
+
     temp = _mm256_slli_epi16(reach0B, 1);
     reach0A = _mm256_or_si256(reach0A, temp);
     temp = _mm256_srli_epi16(reach0B, 1);
     reach0A = _mm256_or_si256(reach0A, temp);
-    
+
     temp = _mm256_slli_epi16(reach1B, 1);
-    reach1A = _mm256_or_si256(reach1A, temp); 
+    reach1A = _mm256_or_si256(reach1A, temp);
     temp = _mm256_srli_epi16(reach1B, 1);
-    reach1A = _mm256_or_si256(reach1A, temp); 
-    
+    reach1A = _mm256_or_si256(reach1A, temp);
+
     // Do the left shift by 16
     temp = _mm256_slli_si256(reach1B, 2);
     carry = _mm256_extract_epi16(reach0B, 15);
     temp = _mm256_insert_epi16(temp, carry, 0);
     reach1A = _mm256_or_si256(reach1A, temp);
-    
+
     temp = _mm256_slli_si256(reach0B, 2);
     carry = _mm256_extract_epi16(reach0B, 7);
     temp = _mm256_insert_epi16(temp, carry, 8);
     reach0A = _mm256_or_si256(reach0A, temp);
-    
+
     // Do the right shift by 16
-    
+
     temp = _mm256_srli_si256(reach0B, 2);
     carry = _mm256_extract_epi16(reach0B, 8);
     temp = _mm256_insert_epi16(temp, carry, 7);
     carry = _mm256_extract_epi16(reach1B, 0);
     temp = _mm256_insert_epi16(temp, carry, 15);
     reach0A = _mm256_or_si256(reach0A, temp);
-    
+
     temp = _mm256_srli_si256(reach1B, 2);
     reach1A = _mm256_or_si256(reach1A, temp);
-    
+
     reach0A = _mm256_andnot_si256(map0, reach0A);
     reach1A = _mm256_andnot_si256(map1, reach1A);
-    
+
     temp = _mm256_xor_si256(reach0A, reach0B);
-    done0 = _mm256_testz_si256(temp, temp);    
+    done0 = _mm256_testz_si256(temp, temp);
     temp = _mm256_xor_si256(reach1A, reach1B);
     done1 = _mm256_testz_si256(temp, temp);
-    
+
     if (done0 && done1) break;
-    
+
   }
-  
+
   _mm256_storeu_si256((void *)buf, reach0A);
   _mm256_storeu_si256((void *)(buf + 32), reach1A);
-  
+
   memcpy(maze->reach, buf, 40);
-  
+
   BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
 }
 
+void MarkReachImp6(MAZE *maze) {
+  /* true implementation of MarkReach */
+  /* recursive function to mark the fields that are reachable */
+
+
+  __m256i temp, temp1, shufmask, zeros, map0, map1;
+  __m256i reach0A, reach1A, reach0B, reach1B;
+  char buf[64] = {0};
+  zeros = _mm256_setzero_si256();  // vpxor  1/3
+
+  SetBitBS((BASETYPE*)buf, maze->manpos);
+  reach0A = _mm256_loadu_si256((void *)buf);        // vmovdqu 3/2
+  reach0B = _mm256_loadu_si256((void *)buf);        // vmovdqu 3/2
+  reach1A = _mm256_loadu_si256((void *)(buf + 32)); // vmovdqu 3/2
+  reach1B = _mm256_loadu_si256((void *)(buf + 32)); // vmovdqu 3/2
+  UnsetBitBS((BASETYPE*)buf, maze->manpos);
+
+  // Make the stone bitvectors fold into the map
+
+  static const unsigned char __shufmask[32] = {
+    0x0E, 0x0F, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+    0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0x01,
+    0x0E, 0x0F, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+    0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0x01
+  };
+
+  shufmask = _mm256_loadu_si256((void *)__shufmask); // vmovdqu 3/2
+
+  memcpy(buf, maze->out, 40);
+  for (int i = 0; i < maze->number_stones; i++) {
+    if (maze->PHYSstone[maze->stones[i].loc] >= 0) {
+      SetBitBS((BASETYPE*)buf, maze->stones[i].loc);
+    }
+  }
+
+  SetBitBS((BASETYPE*)buf, AvoidThisSquare);
+  UnsetBitBS((BASETYPE*)buf, maze->manpos);
+
+  map0 = _mm256_loadu_si256((void *)buf);        // vmovdqu 3/2
+  map1 = _mm256_loadu_si256((void *)(buf + 32)); // vmovdqu 3/2
+
+  int done0 = 0, done1 = 0;
+
+  while (!(done0 && done1)) {
+    
+    temp = _mm256_slli_epi16(reach0A, 1);      // vpsllw 1/1
+    temp1 = _mm256_slli_epi16(reach1A, 1);     // vpsllw 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);  // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1); // vpor 1/3
+    temp = _mm256_srli_epi16(reach0A, 1);      // vpsllw 1/1
+    temp1 = _mm256_srli_epi16(reach1A, 1);     // vpsllw 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);  // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1); // vpor 1/3
+
+    // settle the carries from the l/r shift by 16
+    temp = _mm256_shuffle_epi8(reach0A, shufmask);  // vpshufb 1/1
+    temp1 = _mm256_shuffle_epi8(reach1A, shufmask); // vpshufb 1/1
+    temp = _mm256_permute2x128_si256(temp, temp, 0x01); // vperm2i128 3/1
+    temp1 = _mm256_permute2x128_si256(temp1, temp1, 0x01); // vperm2i128 3/1
+    zeros = _mm256_blend_epi32(zeros, temp, 0b1);   // vpblendd 1/3
+    temp = _mm256_blend_epi32(temp, temp1, 0b10000001); // vpblendd 1/3
+    reach1B = _mm256_or_si256(reach1B, zeros);      // vpor 1/3
+    reach0B = _mm256_or_si256(reach0B, temp);       // vpor 1/3
+
+    // shift left by 16
+    temp = _mm256_slli_si256(reach0A, 2);           // vpslldq 1/1
+    temp1 = _mm256_slli_si256(reach1A, 2);          // vpslldq 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);       // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1);      // vpor 1/3
+    // shift right by 16
+    temp = _mm256_srli_si256(reach0A, 2);           // vpsrldq 1/1
+    temp1 = _mm256_srli_si256(reach1A, 2);          // vpsrldq 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);       // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1);      // vpor 1/3
+
+    reach0B = _mm256_andnot_si256(map0, reach0B);   // vpandn 1/3
+    reach1B = _mm256_andnot_si256(map1, reach1B);   // vpandn 1/3
+
+    temp = _mm256_xor_si256(reach0A, reach0B);      // vpxor 1/3
+    temp1 = _mm256_xor_si256(reach1A, reach1B);     // vpxor 1/3
+    done0 = _mm256_testz_si256(temp, temp);         // vptest 2/1
+    done1 = _mm256_testz_si256(temp1, temp1);       // vptest 2/1
+
+    // swap with the break to hide latency if not breaking
+    reach0A = reach0B;
+    reach1A = reach1B;  // vmovdqu 1/3
+    if (done0 && done1) break;
+
+    temp = _mm256_slli_epi16(reach0B, 1);      // vpsllw 1/1
+    temp1 = _mm256_slli_epi16(reach1B, 1);     // vpsllw 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);  // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1); // vpor 1/3
+    temp = _mm256_srli_epi16(reach0B, 1);      // vpsllw 1/1
+    temp1 = _mm256_srli_epi16(reach1B, 1);     // vpsllw 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);  // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1); // vpor 1/3
+
+    // settle the carries from the l/r shift by 16
+    temp = _mm256_shuffle_epi8(reach0B, shufmask);  // vpshufb 1/1
+    temp1 = _mm256_shuffle_epi8(reach1B, shufmask); // vpshufb 1/1
+    temp = _mm256_permute2x128_si256(temp, temp, 0x01); // vperm2i128 3/1
+    temp1 = _mm256_permute2x128_si256(temp1, temp1, 0x01); // vperm2i128 3/1
+    zeros = _mm256_blend_epi32(zeros, temp, 0b1);   // vpblendd 1/3
+    temp = _mm256_blend_epi32(temp, temp1, 0b10000001); // vpblendd 1/3
+    reach1A = _mm256_or_si256(reach1A, zeros);      // vpor 1/3
+    reach0A = _mm256_or_si256(reach0A, temp);       // vpor 1/3
+
+    // shift left by 16
+    temp = _mm256_slli_si256(reach0B, 2);           // vpslldq 1/1
+    temp1 = _mm256_slli_si256(reach1B, 2);          // vpslldq 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);       // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1);      // vpor 1/3
+    // shift right by 16
+    temp = _mm256_srli_si256(reach0B, 2);           // vpsrldq 1/1
+    temp1 = _mm256_srli_si256(reach1B, 2);          // vpsrldq 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);       // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1);      // vpor 1/3
+
+    reach0A = _mm256_andnot_si256(map0, reach0A);   // vpandn 1/3
+    reach1A = _mm256_andnot_si256(map1, reach1A);   // vpandn 1/3
+
+    temp = _mm256_xor_si256(reach0A, reach0B);      // vpxor 1/3
+    temp1 = _mm256_xor_si256(reach1A, reach1B);     // vpxor 1/3
+    done0 = _mm256_testz_si256(temp, temp);         // vptest 2/1
+    done1 = _mm256_testz_si256(temp1, temp1);       // vptest 2/1
+
+    reach0B = reach0A;  // swap with the break to hide latency if not breaking
+    reach1B = reach1A;
+
+  }
+
+  _mm256_storeu_si256((void *)buf, reach0A);
+  _mm256_storeu_si256((void *)(buf + 32), reach1A);
+
+  memcpy(maze->reach, buf, 40);
+
+  BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
+}
 
 void MarkReachImp2(MAZE *maze) {
   /* DFS function to mark the fields that are reachable */
@@ -626,16 +766,16 @@ void MarkReach(MAZE *maze) {
   ++mark_reach_counts;
   unsigned long long cnt = rdtsc();
 
-  MarkReachImp5(maze);
+  MarkReachImp6(maze);
   mark_reach_cycles += rdtsc() - cnt;
 #ifdef CHECKER
-  
+
   char checkbuf[40];
   char refbuf[40];
   memcpy(checkbuf, maze->reach, 40);
   MarkReachImpl(maze);
   memcpy(refbuf, maze->reach, 40);
-  
+
   int i;
   for (i = 0; i < 40; i++) {
     if (checkbuf[i] != refbuf[i]) {
@@ -655,7 +795,7 @@ void MarkReach(MAZE *maze) {
   }
 
 #endif
-  
+
 }
 
 void MarkReachNoUnreach(MAZE *maze) {
