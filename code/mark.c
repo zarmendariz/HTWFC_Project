@@ -402,9 +402,9 @@ void MarkReachImp5(MAZE *maze) {
       SetBitBS((BASETYPE*)buf, maze->stones[i].loc);
     }
   }
-  
+
   //mark_reach_stone_counts += maze->number_stones;
-  
+
   SetBitBS((BASETYPE*)buf, AvoidThisSquare);
   UnsetBitBS((BASETYPE*)buf, maze->manpos);
 
@@ -436,9 +436,9 @@ void MarkReachImp5(MAZE *maze) {
   int done0, done1;
 
   while (1) {
-  
+
     //mark_reach_while_counts++;
-    
+
     reach0B = _mm256_blend_epi16(reach0A, temp, 0);
     reach1B = _mm256_blend_epi16(reach1A, temp, 0);
     temp = _mm256_slli_epi16(reach0A, 1);
@@ -482,9 +482,9 @@ void MarkReachImp5(MAZE *maze) {
     done1 = _mm256_testz_si256(temp, temp);
 
     if (done0 && done1) break;
-    
+
     //mark_reach_while_counts++;
-    
+
 
     reach0A = _mm256_blend_epi16(reach0B, temp, 0);
     reach1A = _mm256_blend_epi16(reach1B, temp, 0);
@@ -550,7 +550,7 @@ void MarkReachImp6(MAZE *maze) {
   __m256i temp, temp1, shufmask, zeros, map0, map1;
   __m256i reach0A, reach1A, reach0B, reach1B;
   char buf[64] = {0};
-  zeros = _mm256_setzero_si256();  // vpxor  1/3
+  zeros = _mm256_setzero_si256();                   // vpxor  1/3
 
   SetBitBS((BASETYPE*)buf, maze->manpos);
   reach0A = _mm256_loadu_si256((void *)buf);        // vmovdqu 3/2
@@ -586,7 +586,7 @@ void MarkReachImp6(MAZE *maze) {
   int done0 = 0, done1 = 0;
 
   while (!(done0 && done1)) {
-    
+
     temp = _mm256_slli_epi16(reach0A, 1);      // vpsllw 1/1
     temp1 = _mm256_slli_epi16(reach1A, 1);     // vpsllw 1/1
     reach0B = _mm256_or_si256(reach0B, temp);  // vpor 1/3
@@ -675,6 +675,158 @@ void MarkReachImp6(MAZE *maze) {
 
   _mm256_storeu_si256((void *)buf, reach0A);
   _mm256_storeu_si256((void *)(buf + 32), reach1A);
+
+  memcpy(maze->reach, buf, 40);
+
+  BitNotAndNotAndNotBS(maze->no_reach,maze->reach,maze->out,maze->stone);
+}
+
+void MarkReachImp7(MAZE *maze) {
+  /* true implementation of MarkReach */
+  /* recursive function to mark the fields that are reachable */
+  __m256i temp, temp1, shufmask, zeros, map0, map1;
+  __m256i reach0A, reach1A, reach0B, reach1B;
+  char buf[64];
+  zeros = _mm256_setzero_si256();                    // vpxor  1/3
+  _mm256_storeu_si256((void *)buf, zeros);           // vmovdqu 1/4
+  _mm256_storeu_si256((void *)(buf+32), zeros);      // vmovdqu 1/4
+
+  static const unsigned char __shufmask[32] = {
+    0x0E, 0x0F, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+    0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0x01,
+    0x0E, 0x0F, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80,
+    0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0x01
+  };
+
+  shufmask = _mm256_loadu_si256((void *)__shufmask); // vmovdqu 3/2
+
+  // At least 1 cycle
+  SetBitBS((BASETYPE*)buf, maze->manpos);
+  reach0A = _mm256_loadu_si256((void *)buf);         // vmovdqu 3/2
+  reach1A = _mm256_loadu_si256((void *)(buf + 32));  // vmovdqu 3/2
+  reach0B = reach0A;                                 // vmovdqa 1/3
+  reach1B = reach1A;                                 // vmovdqa 1/3
+
+  // memcpy at least 2 cycles
+  memcpy(buf, maze->out, 40);
+  // Make the stone bitvectors fold into the map
+  // Let's go with 3 cycles for this loop (optimistic)
+  for (int i = 0; i < maze->number_stones; i++) {
+    if (maze->PHYSstone[maze->stones[i].loc] >= 0) {
+      SetBitBS((BASETYPE*)buf, maze->stones[i].loc);
+    }
+  }
+
+  // This one is at least 1 cycle
+  SetBitBS((BASETYPE*)buf, AvoidThisSquare);
+  // This one is at least 1 cycle
+  UnsetBitBS((BASETYPE*)buf, maze->manpos);
+
+  map0 = _mm256_loadu_si256((void *)buf);        // vmovdqu 3/2
+  map1 = _mm256_loadu_si256((void *)(buf + 32)); // vmovdqu 3/2
+
+  int done0 = 0, done1 = 0;
+
+  while (!(done0 && done1)) {
+
+    // L/R shifts by 1
+    temp = _mm256_slli_epi16(reach0A, 1);      // vpsllw 1/1
+    temp1 = _mm256_slli_epi16(reach1A, 1);     // vpsllw 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);  // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1); // vpor 1/3
+    temp = _mm256_srli_epi16(reach0A, 1);      // vpsllw 1/1
+    temp1 = _mm256_srli_epi16(reach1A, 1);     // vpsllw 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);  // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1); // vpor 1/3
+
+    //                                         // loop: 6 cycles
+
+    // settle the carries from the l/r shift by 16
+    temp = _mm256_shuffle_epi8(reach0A, shufmask);  // vpshufb 1/1
+    temp1 = _mm256_shuffle_epi8(reach1A, shufmask); // vpshufb 1/1
+    temp = _mm256_permute2x128_si256(temp, temp, 0x01); // vperm2i128 3/1
+    temp1 = _mm256_permute2x128_si256(temp1, temp1, 0x01); // vperm2i128 3/1
+    zeros = _mm256_blend_epi32(zeros, temp, 0b1);   // vpblendd 1/3
+    temp = _mm256_blend_epi32(temp, temp1, 0b10000001); // vpblendd 1/3
+    reach1B = _mm256_or_si256(reach1B, zeros);      // vpor 1/3
+    reach0B = _mm256_or_si256(reach0B, temp);       // vpor 1/3
+
+    //                                         // loop: 12 cycles
+
+    // shift left by 16
+    temp = _mm256_slli_si256(reach0A, 2);           // vpslldq 1/1
+    temp1 = _mm256_slli_si256(reach1A, 2);          // vpslldq 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);       // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1);      // vpor 1/3
+    // shift right by 16
+    temp = _mm256_srli_si256(reach0A, 2);           // vpsrldq 1/1
+    temp1 = _mm256_srli_si256(reach1A, 2);          // vpsrldq 1/1
+    reach0B = _mm256_or_si256(reach0B, temp);       // vpor 1/3
+    reach1B = _mm256_or_si256(reach1B, temp1);      // vpor 1/3
+
+    reach0B = _mm256_andnot_si256(map0, reach0B);   // vpandn 1/3
+    reach1B = _mm256_andnot_si256(map1, reach1B);   // vpandn 1/3
+
+    temp = _mm256_xor_si256(reach0A, reach0B);      // vpxor 1/3
+    temp1 = _mm256_xor_si256(reach1A, reach1B);     // vpxor 1/3
+
+    //                                         // loop: 20 cycles
+
+    done0 = _mm256_testz_si256(temp, temp);         // vptest 2/1
+    done1 = _mm256_testz_si256(temp1, temp1);       // vptest 2/1
+
+    // swap with the break to hide latency if not breaking
+    reach0A = reach0B;                         // vmovdqu 1/3
+    reach1A = reach1B;                         // vmovdqu 1/3
+
+    //                                         // loop: 23 cycles
+    if (done0 && done1) break;
+
+    temp = _mm256_slli_epi16(reach0B, 1);      // vpsllw 1/1
+    temp1 = _mm256_slli_epi16(reach1B, 1);     // vpsllw 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);  // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1); // vpor 1/3
+    temp = _mm256_srli_epi16(reach0B, 1);      // vpsllw 1/1
+    temp1 = _mm256_srli_epi16(reach1B, 1);     // vpsllw 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);  // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1); // vpor 1/3
+
+    // settle the carries from the l/r shift by 16
+    temp = _mm256_shuffle_epi8(reach0B, shufmask);  // vpshufb 1/1
+    temp1 = _mm256_shuffle_epi8(reach1B, shufmask); // vpshufb 1/1
+    temp = _mm256_permute2x128_si256(temp, temp, 0x01); // vperm2i128 3/1
+    temp1 = _mm256_permute2x128_si256(temp1, temp1, 0x01); // vperm2i128 3/1
+    zeros = _mm256_blend_epi32(zeros, temp, 0b1);   // vpblendd 1/3
+    temp = _mm256_blend_epi32(temp, temp1, 0b10000001); // vpblendd 1/3
+    reach1A = _mm256_or_si256(reach1A, zeros);      // vpor 1/3
+    reach0A = _mm256_or_si256(reach0A, temp);       // vpor 1/3
+
+    // shift left by 16
+    temp = _mm256_slli_si256(reach0B, 2);           // vpslldq 1/1
+    temp1 = _mm256_slli_si256(reach1B, 2);          // vpslldq 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);       // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1);      // vpor 1/3
+    // shift right by 16
+    temp = _mm256_srli_si256(reach0B, 2);           // vpsrldq 1/1
+    temp1 = _mm256_srli_si256(reach1B, 2);          // vpsrldq 1/1
+    reach0A = _mm256_or_si256(reach0A, temp);       // vpor 1/3
+    reach1A = _mm256_or_si256(reach1A, temp1);      // vpor 1/3
+
+    reach0A = _mm256_andnot_si256(map0, reach0A);   // vpandn 1/3
+    reach1A = _mm256_andnot_si256(map1, reach1A);   // vpandn 1/3
+
+    temp = _mm256_xor_si256(reach0A, reach0B);      // vpxor 1/3
+    temp1 = _mm256_xor_si256(reach1A, reach1B);     // vpxor 1/3
+    done0 = _mm256_testz_si256(temp, temp);         // vptest 2/1
+    done1 = _mm256_testz_si256(temp1, temp1);       // vptest 2/1
+
+    reach0B = reach0A;  // swap with the break to hide latency if not breaking
+    reach1B = reach1A;
+
+  }
+
+  _mm256_storeu_si256((void *)buf, reach0A);        // vmovdqu 1/4
+  _mm256_storeu_si256((void *)(buf + 32), reach1A); // vmovdqu 1/4
 
   memcpy(maze->reach, buf, 40);
 
@@ -771,7 +923,7 @@ void MarkReach(MAZE *maze) {
   ++mark_reach_counts;
   unsigned long long cnt = rdtsc();
 
-  MarkReachImp6(maze);
+  MarkReachImp7(maze);
   mark_reach_cycles += rdtsc() - cnt;
 #ifdef CHECKER
 

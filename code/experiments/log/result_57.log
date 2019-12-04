@@ -47,7 +47,7 @@ ScanSearch: h: 217->223, nodes used: 46056
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 2, TT collisions: 0 Req: 19, (10.526316)
  1 4 10 4 1 1 1 1 2 
-.   0  run: sec: 0, usec: 980024, t: 1
+.   0  run: sec: 0, usec: 466836, t: 1
 .   0  Nodes per Second:   101437 (1 sec.)
 .   0  AREA POS: #:   1 ( 10%) #n:     11  nodes/search:  11
 .   0  AREA NEG: #:   9 ( 90%) #n:   1628  nodes/search: 180
@@ -72,7 +72,7 @@ ScanSearch: h: 217->223, nodes used: 46056
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 7, TT collisions: 0 Req: 201, (3.482587)
  2 5 13 9 2 3 2 2 3 1 1 7 1 1 1 1 1 3 5 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 9 5 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 1 1 1 3 1 1 1 1 1 1 4 1 1 1 3 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 1, usec: 253772, t: 1
+.   0  run: sec: 0, usec: 591890, t: 1
 .   0  Nodes per Second:   121023 (1 sec.)
 .   0  AREA POS: #:   2 (  8%) #n:     65  nodes/search:  32
 .   0  AREA NEG: #:  21 ( 91%) #n:   1956  nodes/search:  93
@@ -86,16 +86,16 @@ Path:  Kc-Lc Kj-Lj-Mj-Mi Kh-Jh-Ih-Hh-Gh-Gg-Bh* Nc-Oc Kf-Jf-If-Hf-Gf-Be* Lc-Mc Md
 (moves: 225 depth: 177)
 Moves: 720, Pushes: 225, Treedepth: 177
 Total number of calling MarkReach(): 117865
-Total number of cycles for MarkReach(): 84605560
-Average number of cycles per call: 717.817503
+Total number of cycles for MarkReach(): 48906834
+Average number of cycles per call: 414.939414
 Total number of while loop for MarkReach(): 0
 Average number of cycles per loop: inf
-Total number of calling Moves(): 87084
-Total number of cycles for Moves(): 1132000996
-Average number of cycles per call: 12998.954986
+Total number of stones for MarkReach(): 0
+Average stones for MarkReach(): 0
+Average number of cycles per call: 5591.587226
 Total number of while loop for Moves(): 10579743
-Average number of cycles per loop: 106.997022
+Average number of cycles per loop: 46.025483
 Command:
-real	0m1.275s
-user	0m1.260s
+real	0m0.611s
+user	0m0.595s
 sys	0m0.014s
