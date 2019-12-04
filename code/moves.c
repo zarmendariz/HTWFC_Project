@@ -494,7 +494,7 @@ void MovesImplDoNotPushPreviousOne(MAZE *maze, PHYSID *from, signed char *reach)
   /* memset(from, 0, XSIZE * YSIZE * sizeof(PHYSID)); // default to all unreachable */
   memset(reach, -1, XSIZE * YSIZE); // default to all unreachable
   queue[0] = maze->manpos;  // start at the current position
-  f[0] = -1;
+  f[0] = 0;
   next_in = 1;
   next_out = -1;
 

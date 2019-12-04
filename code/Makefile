@@ -1,9 +1,8 @@
 #CC = purify -freeze-on-error=yes -inuse-at-exit=yes gcc
 CC = gcc
 
-OPT = -O0 -std=c99
-#OPT = -pg -std=c99
-#OPT = -g -std=c99
+OPT = -O2 -std=c99
+OPT0 = -O0 -std=c99
 #WARN = -Wall
 
 #PC = -DPC
@@ -14,6 +13,7 @@ PC =
 
 OPTIONS = $(DEBUG) $(GTV) $(PC)
 CFLAGS = $(OPT) $(WARN) $(INCLUDE) $(LIBDIRS) $(OPTIONS)
+CFLAGS0 = $(OPT0) $(WARN) $(INCLUDE) $(LIBDIRS) $(OPTIONS)
 
 RS:
 
@@ -22,6 +22,8 @@ OBJ = moves.o debug.o ida.o deadlock.o bitstring.o pensearch.o\
  weights.o lowerbound.o hashtable.o stats.o tree.o menu.o macro.o gtv.o time_rs.o\
  fast_code_utils.o experiments.o
 
+weights.o:
+	$(CC) $(CFLAGS0) -c -o weights.o weights.c
 
 board.o: board.h  init.h
 
