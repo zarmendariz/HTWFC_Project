@@ -25,7 +25,7 @@ ScanSearch: h 108, nodes used: 2196
 ScanSearch: h 108, nodes used: 2419
 ScanSearch: h 108, nodes used: 2614
 ScanSearch: h: 106->110, nodes used: 3163
-.   0  Threshold 110 (110)
+.   0  Threshold 110 (104)
 .   0  tt: Y, dl_mg: Y, dl2_mg: Y
 .   0  area_srch: Y dl_srch: Y pen_srch: Y
 .   0  scan_srch: Y
@@ -40,7 +40,7 @@ ScanSearch: h: 106->110, nodes used: 3163
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 2, TT collisions: 0 Req: 78, (2.564103)
  1 1 4 5 4 3 2 2 2 2 2 2 2 2 2 2 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 0, usec: 39582, t: 1
+.   0  run: sec: 0, usec: 364048, t: 1
 .   0  Nodes per Second:     5796 (1 sec.)
 .   0  AREA POS: #:   1 (  3%) #n:     15  nodes/search:  15
 .   0  AREA NEG: #:  32 ( 96%) #n:    710  nodes/search:  22
@@ -54,16 +54,16 @@ Path:  Je-Ie Jh-Ji Jf-Jg Jd-Je Id-Hd-Gd-Bb* Ie-Id-Hd-Gd-Bf* Je-Ie-Id-Hd-Gd-Cb* I
 (moves: 110 depth: 60)
 Moves: 346, Pushes: 110, Treedepth: 60
 Total number of calling MarkReach(): 7922
-Total number of cycles for MarkReach(): 4457992
-Average number of cycles per call: 562.735673
+Total number of cycles for MarkReach(): 13288786
+Average number of cycles per call: 1677.453421
 Total number of while loop for MarkReach(): 0
 Average number of cycles per loop: inf
 Total number of calling Moves(): 7909
-Total number of cycles for Moves(): 33892426
-Average number of cycles per call: 4285.298521
+Total number of cycles for Moves(): 23248836
+Average number of cycles per call: 2939.541788
 Total number of while loop for Moves(): 381345
-Average number of cycles per loop: 88.876020
+Average number of cycles per loop: 60.965362
 Command:
-real	0m0.052s
-user	0m0.042s
-sys	0m0.010s
+real	0m0.068s
+user	0m0.368s
+sys	0m0.001s

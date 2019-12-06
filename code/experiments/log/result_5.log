@@ -29,7 +29,7 @@ ScanSearch: h 141, nodes used: 5722
 ScanSearch: h 141, nodes used: 6078
 ScanSearch: h 141, nodes used: 7653
 ScanSearch: h: 139->141, nodes used: 7984
-.   0  Threshold 141 (141)
+.   0  Threshold 141 (137)
 .   0  tt: Y, dl_mg: Y, dl2_mg: Y
 .   0  area_srch: Y dl_srch: Y pen_srch: Y
 .   0  scan_srch: Y
@@ -44,7 +44,7 @@ ScanSearch: h: 139->141, nodes used: 7984
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 2, TT collisions: 0 Req: 20, (10.000000)
  1 5 9 13 6 4 4 2 
-.   0  run: sec: 0, usec: 128490, t: 1
+.   0  run: sec: 0, usec: 361612, t: 1
 .   0  Nodes per Second:    18897 (1 sec.)
 .   0  AREA POS: #:   3 ( 25%) #n:     82  nodes/search:  27
 .   0  AREA NEG: #:   9 ( 75%) #n:    489  nodes/search:  54
@@ -54,7 +54,7 @@ ScanSearch: h: 139->141, nodes used: 7984
 .   0  PEN  NEG: #:  14 (100%) #n:   2430  nodes/search: 173
 .   0  DeadTested:     0, PenTested :     0, patterns: 28, removed: 4, killed: 0
 .   0  
-.   0  Threshold 143 (141)
+.   0  Threshold 143 (137)
 .   0  tt: Y, dl_mg: Y, dl2_mg: Y
 .   0  area_srch: Y dl_srch: Y pen_srch: Y
 .   0  scan_srch: Y
@@ -69,7 +69,7 @@ ScanSearch: h: 139->141, nodes used: 7984
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 29, TT collisions: 0 Req: 142, (20.422535)
  2 9 24 34 28 15 15 8 1 1 2 3 1 1 1 3 1 4 1 1 1 1 1 1 5 1 1 1 1 1 1 2 1 1 2 1 1 1 5 7 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 0, usec: 248600, t: 1
+.   0  run: sec: 0, usec: 602537, t: 1
 .   0  Nodes per Second:    43260 (1 sec.)
 .   0  AREA POS: #:   6 ( 13%) #n:    284  nodes/search:  47
 .   0  AREA NEG: #:  37 ( 86%) #n:   1718  nodes/search:  46
@@ -83,16 +83,16 @@ Path:  Nf-Ne Lg-Lh Jg-Bf* Jh-Jg-Bh* Mg-Lg-Kg-Jg-Cf* Li-Ki Lh-Lg-Kg-Jg-Bg* Mh-Lh-
 (moves: 143 depth: 69)
 Moves: 422, Pushes: 143, Treedepth: 69
 Total number of calling MarkReach(): 36448
-Total number of cycles for MarkReach(): 20251330
-Average number of cycles per call: 555.622531
+Total number of cycles for MarkReach(): 55515476
+Average number of cycles per call: 1523.141901
 Total number of while loop for MarkReach(): 0
 Average number of cycles per loop: inf
 Total number of calling Moves(): 39876
-Total number of cycles for Moves(): 217247750
-Average number of cycles per call: 5448.082807
+Total number of cycles for Moves(): 143793276
+Average number of cycles per call: 3606.010533
 Total number of while loop for Moves(): 2271587
-Average number of cycles per loop: 95.636993
+Average number of cycles per loop: 63.300801
 Command:
-real	0m0.257s
-user	0m0.250s
+real	0m0.241s
+user	0m0.605s
 sys	0m0.006s

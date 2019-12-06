@@ -33,7 +33,7 @@ ScanSearch: h 429, nodes used: 29790
 ScanSearch: h 429, nodes used: 29801
 ScanSearch: h 429, nodes used: 31750
 ScanSearch: h: 427->429, nodes used: 34043
-.   0  Threshold 429 (429)
+.   0  Threshold 429 (425)
 .   0  tt: Y, dl_mg: Y, dl2_mg: Y
 .   0  area_srch: Y dl_srch: Y pen_srch: Y
 .   0  scan_srch: Y
@@ -48,7 +48,7 @@ ScanSearch: h: 427->429, nodes used: 34043
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 2, TT collisions: 0 Req: 38, (5.263158)
  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 7 10 13 8 
-.   0  run: sec: 0, usec: 670645, t: 1
+.   0  run: sec: 0, usec: 712744, t: 1
 .   0  Nodes per Second:    67872 (1 sec.)
 .   0  AREA POS: #:   1 ( 16%) #n:   2536  nodes/search: 2536
 .   0  AREA NEG: #:   5 ( 83%) #n:    501  nodes/search: 100
@@ -58,7 +58,7 @@ ScanSearch: h: 427->429, nodes used: 34043
 .   0  PEN  NEG: #:   6 ( 75%) #n:   7409  nodes/search: 1234
 .   0  DeadTested:     0, PenTested :     2, patterns: 45, removed: 20, killed: 0
 .   0  
-.   0  Threshold 431 (429)
+.   0  Threshold 431 (425)
 .   0  tt: Y, dl_mg: Y, dl2_mg: Y
 .   0  area_srch: Y dl_srch: Y pen_srch: Y
 .   0  scan_srch: Y
@@ -73,7 +73,7 @@ ScanSearch: h: 427->429, nodes used: 34043
 .   0  AbortNodeCount: -1, TimeOut: 0 TimeOutType: VIRTUAL
 .   0  TT hits: 58, TT collisions: 0 Req: 525, (11.047619)
  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 6 16 24 23 26 19 13 7 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 7 37 33 38 42 20 1 4 20 29 17 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 4 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 2 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-.   0  run: sec: 3, usec: 303685, t: 3
+.   0  run: sec: 3, usec: 35247, t: 3
 .   0  Nodes per Second:   107289 (3 sec.)
 .   0  AREA POS: #:   7 (  9%) #n:   8199  nodes/search: 1171
 .   0  AREA NEG: #:  69 ( 90%) #n:  15082  nodes/search: 218
@@ -87,16 +87,16 @@ Path:  Ij-Hj-Gj-Gi-Gh-Fh-Eh-Eg-Dg-Cg-Eb* Li-Ki-Ji-Ii-Ij-Hj-Gj-Fj-Ej-Ei-Eh-Eg-Dg-
 (moves: 431 depth: 382)
 Moves: 1627, Pushes: 431, Treedepth: 382
 Total number of calling MarkReach(): 278176
-Total number of cycles for MarkReach(): 224177958
-Average number of cycles per call: 805.885332
+Total number of cycles for MarkReach(): 625096690
+Average number of cycles per call: 2247.126603
 Total number of while loop for MarkReach(): 0
 Average number of cycles per loop: inf
 Total number of calling Moves(): 327096
-Total number of cycles for Moves(): 4605462962
-Average number of cycles per call: 14079.851059
+Total number of cycles for Moves(): 2923195982
+Average number of cycles per call: 8936.813602
 Total number of while loop for Moves(): 43299673
-Average number of cycles per loop: 106.362534
+Average number of cycles per loop: 67.510810
 Command:
-real	0m3.339s
-user	0m3.311s
-sys	0m0.012s
+real	0m2.776s
+user	0m3.045s
+sys	0m0.008s

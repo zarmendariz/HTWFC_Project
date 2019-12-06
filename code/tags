@@ -357,6 +357,8 @@ MarkReachDist	weights.c	/^void MarkReachDist(MAZE *maze,PHYSID manpos,int stonep
 MarkReachGRoom	macro.c	/^void MarkReachGRoom(MAZE *maze, int index) {$/;"	f
 MarkReachImp2	mark.c	/^void MarkReachImp2(MAZE *maze) {$/;"	f
 MarkReachImp3	mark.c	/^void MarkReachImp3(MAZE *maze) {$/;"	f
+MarkReachImp4	mark.c	/^void MarkReachImp4(MAZE *maze) {$/;"	f
+MarkReachImp5	mark.c	/^void MarkReachImp5(MAZE *maze) {$/;"	f
 MarkReachImpl	mark.c	/^void MarkReachImpl(MAZE *maze) {$/;"	f
 MarkReachNoUnreach	mark.c	/^void MarkReachNoUnreach(MAZE *maze) {$/;"	f
 MarkReachPos	pensearch.c	/^void MarkReachPos(MAZE *maze, BitString reach, PHYSID manpos, int clear)$/;"	f
@@ -748,7 +750,6 @@ macro_id	board.h	/^  char   macro_id;$/;"	m	struct:__anon5
 macros	board.h	/^  MACRO  *macros;$/;"	m	struct:__anon10
 macros	board.h	/^  MACROS       macros[XSIZE*YSIZE];$/;"	m	struct:__anon18
 main	dl.c	/^int main() {$/;"	f
-main	test_func.c	/^int main(int argc, char **argv) {$/;"	f
 man	board.h	/^  PHYSID man;$/;"	m	struct:__anon4
 man	board.h	/^  unsigned short man:9;$/;"	m	struct:__anon7
 manfrom	board.h	/^  PHYSID manfrom;$/;"	m	struct:__anon5
